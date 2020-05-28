@@ -3,4 +3,3 @@ struct Utente{
  char * password;
  int punti;
 }
- ciao angelo
