@@ -3,4 +3,5 @@ struct TUser {
     char* password;
 };
 
+
 typedef struct TUser* User;

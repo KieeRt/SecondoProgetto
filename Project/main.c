@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "Utente.h"
 void menu();
 
 int main()
 {
-    menu();
+    User x = registazioneUtente();
+    //menu();
     return 0;
 }
 
