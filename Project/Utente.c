@@ -28,13 +28,8 @@ User registazioneUtente(){
 
     strcpy(utente.codiceFiscale, doSceltaString("Codice Fiscale (16 caratteri):", 16, 0, 0));
 
-    strcpy(buff, doSceltaString("Password (da 4 a 16 caratteri):", 0, 4, 16));
+    strcpy(utente.password, doCompare());
 
-    strcpy(buff1, doSceltaString("Conferma Password (da 4 a 16 caratteri):", 0, 4, 16));
-
-    if(strcmp(buff, buff1) == 0) {
-        utente.password = buff;
-    }
 
 
     utente.punti = 0;

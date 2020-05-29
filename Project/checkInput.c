@@ -50,3 +50,24 @@ int* pt = &buff;
 }
 
 
+char* doCompare () {
+  char* buff;
+  char* buff1;
+  buff = (char*)malloc(sizeof(char)*20);
+  buff1 = (char*)malloc(sizeof(char)*20);
+
+    int* pt = &buff;
+
+    do{
+        printf("Inserisci Password: ");
+        scanf("%s", buff);
+        printf("Conferma Password: ");
+        scanf("%s", buff1);
+    }while ( strcmp(buff, buff1) && controllaLunghezza(buff,0, 4, 16));
+
+   return buff;
+
+
+
+}
+

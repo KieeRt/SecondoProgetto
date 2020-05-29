@@ -12,4 +12,7 @@ bool doSceltaInt(char* messaggio, int valore_max);
 //Ritorna l'indirizzo della stringa che contiene l'input
 int doSceltaString(char* messaggio, int dimensione_esatta, int dimensione_min, int dimensione_max);
 
+char* doCompare();
+
 #endif // CHECKINPUT_H_INCLUDED
+
