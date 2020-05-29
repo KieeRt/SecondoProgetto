@@ -29,7 +29,7 @@ int dimensione_stringa = strlen(stringa);
     }
 }
 
-bool doSceltaInt(char* messaggio, int valore_max){
+int doSceltaInt(char* messaggio, int valore_max){
 int input_locale;
 
     do{
@@ -102,10 +102,14 @@ bool checkIfExist(char *st1, char *nomeFile){
            if(!strcmp(st1, tmp)){
                find = true;
             }
-            }
+        }
         return find;
     }
 }
+
+
+
+
 
 char * concatenation(char *a, char *b){
 

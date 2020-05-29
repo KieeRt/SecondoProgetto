@@ -7,36 +7,10 @@ void menu();
 
 int main()
 {
-    User x = registazioneUtente();
-    //menu();
+
+    welcome();
     return 0;
 }
 
-void menu(){
-
-    int scelta=-1;
-    do{
-        printf("\nSelezionare un operazione");
-        printf("\n\t\t\t 1.Login");
-        printf("\n\t\t\t 2.Registrati");
-        printf("\n\t\t\t 0.Esci");
 
 
-        printf("\n\n\n\t\t\t Enter choice => ");
-        scanf("%d",&scelta);
-
-        switch(scelta){
-
-        case 0:
-            exit(0);
-        case 1:
-            exit(0);
-        case 2:
-
-        default:
-            printf("Scelta non valida");
-
-        }
-
-    }while(scelta!=-1);
-}

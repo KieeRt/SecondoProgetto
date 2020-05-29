@@ -71,3 +71,38 @@
 	<string.h>
 	"Utente.h"
 
+1590763979 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\checkinput.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"./lib/inputReader.h"
+
+1590762091 c:\users\angel\onedrive\desktop\secondoprogetto\project\lib\inputreader.h
+
+1590765312 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\interfaccia.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Utente.h"
+
+1590762091 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\lib\inputreader.c
+	<stdio.h>
+	<stdlib.h>
+	"inputReader.h"
+
+1590764459 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Utente.h"
+
+1590765277 c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.h
+	<stdbool.h>
+
+1590765415 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"Utente.h"
+

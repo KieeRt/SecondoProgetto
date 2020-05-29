@@ -27,3 +27,9 @@ void stampaUtente(User utente);
 void updateCampoFile(char *nomeCampo, int nuovoValore);
 
 void registraFileUtente(User utente);
+
+User login();
+
+bool checkPassword(char* codiceFiscale, char* password);
+
+User getUtente(char* codiceFiscale);
