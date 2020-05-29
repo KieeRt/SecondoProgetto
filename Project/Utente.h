@@ -26,4 +26,4 @@ void stampaUtente(User utente);
 
 void updateCampoFile(char *nomeCampo, int nuovoValore);
 
-
+void registraFileUtente(User utente);

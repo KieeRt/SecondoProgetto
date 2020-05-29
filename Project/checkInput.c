@@ -59,36 +59,13 @@ char* doCompare () {
 
 
     do{
-        printf("Inserisci Password: ");
+        printf("Inserisci Password:");
         scanf("%s", buff);
-        printf("Conferma Password: ");
+        printf("Conferma Password:");
         scanf("%s", buff1);
     }while ( strcmp(buff, buff1) && controllaLunghezza(buff,0, 4, 16));
 
    return buff;
-
-}
-
-
-bool checkIfExist(char *st1, char *nomeFile){
-        char buff[200];
-        char *tmp;
-        bool find = false;
-        FILE *fp = fopen(nomeFile, "r");
-        if(fp == NULL){
-            printf("Impossibile aprire il file: %s", nomeFile);
-        }else {
-
-        while(fgets(buff,200,nomeFile)!=NULL){
-        //Controllo il contenuto di ogni riga e rimuovo un determinato prefisso
-        if(strstr(buff,"@CodiceFiscale"))
-            strcpy(tmp,strremove(buff,"@CodiceFiscale "));
-            if(!strcmp(st1, tmp)){
-                find = true;
-            }
-            }
-        return find;
-    }
 
 }
 
@@ -105,6 +82,40 @@ char* strremove(char *str, const char *sub) {
     str[strlen(str)-1]='\0';
     return str;
 }
+
+
+
+bool checkIfExist(char *st1, char *nomeFile){
+        char buff[200];
+        char *tmp;
+        tmp = (char*)malloc(sizeof(char)*16);
+        bool find = false;
+        FILE *fp = fopen(nomeFile, "r");
+        if(fp == NULL){
+            printf("Impossibile aprire il file: %s", nomeFile);
+        }else {
+
+        while(fgets(buff,200,fp)!=NULL){
+        //Controllo il contenuto di ogni riga e rimuovo un determinato prefisso
+       if(strstr(buff,"@CodiceFiscale"))
+           strcpy(tmp,strremove(buff,"@CodiceFiscale "));
+           if(!strcmp(st1, tmp)){
+               find = true;
+            }
+            }
+        return find;
+    }
+}
+
+char * concatenation(char *a, char *b){
+
+char *c = malloc(strlen(a)+strlen(b)+2);
+strcpy(c,a);
+strcat(c,b);
+return c;
+}
+
+
 
 
 

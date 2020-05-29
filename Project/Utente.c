@@ -15,7 +15,7 @@ User registazioneUtente(){
    User utente = initUtente();
     char buff [20];
     char buff1 [20];
-
+    int count = 0;
 
 
     printf("Compila i seguenti campi:\n");
@@ -25,15 +25,20 @@ User registazioneUtente(){
 
     strcpy(utente.cognome, doSceltaString("Cognome:", 0, 2, 20));
 
+    do{
+        if(count > 0)
+            printf("C.F gia' e' registrato nel sistema\n");
+        count++;
+        strcpy(utente.codiceFiscale, doSceltaString("Codice Fiscale (16 caratteri):", 16, 0, 0));
+    }while(checkIfExist(utente.codiceFiscale, "Utenti.txt"));
 
-    strcpy(utente.codiceFiscale, doSceltaString("Codice Fiscale (16 caratteri):", 16, 0, 0));
 
     strcpy(utente.password, doCompare());
 
 
 
     utente.punti = 0;
-
+    registraFileUtente(utente);
     stampaUtente(utente);
 
 }
@@ -59,6 +64,32 @@ void stampaUtente(User utente){
     printf("Codice Fiscale:%s\n", utente.codiceFiscale);
     printf("Password:%s\n", utente.password);
     printf("Punti:%d\n", utente.punti);
+}
+
+void registraFileUtente(User utente){
+
+    FILE * fp;
+    fp = fopen("Utenti.txt", "a");
+
+    char tmp[20];
+    fflush(stdin);
+
+
+
+   if(!fp){
+        printf("Errore nell'apertura del file");
+        return -1;
+    }
+
+    fprintf(fp,"%s\n" ,   concatenation("@Nome ", utente.nome));
+    fprintf(fp,"%s\n" ,  concatenation("@Cognome ", utente.cognome));
+    fprintf(fp,"%s\n" ,   concatenation("@CodiceFiscale ", utente.codiceFiscale));
+    fprintf(fp,"%s\n" ,   concatenation("@Password ", utente.password));
+    sprintf(tmp, "%d", utente.punti);
+    fprintf(fp, "%s\n", concatenation("@Punti ", tmp));
+
+
+
 }
 
 

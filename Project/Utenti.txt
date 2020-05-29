@@ -3,3 +3,12 @@
 @CodiceFiscale qawsedrftgyhujik
 @Password ciao
 @Punti 0
+@Nome mario
+@Cognome pietro
+@CodiceFiscale qawsedrftgyhujim
+@Password ciao
+@Nome mario
+@Cognome pietroluongo
+@CodiceFiscale qawsedrftgyhujii
+@Password ciao
+@Punti 0

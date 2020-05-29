@@ -15,5 +15,6 @@ int doSceltaString(char* messaggio, int dimensione_esatta, int dimensione_min, i
 char* doCompare();
 char* strremove(char *str, const char *sub);
 bool checkIfExist(char *st1, FILE *file);
+char * concatenation(char *a, char *b);
 #endif // CHECKINPUT_H_INCLUDED
 
