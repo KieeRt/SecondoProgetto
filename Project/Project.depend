@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1590740028 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
+1590759975 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
@@ -12,13 +12,27 @@
 	<stdbool.h>
 	"in6addr.h"
 
-1590740075 c:\users\dimal\documents\github\secondoprogetto\project\utente.h
+1590760597 c:\users\dimal\documents\github\secondoprogetto\project\utente.h
 	<stdbool.h>
 
-1590741044 source:c:\users\dimal\documents\github\secondoprogetto\project\utente.c
+1590760573 source:c:\users\dimal\documents\github\secondoprogetto\project\utente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"Utente.h"
+
+1590760389 source:c:\users\dimal\documents\github\secondoprogetto\project\checkinput.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"./lib/inputReader.h"
+
+1582367528 c:\users\dimal\documents\github\secondoprogetto\project\lib\inputreader.h
+
+1582367530 source:c:\users\dimal\documents\github\secondoprogetto\project\lib\inputreader.c
+	<stdio.h>
+	<stdlib.h>
+	"inputReader.h"
 
