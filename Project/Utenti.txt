@@ -1,0 +1,5 @@
+@Nome Mario
+@Cognome Pietroluongo
+@CodiceFiscale qawsedrftgyhujik
+@Password ciao
+@Punti 0

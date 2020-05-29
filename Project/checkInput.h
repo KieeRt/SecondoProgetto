@@ -13,6 +13,7 @@ bool doSceltaInt(char* messaggio, int valore_max);
 int doSceltaString(char* messaggio, int dimensione_esatta, int dimensione_min, int dimensione_max);
 
 char* doCompare();
-
+char* strremove(char *str, const char *sub);
+bool checkIfExist(char *st1, FILE *file);
 #endif // CHECKINPUT_H_INCLUDED
 

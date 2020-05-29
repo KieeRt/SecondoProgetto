@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Utente.h"
 
+
 void menu();
 
 int main()
@@ -11,7 +12,7 @@ int main()
     return 0;
 }
 
-void menu(B){
+void menu(){
 
     int scelta=-1;
     do{
@@ -28,6 +29,9 @@ void menu(B){
 
         case 0:
             exit(0);
+        case 1:
+            exit(0);
+        case 2:
 
         default:
             printf("Scelta non valida");

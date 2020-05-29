@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include "./lib/inputReader.h"
 
+
 bool controllaLunghezza(char* stringa, int dimensione_esatta, int dimensione_min, int dimensione_max){
 int dimensione_stringa = strlen(stringa);
     if(dimensione_esatta != 0){
@@ -56,7 +57,6 @@ char* doCompare () {
   buff = (char*)malloc(sizeof(char)*20);
   buff1 = (char*)malloc(sizeof(char)*20);
 
-    int* pt = &buff;
 
     do{
         printf("Inserisci Password: ");
@@ -67,7 +67,79 @@ char* doCompare () {
 
    return buff;
 
+}
 
+
+bool checkIfExist(char *st1, char *nomeFile){
+        char buff[200];
+        char *tmp;
+        bool find = false;
+        FILE *fp = fopen(nomeFile, "r");
+        if(fp == NULL){
+            printf("Impossibile aprire il file: %s", nomeFile);
+        }else {
+
+        while(fgets(buff,200,nomeFile)!=NULL){
+        //Controllo il contenuto di ogni riga e rimuovo un determinato prefisso
+        if(strstr(buff,"@CodiceFiscale"))
+            strcpy(tmp,strremove(buff,"@CodiceFiscale "));
+            if(!strcmp(st1, tmp)){
+                find = true;
+            }
+            }
+        return find;
+    }
 
 }
+
+char* strremove(char *str, const char *sub) {
+    char *p, *q, *r;
+    if ((q = r = strstr(str, sub)) != NULL) {
+        size_t len = strlen(sub);
+        while ((r = strstr(p = r + len, sub)) != NULL) {
+            memmove(q, p, r - p);
+            q += r - p;
+        }
+        memmove(q, p, strlen(p) + 1);
+    }
+    str[strlen(str)-1]='\0';
+    return str;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

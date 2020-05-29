@@ -43,7 +43,7 @@ FILE *source;
 
     source = fopen("Utenti.txt", "w");
     if(source == NULL){
-        printf("Errore appertura file Utenti.txt\n");
+        printf("Errore apertura file Utenti.txt\n");
     }
     else{
         while(!feof(source)){
@@ -60,6 +60,8 @@ void stampaUtente(User utente){
     printf("Password:%s\n", utente.password);
     printf("Punti:%d\n", utente.punti);
 }
+
+
 
 
 
