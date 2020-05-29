@@ -43,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="interfaccia.h" />
+		<Unit filename="lib/inputReader.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib/inputReader.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

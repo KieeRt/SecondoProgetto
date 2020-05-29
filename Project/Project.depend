@@ -36,3 +36,38 @@
 	<stdlib.h>
 	"inputReader.h"
 
+1590761023 source:e:\codeblockprojects\secondoprogetto\project\checkinput.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"./lib/inputReader.h"
+
+1590761023 e:\codeblockprojects\secondoprogetto\project\lib\inputreader.h
+
+1590747696 source:e:\codeblockprojects\secondoprogetto\project\interfaccia.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"in6addr.h"
+
+1590761023 source:e:\codeblockprojects\secondoprogetto\project\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Utente.h"
+
+1590761023 e:\codeblockprojects\secondoprogetto\project\utente.h
+	<stdbool.h>
+
+1590761023 source:e:\codeblockprojects\secondoprogetto\project\lib\inputreader.c
+	<stdio.h>
+	<stdlib.h>
+	"inputReader.h"
+
+1590762767 source:e:\codeblockprojects\secondoprogetto\project\utente.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"Utente.h"
+
