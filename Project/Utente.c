@@ -20,16 +20,16 @@ User registazioneUtente(){
 
     printf("Compila i seguenti campi:\n");
 
-    strcpy(utente.nome, doSceltaString("Nome:", 0, 2, 20));
+    strcpy(utente.nome, doSceltaString("Nome\nInput -> ", 0, 2, 20));
 
 
-    strcpy(utente.cognome, doSceltaString("Cognome:", 0, 2, 20));
+    strcpy(utente.cognome, doSceltaString("Cognome\nInput -> ", 0, 2, 20));
 
     do{
         if(count > 0)
             printf("C.F gia' e' registrato nel sistema\n");
         count++;
-        strcpy(utente.codiceFiscale, doSceltaString("Codice Fiscale (16 caratteri):", 16, 0, 0));
+        strcpy(utente.codiceFiscale, doSceltaString("Codice Fiscale (16 caratteri)\nInput -> ", 16, 0, 0));
     }while(checkIfExist(utente.codiceFiscale, "Utenti.txt"));
 
 

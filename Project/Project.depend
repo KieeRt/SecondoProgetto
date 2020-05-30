@@ -1,12 +1,14 @@
 # depslib dependency file v1.0
-1590773162 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
+1590846572 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
+	"./lib/list.h"
+	"./lib/graph.h"
 
 1590676268 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\studente.c
 
-1590844732 source:c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.c
+1590846990 source:c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -15,7 +17,7 @@
 1590773162 c:\users\dimal\documents\github\secondoprogetto\project\utente.h
 	<stdbool.h>
 
-1590845788 source:c:\users\dimal\documents\github\secondoprogetto\project\utente.c
+1590846615 source:c:\users\dimal\documents\github\secondoprogetto\project\utente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -31,7 +33,7 @@
 
 1582367528 c:\users\dimal\documents\github\secondoprogetto\project\lib\inputreader.h
 
-1582367530 source:c:\users\dimal\documents\github\secondoprogetto\project\lib\inputreader.c
+1590845933 source:c:\users\dimal\documents\github\secondoprogetto\project\lib\inputreader.c
 	<stdio.h>
 	<stdlib.h>
 	"inputReader.h"
@@ -113,4 +115,15 @@
 	"list.h"
 
 1582367526 c:\users\dimal\documents\github\secondoprogetto\project\lib\list.h
+
+1590845935 source:c:\users\dimal\documents\github\secondoprogetto\project\lib\graph.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<assert.h>
+	"graph.h"
+	"inputReader.h"
+
+1582367526 c:\users\dimal\documents\github\secondoprogetto\project\lib\graph.h
+	"list.h"
 

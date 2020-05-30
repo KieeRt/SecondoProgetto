@@ -31,6 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Aeroporti.txt">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Aeroporto.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Aeroporto.h" />
 		<Unit filename="TODO.txt" />
 		<Unit filename="Utente.c">
 			<Option compilerVar="CC" />
@@ -40,6 +47,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="checkInput.h" />
+		<Unit filename="graph.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="graph.h" />
 		<Unit filename="interfaccia.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -48,6 +59,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="lib/inputReader.h" />
+		<Unit filename="list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="list.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

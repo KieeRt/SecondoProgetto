@@ -9,13 +9,13 @@ void welcome(){
     int scelta=-1;
 
     printf("\n");
-    printf("1.Login\n");
-    printf("2.Registrati\n");
-    printf("3.Esci\n");
+    printf("1 - Login\n");
+    printf("2 - Registrati\n");
+    printf("3 - Esci\n");
 
 
 
-   scelta=doSceltaInt("Selezionare un operazione ",3);
+   scelta=doSceltaInt("Input -> ",3);
     switch(scelta){
 
 
@@ -50,15 +50,15 @@ void home(User utente){
     printf("\n");
     printf("Bentornato %s %s. Finora hai accumulato %d punti",utente.cognome,utente.nome,utente.punti);
     printf("\n\n");
-    printf("1.Visaulizza prenotazioni attive\n");
-    printf("2.Effettua nuova prenotazione\n");
-    printf("3.Proponi meta piu' economica\n");
-    printf("4.Proponi meta piu' gettonata\n");
-    printf("5.Cronologia ordini\n");
-    printf("6.Logout\n");
+    printf("1 - Visaulizza prenotazioni attive\n");
+    printf("2 - Effettua nuova prenotazione\n");
+    printf("3 - Proponi meta piu' economica\n");
+    printf("4 - Proponi meta piu' gettonata\n");
+    printf("5 - Cronologia ordini\n");
+    printf("6 - Logout\n");
 
 
-    scelta=doSceltaInt("Selezionare un operazione ", 6);
+    scelta=doSceltaInt("Input -> ", 6);
 
     switch(scelta){
 
@@ -94,18 +94,20 @@ void home(User utente){
 
 void homeAdmin(User utente){
  int scelta;
+    int destinazione, sorgente, prezzo, tempo;
+
     system("cls");
     printf("\n");
-    printf("Bentornato %s %s. Finora hai accumulato %d punti",utente.cognome,utente.nome,utente.punti);
+    printf("Bentornato %s %s.",utente.cognome,utente.nome);
     printf("\n\n");
-    printf("1.Aggiungere un nuovo aeroporto\n");
-    printf("2.Aggiungere una tratta\n");
-    printf("3.Rimuovere aeroporto\n");
-    printf("4.Rimuovere la tratta\n");
-    printf("5.Logout\n");
+    printf("1 - Aggiungere un nuovo aeroporto\n");
+    printf("2 - Aggiungere una tratta\n");
+    printf("3 - Rimuovere aeroporto\n");
+    printf("4 - Rimuovere la tratta\n");
+    printf("5 - Logout\n");
 
 
-    scelta=doSceltaInt("Selezionare un operazione ", 5);
+    scelta=doSceltaInt("Input -> ", 5);
 
     switch(scelta){
 
