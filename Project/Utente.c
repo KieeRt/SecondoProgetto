@@ -116,29 +116,37 @@ User login(){
     }while(!checkIfExist(tmpCF,"Utenti.txt")||!checkPassword(tmpCF,tmpPassword));
 
     utente = getUtente(tmpCF);
+
     return utente;
 }
 
 User getUtente(char* codiceFiscale){
         User utente=initUtente();
-        char buff[200];
+        char buff[400];
         char punti[20];
         FILE *fp = fopen("Utenti.txt", "r");
         if(fp == NULL){
             printf("Impossibile aprire il file" );
         }else {
 
-        while(fgets(buff,200,fp)!=NULL){
+        while(fgets(buff,400,fp)!=NULL){
         //Controllo il contenuto di ogni riga e rimuovo un determinato prefisso
             if(strstr(buff,"@CodiceFiscale"))
                 strcpy(utente.codiceFiscale,strremove(buff,"@CodiceFiscale "));
-                if (!strcmp(utente.codiceFiscale,codiceFiscale)){
-                     strcpy(utente.nome,strremove(buff,"@Nome "));
-                     strcpy(utente.cognome,strremove(buff,"@Cognome "));
-                     strcpy(utente.codiceFiscale,strremove(buff,"@Password "));
-                     strcpy(punti,strremove(buff,"@Punti "));
-                     utente.punti= atoi(punti);
+
+            if (!strcmp(utente.codiceFiscale,codiceFiscale)){
+                if(strstr(buff,"@Nome"))
+                    strcpy(utente.nome,strremove(buff,"@Nome "));
+                if(strstr(buff,"@Cognome"))
+                    strcpy(utente.cognome,strremove(buff,"@Cognome "));
+                if(strstr(buff,"@Password"))
+                    strcpy(utente.password,strremove(buff,"@Password "));
+                if(strstr(buff,"@Punti")){
+                    strcpy(punti,strremove(buff,"@Punti "));
+                    utente.punti=atoi(punti);
                 }
+
+            }
 
         }
 

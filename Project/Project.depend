@@ -80,7 +80,7 @@
 
 1590762091 c:\users\angel\onedrive\desktop\secondoprogetto\project\lib\inputreader.h
 
-1590765312 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\interfaccia.c
+1590830297 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -99,7 +99,7 @@
 1590765277 c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.h
 	<stdbool.h>
 
-1590765415 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.c
+1590831828 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>

@@ -5,7 +5,7 @@
 
 
 void welcome(){
-    User utente;
+    User utente=initUtente();
     int scelta=-1;
 
     printf("\n");
@@ -20,9 +20,10 @@ void welcome(){
 
 
     case 1:
-       system("cls");
-       utente = login();
-       printf("Bentornato");
+        system("cls");
+        utente = login();
+
+        home(utente);
 
     break;
     case 2:
@@ -39,34 +40,39 @@ void welcome(){
     }
 }
 
-void home(){
-    int scelta
+void home(User utente){
+    int scelta;
+    system("cls");
     printf("\n");
+    printf("Bentornato %s %s. Finora hai accumulato %d punti",utente.cognome,utente.nome,utente.punti);
+    printf("\n\n");
     printf("1.Visaulizza prenotazioni attive\n");
-    printf("2.Registrati\n");
-    printf("3.Esci\n");
+    printf("2.Effettua nuova prenotazione\n");
+    printf("3.Proponi meta piu' economica\n");
+    printf("4.Proponi meta piu' gettonata\n");
+    printf("5.Cronologia ordini\n");
+    printf("5.Logout\n");
 
 
+    scelta=doSceltaInt("Selezionare un operazione ",5);
 
-   scelta=doSceltaInt("Selezionare un operazione ",3);
     switch(scelta){
 
 
     case 1:
        system("cls");
-       utente = login();
-       printf("Bentornato");
 
     break;
     case 2:
         system("cls");
-        utente = registazioneUtente();
-        printf("Account creato con successo.\nBenvenuto!");
 
     break;
-    case 3:
-        exit(0);
+
+    case 5:
+        system("cls");
+        welcome();
     break;
+
     default:
         printf("\n\n\tScelta non valida\n");
     }

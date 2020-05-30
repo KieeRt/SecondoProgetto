@@ -2,18 +2,9 @@
 @Nome mario
 @Cognome pietroluongo
 @Password ciao
-@Punti 0@CodiceFiscale qawsedrftgyhujia
-@Nome angelo
-@Cognome soli
-@Password ciao
 @Punti 0
-@CodiceFiscale qawsedrftgyhujia
-@Nome amngh
-@Cognome ada
-@Password ca
-@Punti 0
-@CodiceFiscale qawsedrftgyhujif
-@Nome asdas
-@Cognome das
-@Password ca
-@Punti 0
+
+
+
+
+
