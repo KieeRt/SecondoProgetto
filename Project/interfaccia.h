@@ -3,5 +3,6 @@
 #include "Utente.h"
 void welcome();
 void home(User utente);
+void homeAdmin(User utente);
 
 #endif // INTERFACCIA_H_INCLUDED

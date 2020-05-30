@@ -1,28 +1,28 @@
 # depslib dependency file v1.0
-1590759975 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
+1590773162 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
 
 1590676268 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\studente.c
 
-1590739828 source:c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.c
+1590844732 source:c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
-	"in6addr.h"
+	"Utente.h"
 
-1590760597 c:\users\dimal\documents\github\secondoprogetto\project\utente.h
+1590773162 c:\users\dimal\documents\github\secondoprogetto\project\utente.h
 	<stdbool.h>
 
-1590760573 source:c:\users\dimal\documents\github\secondoprogetto\project\utente.c
+1590845788 source:c:\users\dimal\documents\github\secondoprogetto\project\utente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"Utente.h"
 
-1590760389 source:c:\users\dimal\documents\github\secondoprogetto\project\checkinput.c
+1590773162 source:c:\users\dimal\documents\github\secondoprogetto\project\checkinput.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -105,4 +105,12 @@
 	<stdbool.h>
 	<string.h>
 	"Utente.h"
+
+1582367526 source:c:\users\dimal\documents\github\secondoprogetto\project\lib\list.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"list.h"
+
+1582367526 c:\users\dimal\documents\github\secondoprogetto\project\lib\list.h
 
