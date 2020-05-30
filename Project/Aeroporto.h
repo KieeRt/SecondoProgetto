@@ -1,13 +1,15 @@
 #ifndef AEROPORTO_H_INCLUDED
 #define AEROPORTO_H_INCLUDED
+
 struct TAeroporto{
     int costo;
     int tempo;
     char* nomeAeroporto;
-    char* nomeCitta:
+    char* nomeCitta;
     int popolarita;
     int costoVita;
 };
-typedef struct TAeroporto* Aeroporto;
+typedef struct TAeroporto Aeroporto;
 
+Aeroporto initAeroporto();
 #endif // AEROPORTO_H_INCLUDED

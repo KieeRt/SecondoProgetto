@@ -1,5 +1,6 @@
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
+#include "Aeroporto.h"
 struct TList {
     Aeroporto aeroporto;
     struct TList* next;
@@ -7,6 +8,7 @@ struct TList {
 
 typedef struct TList* List;
 
-List initNodeList();
+List initNodeList(Aeroporto aeroporto);
+List initNodeListFromFile();
 
 #endif // LIST_H_INCLUDED

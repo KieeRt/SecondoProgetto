@@ -1,38 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <list.h>
+#include "list.h"
 
+List initNodeList(Aeroporto aeroporto){
 
-List initNodeList(){
+}
+
+List initNodeListFromFile(){
     FILE *fp;
     fp = fopen("listaLibri.txt", "r");
 
-    Biblioteca head = NULL;
-    Aeroporto aeroporto;
+    List lista = NULL;
+    Aeroporto aeroporto = initAeroporto();
     char read_line[150];
 
-    if(!file_libri){
-        printf("Errore nell'apertura del file\n");
+    if(!fp){
+        printf("Errore nell'apertura del file Aeroporti.txt\n");
         return -1;
     }
 
-
-
-    while(fgets(read_line,150,file_libri)!=NULL){
+    while(fgets(read_line,150,fp)!=NULL){
         //Controllo il contenuto di ogni riga e rimuovo un determinato prefisso
-        if(strstr(read_line,"@Titolo"))
-            strcpy(libro.titolo,strremove(read_line,"@Titolo "));
+        if(strstr(read_line,"@nomeAeroporto"))
+            strcpy(aeroporto.nomeAeroporto,strremove(read_line,"@nomeAeroporto "));
 
-        if(strstr(read_line,"@Autore"))
-            strcpy(libro.autore,strremove(read_line,"@Autore "));
+        if(strstr(read_line,"@nomeCitta"))
+            strcpy(aeroporto.nomeCitta,strremove(read_line,"@nomeCitta "));
 
-        if(strstr(read_line,"@Disponibili ")){
-            libro.copieDisponibili=atoi(strremove(read_line,"@Disponibili"));
-
-
-            head=inserisciLibro(head,libro);
+        if(strstr(read_line,"@popolarita"))
+           aeroporto.popolarita = atoi(strremove(read_line,"@popolarita "));
+        if(strstr(read_line,"@costoVita")){
+            aeroporto.costoVita = atoi(strremove(read_line,"@costoVita "));
+            lista = insertList(lista, aeroporto);
         }
+
     }
-    return head;
+    return lista;
+}
+List insertList(){
+
 }

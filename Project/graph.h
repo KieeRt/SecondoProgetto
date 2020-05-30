@@ -1,6 +1,6 @@
 #ifndef GRAPH__H_INCLUDED
 #define GRAPH__H_INCLUDED
-#include <list.h>
+#include "list.h"
 
 struct TGraph {
     List *adj;

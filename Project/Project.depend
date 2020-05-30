@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1590846572 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
+1590848266 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
-	"./lib/list.h"
-	"./lib/graph.h"
+	"list.h"
+	"graph.h"
 
 1590676268 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\studente.c
 
@@ -126,4 +126,24 @@
 
 1582367526 c:\users\dimal\documents\github\secondoprogetto\project\lib\graph.h
 	"list.h"
+
+1590849798 source:c:\users\dimal\documents\github\secondoprogetto\project\aeroporto.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Aeroporto.h"
+
+1590849819 c:\users\dimal\documents\github\secondoprogetto\project\aeroporto.h
+
+1590849025 source:c:\users\dimal\documents\github\secondoprogetto\project\graph.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"graph.h"
+
+1590849214 c:\users\dimal\documents\github\secondoprogetto\project\graph.h
+	"list.h"
+
+1590849810 c:\users\dimal\documents\github\secondoprogetto\project\list.h
+	"Aeroporto.h"
 
