@@ -10,15 +10,10 @@ void menu();
 int main()
 {
 
-    List lista= (List) malloc (sizeof(struct TList));
-    Aeroporto a1=initAeroporto();
-    Aeroporto a2=initAeroporto();
-
-    a1.nomeAeroporto="Gastani";
-    a2.nomeAeroporto="Frizzi";
-    insertList(lista,a1);
-    insertList(lista,a2);
+    List lista= initNodeListFromFile();
+    //
     printAereoporto(lista);
+   // printAereoporto(lista->next);
    // Graph graph = initGraph();
    // printGraph(graph);
     //welcome();

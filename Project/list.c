@@ -3,47 +3,43 @@
 #include <stdbool.h>
 #include "list.h"
 
-List initNodeList(Aeroporto aeroporto){
 
-}
 
 List initNodeListFromFile(){
-    FILE *fp;
-    fp = fopen("Aeroporti.txt", "r");
+      FILE * file_libri;
+    file_libri = fopen("Aeroporti.txt", "r");
 
-    List lista = NULL;
-    Aeroporto aeroporto = initAeroporto();
+    List head = NULL;
+    Aeroporto aeroporto;
+
     char read_line[150];
 
-    if(!fp){
-        printf("Errore nell'apertura del file Aeroporti.txt\n");
+    if(!file_libri){
+        printf("Errore nell'apertura del file\n");
         return -1;
     }
 
-    while(fgets(read_line,150,fp)!=NULL){
+
+
+    while(fgets(read_line,150,file_libri)!=NULL){
         //Controllo il contenuto di ogni riga e rimuovo un determinato prefisso
-        if(strstr(read_line,"@nomeAeroporto")){
+        if(strstr(read_line,"@nomeAeroporto"))
             strcpy(aeroporto.nomeAeroporto,strremove(read_line,"@nomeAeroporto "));
-            printf("%s\n",aeroporto.nomeAeroporto);
-        }
-        if(strstr(read_line,"@nomeCitta")){
+
+
+        if(strstr(read_line,"@nomeCitta"))
             strcpy(aeroporto.nomeCitta,strremove(read_line,"@nomeCitta "));
-            printf("%s\n",aeroporto.nomeCitta);
-        }
-        if(strstr(read_line,"@popolarita")){
-           aeroporto.popolarita = atoi(strremove(read_line,"@popolarita "));
-            printf("%d\n",aeroporto.popolarita);
-        }
+
+        if(strstr(read_line,"@popolarita"))
+            aeroporto.popolarita=atoi(strremove(read_line,"@popolarita"));
+
         if(strstr(read_line,"@costoVita")){
-            aeroporto.costoVita = atoi(strremove(read_line,"@costoVita "));
-            printf("%d\n",aeroporto.costoVita);
-            lista = insertList(lista, aeroporto);
-
+            aeroporto.costoVita=atoi(strremove(read_line,"@costoVita"));
+            head=insertList(head,aeroporto);
         }
-
     }
+    return head;
 
-    return lista;
 }
 
 
@@ -62,18 +58,36 @@ List insertList(List head, Aeroporto aeroporto) {
 
     }
 
+
     //Se la lista non � vuota creo un nuovo nodo e decido dove metterlo
-    List newNode =  (List) malloc (sizeof(struct TList));
+    List newNode = (List) malloc (sizeof(struct TList));
+
     if(newNode==NULL){
             printf("Errore, probabilmetne la memoria non e' sufficente");
             return newNode;
     }
     newNode->aeroporto=aeroporto;
 
-    newNode->next=head;
-    return newNode;
+    //Controllo se il nodo dovrebbe essere posto prima della testa
+    if(strcmp(head->aeroporto.nomeAeroporto,aeroporto.nomeAeroporto)>0){
+        newNode->next=head;
+        return newNode;
 
+    }
+
+    List temp , prev;
+    temp = head->next;
+    prev=head;
+    while(temp != NULL && strcmp(temp->aeroporto.nomeAeroporto,aeroporto.nomeAeroporto)>0) {
+        prev = temp;
+        temp = temp->next;
+    }
+    newNode->next = temp;
+    prev->next = newNode;
+
+    return head;
 }
+
 
 int numeroAeroporto(List list){
     int n=1;
@@ -84,15 +98,20 @@ int numeroAeroporto(List list){
 
 void printAereoporto(List list) {
 
+
     if (list != NULL) {
-      //Necessario per una formattazione migliore del test
-        printf("-nome ->%s\n",list->aeroporto.nomeAeroporto);
-        printf("-citta ->%s\n",list->aeroporto.nomeCitta);
-        printf("-popolarita ->%d\n",list->aeroporto.popolarita);
-        printf("-costo ->%d\n\n\n",list->aeroporto.costoVita);
+
+
+
+        printf("-Nome aeroporto %s\n", list->aeroporto.nomeAeroporto);
+        printf("-Nome citta %s\n", list->aeroporto.nomeCitta);
+        printf("-Popolarita  %d\n", list->aeroporto.popolarita);
+        printf("-Costo della vita %d\n\n", list->aeroporto.costoVita);
 
         printAereoporto(list->next);
     }
+
+
 }
 
 

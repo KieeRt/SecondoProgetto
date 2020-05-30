@@ -17,7 +17,7 @@ Graph initGraph(){
         G->adj[i]=list;
         list->next;
     }
-    printAereoporto(list);
+
 
     return G;
 }
@@ -33,7 +33,7 @@ void printGraph(Graph  graph){
             printf("nodi adiacenti al nodo %d->",i);
             e=graph->adj[i];
             while(e!=NULL){
-                printf("%s",e->aeroporto.nomeAeroporto);
+                printf("%s",e->aeroporto.nomeCitta);
                 e=e->next;
             }
             printf("\n\n");

@@ -2,8 +2,8 @@
 #define AEROPORTO_H_INCLUDED
 
 struct TAeroporto{
-    char* nomeAeroporto;
-    char* nomeCitta;
+    char nomeAeroporto[30];
+    char nomeCitta [30];
     int popolarita;
     int costoVita;
 };
