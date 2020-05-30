@@ -5,7 +5,6 @@
 
 Aeroporto initAeroporto(){
     Aeroporto aeroporto;
-    aeroporto.tempo = 0;
     aeroporto.nomeAeroporto = (char*)malloc(sizeof(char)*20);
     aeroporto.nomeCitta = (char*)malloc(sizeof(char)*20);
     aeroporto.popolarita = 0;

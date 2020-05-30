@@ -7,10 +7,11 @@ struct TGraph {
     int numeroAeroporti;
 };
 
+
 typedef struct TGraph* Graph;
 
 Graph initGraph();
-
+void printGraph(Graph G);
 
 
 

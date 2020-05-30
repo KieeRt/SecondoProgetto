@@ -1,4 +1,8 @@
-@nomeAeroporto
-@nomeCitta
-@popolarita
-@costoVita
+@nomeAeroporto a
+@nomeCitta napoli
+@popolarita 1
+@costoVita 1
+@nomeAeroporto b
+@nomeCitta millano
+@popolarita 2
+@costoVita 2

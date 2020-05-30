@@ -2,8 +2,6 @@
 #define AEROPORTO_H_INCLUDED
 
 struct TAeroporto{
-    int costo;
-    int tempo;
     char* nomeAeroporto;
     char* nomeCitta;
     int popolarita;
