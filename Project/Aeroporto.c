@@ -5,10 +5,10 @@
 
 Aeroporto initAeroporto(){
     Aeroporto aeroporto;
-//    aeroporto.nomeAeroporto = (char*)malloc(sizeof(char)*20);
+//   aeroporto.nomeAeroporto = (char*)malloc(sizeof(char)*20);
 //    aeroporto.nomeCitta = (char*)malloc(sizeof(char)*20);
     aeroporto.popolarita = 0;
     aeroporto.costoVita = 0;
-
+    aeroporto.index = -1;
     return aeroporto;
 }

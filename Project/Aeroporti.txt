@@ -2,7 +2,10 @@
 @nomeCitta napoli
 @popolarita 1
 @costoVita 1
+@index 0
 @nomeAeroporto b
 @nomeCitta milano
 @popolarita 2
 @costoVita 2
+@index 1
+

@@ -6,6 +6,7 @@ struct TAeroporto{
     char nomeCitta [30];
     int popolarita;
     int costoVita;
+    int index;
 };
 typedef struct TAeroporto Aeroporto;
 
