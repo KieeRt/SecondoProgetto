@@ -3,6 +3,6 @@
 @popolarita 1
 @costoVita 1
 @nomeAeroporto b
-@nomeCitta millano
+@nomeCitta milano
 @popolarita 2
 @costoVita 2

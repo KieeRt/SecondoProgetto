@@ -38,7 +38,7 @@
 	<stdlib.h>
 	"inputReader.h"
 
-1590768838 source:e:\codeblockprojects\secondoprogetto\project\checkinput.c
+1590921346 source:e:\codeblockprojects\secondoprogetto\project\checkinput.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -47,26 +47,28 @@
 
 1590761023 e:\codeblockprojects\secondoprogetto\project\lib\inputreader.h
 
-1590747696 source:e:\codeblockprojects\secondoprogetto\project\interfaccia.c
+1590921346 source:e:\codeblockprojects\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
-	"in6addr.h"
+	"Utente.h"
 
-1590765981 source:e:\codeblockprojects\secondoprogetto\project\main.c
+1591022921 source:e:\codeblockprojects\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
+	"list.h"
+	"graph.h"
 
-1590768838 e:\codeblockprojects\secondoprogetto\project\utente.h
+1590921346 e:\codeblockprojects\secondoprogetto\project\utente.h
 	<stdbool.h>
 
-1590761023 source:e:\codeblockprojects\secondoprogetto\project\lib\inputreader.c
+1590921346 source:e:\codeblockprojects\secondoprogetto\project\lib\inputreader.c
 	<stdio.h>
 	<stdlib.h>
 	"inputReader.h"
 
-1590768838 source:e:\codeblockprojects\secondoprogetto\project\utente.c
+1590921346 source:e:\codeblockprojects\secondoprogetto\project\utente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -171,6 +173,33 @@
 	"Aeroporto.h"
 
 1590862106 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\list.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"list.h"
+
+1590921346 source:e:\codeblockprojects\secondoprogetto\project\aeroporto.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Aeroporto.h"
+
+1590921346 e:\codeblockprojects\secondoprogetto\project\aeroporto.h
+
+1590921346 source:e:\codeblockprojects\secondoprogetto\project\graph.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"graph.h"
+	"list.h"
+
+1590921346 e:\codeblockprojects\secondoprogetto\project\graph.h
+	"list.h"
+
+1590921346 e:\codeblockprojects\secondoprogetto\project\list.h
+	"Aeroporto.h"
+
+1591025028 source:e:\codeblockprojects\secondoprogetto\project\list.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>

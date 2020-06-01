@@ -9,16 +9,17 @@ void menu();
 
 int main()
 {
+    Graph G = initGraph();
+    printGraph(G);
 
-    List lista= initNodeListFromFile();
-    //
-    printAereoporto(lista);
-   // printAereoporto(lista->next);
-   // Graph graph = initGraph();
-   // printGraph(graph);
-    //welcome();
+
+
     return 0;
 }
+
+
+
+
 
 
 
