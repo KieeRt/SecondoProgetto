@@ -24,7 +24,8 @@ int* findoutDegree(Graph graph);
 bool isPozzo(Graph  graph,Aeroporto a1);
 //Ritorna l'aeroporto ricercato o uno fake se questo non esiste
 Aeroporto findAeroporto(List lista, char* nomeCode);
-
+//Ritorna l'aeroporto ricercato o uno fake in base all'indice
+Aeroporto findAeroportoIndex(int v, List aeroporti);
 
 /*
 Graph initGraph();

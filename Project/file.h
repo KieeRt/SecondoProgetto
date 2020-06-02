@@ -6,7 +6,7 @@
 
 void createEdgeFromFile(Graph graph, List head);
 List initNodeListFromFile();
-bool updateFileArchi(Graph graph);
+bool updateFileArchi(Graph graph, List aeroporti);
 //!!! Funzione da implementare !!!
 bool updateCampoFile(char* nomeCampo, int nuovoValore);
 

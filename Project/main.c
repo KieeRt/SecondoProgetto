@@ -48,7 +48,7 @@ a3.index = 2;
    // printAereoporto(tmp);
 
     printGraphX(graph);
-    updateFileArchi(graph);
+    updateFileArchi(graph, tmp);
     printf("\n\n");
 
 

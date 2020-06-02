@@ -144,6 +144,16 @@ Aeroporto fake = initAeroporto();
     }
     return fake;
 }
+Aeroporto findAeroportoIndex(int v, List aeroporti){
+Aeroporto fake = initAeroporto();
+    if(aeroporti){
+        if(aeroporti->aeroporto.index == v){
+            return aeroporti->aeroporto;
+        }
+       fake = findAeroportoIndex(v, aeroporti->next);
+    }
+    return fake;
+}
 
 
 /*

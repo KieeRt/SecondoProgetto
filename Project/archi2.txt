@@ -1,1 +1,16 @@
- ciao  ciao  ciao  ciao 
+@partenza NAP
+@destinazione FCO
+@prezzo 10
+@tempo 45
+@partenza NAP
+@destinazione MXP
+@prezzo 50
+@tempo 90
+@partenza MXP
+@destinazione NAP
+@prezzo 50
+@tempo 90
+@partenza FCO
+@destinazione MXP
+@prezzo 30
+@tempo 60

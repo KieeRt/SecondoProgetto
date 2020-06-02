@@ -151,36 +151,74 @@ bool updateCampoFile(char* nomeCampo, int nuovoValore){
 
 }
 
-bool updateFileArchi(Graph graph){
+bool updateFileArchi(Graph graph, List aeroporti){
     FILE *file_archi;
-    file_archi = fopen("archi2.txt", "w");
-    int i;
-    char tmp[16];
+    file_archi = fopen("archi.txt", "w");
     fflush(stdin);
-
+    Aeroporto support;
 
 
    if(!file_archi){
         printf("Errore nell'apertura del file");
         return -1;
     }
+    int v;
+    for(v = 0; v < graph->numeroAeroporti; v++){
+
+    List tmp = graph->adjList[v];
+
+        if(tmp != NULL){
+                support = findAeroportoIndex(v, aeroporti);
+                if(support.index != -1)
+                    printf("Aeroporto trovato:%s\n", support.nomeAeroporto);
+                else{
+                    printf("Error aeroporto non trovato\n");
+                    exit(0);
+                }
+
+            while(tmp){
+                fprintf(file_archi, "%s\n", concatenation("@partenza ", support.nomeAeroporto));
+                fprintf(file_archi, "%s\n", concatenation("@destinazione ", tmp->aeroporto.nomeAeroporto));
+
+                fprintf(file_archi, "%s ", "@prezzo");
+                fprintf(file_archi, "%d\n", tmp->prezzo);
+                fprintf(file_archi, "%s ", "@tempo");
+                fprintf(file_archi, "%d\n", tmp->tempo);
+
+                tmp = tmp->next;
+            }
+            aeroporti = aeroporti->next;
+        }
+    }
 
 
 
-    for(i = 0; i< graph->numeroAeroporti; i++){
-        List pCrawl = graph->adjList[i];
-       // strcpy(tmp, pCrawl->aeroporto.nomeAeroporto);
-        //printf("Tmp:%s\nNome aeroporto:%s\n", tmp, pCrawl->aeroporto.nomeAeroporto);
-        //pCrawl = pCrawl->next;
-        while(pCrawl){
-           // fprintf(file_archi,"%s\n" ,   concatenation("@partenza ", tmp));
-           fprintf(file_archi," %s ", "ciao");
-           // fprintf(file_archi,"%s\n" ,   concatenation("@partenza ", pCrawl->aeroporto.nomeAeroporto));
-            pCrawl = pCrawl->next;
-         //   fprintf(file_archi, "%d", 250);
-            printf("DEBUG\n");
+}
+
+bool printListOnFile(List aeroporti){
+    FILE *file_aeroporti;
+    file_aeroporti = fopen("Aeroporti.txt", "w");
+    fflush(stdin);
+    Aeroporto support;
+
+
+   if(!file_aeroporti){
+        printf("Errore nell'apertura del file");
+        return -1;
+    }
+
+    while(tmp){
+        fprintf(file_archi, "%s\n", concatenation("@partenza ", support.nomeAeroporto));
+        fprintf(file_archi, "%s\n", concatenation("@destinazione ", tmp->aeroporto.nomeAeroporto));
+
+        fprintf(file_archi, "%s ", "@prezzo");
+        fprintf(file_archi, "%d\n", tmp->prezzo);
+        fprintf(file_archi, "%s ", "@tempo");
+        fprintf(file_archi, "%d\n", tmp->tempo);
+
+        tmp = tmp->next;
+            }
+            aeroporti = aeroporti->next;
         }
 
-
-    }
 }
