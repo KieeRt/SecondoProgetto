@@ -31,13 +31,16 @@ a3.costoVita = 1000;
 a3.index = 2;
 
 
-    Graph graph = createGraph(3);
-    addEdge(graph, a1, a2);
-    addEdge(graph, a1, a3);
-    addEdge(graph, a2, a3);
-    addEdge(graph, a3, a1);
-    addEdge(graph, a3, a2);
 
+
+    Graph graph = createGraph(3);
+    addEdge(graph, a1, a2, 0, 1);
+    addEdge(graph, a1, a3, 0, 2);
+    addEdge(graph, a2, a3, 0, 3);
+    addEdge(graph, a3, a1, 0, 4);
+    addEdge(graph, a3, a2, 0, 5);
+
+     printGraphX(graph);
      printGraphX(graph);
     return 0;
 }

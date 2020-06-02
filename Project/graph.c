@@ -20,12 +20,23 @@ Graph createGraph(int numeroAeroporti){
     return graph;
 }
 
-void addEdge(Graph graph, Aeroporto s, Aeroporto d){
+void addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo){
   // Add edge from s to d
-   List newNode = createNode(d);
-    newNode->next =  graph->adjList[s.index];
-    graph->adjList[s.index] = newNode;
-
+  if(s.index <= graph->numeroAeroporti && d.index <= graph->numeroAeroporti ){
+    if(s.index != d.index){ // controlla nodo cappio
+        List newNode = createNode(d);
+        newNode->next =  graph->adjList[s.index];
+        newNode->prezzo = prezzo;
+        newNode->tempo = tempo;
+        graph->adjList[s.index] = newNode;
+    }
+    else{
+        printf("Nodo cappio\n");
+    }
+  }
+  else{
+    printf("Out range of numero aeroporti\n");
+  }
 
 }
 void printGraphX(Graph graph){
@@ -38,7 +49,7 @@ void printGraphX(Graph graph){
         printf("\n Vertice: %d\n",  v);
       //  aeroporto = aeroporto->next;
         while(tmp){
-            printf("%s -> ", tmp->aeroporto.nomeAeroporto);
+            printf("%s(%d) -> ", tmp->aeroporto.nomeAeroporto, tmp->tempo);
             tmp = tmp->next;
         }
     }

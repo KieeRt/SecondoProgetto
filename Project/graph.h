@@ -16,7 +16,7 @@ struct TEdge{
 typedef struct TGraph* Graph;
 
 Graph createGraph(int numeroAeroporto);
-void addEdge(Graph graph, Aeroporto s, Aeroporto d);
+void addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo);
 void printGraphX(Graph graph);
 /*
 Graph initGraph();
