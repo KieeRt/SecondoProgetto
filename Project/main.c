@@ -45,14 +45,15 @@ a3.index = 2;
     //addEdge(graph, a3, a2, 0, 5);*/
     createEdgeFromFile(graph, tmp);
 
-   // printAereoporto(tmp);
+    printAereoporto(tmp);
 
-    printGraphX(graph);
+    //printGraphX(graph);
+    //printAereoporto(tmp);
     updateFileArchi(graph, tmp);
     int n =0;
-
+   //printAereoporto(tmp);
     updateFileAeroporti(tmp);
-    printf("\n\n");
+    //printf("\n\n");
 
 
 

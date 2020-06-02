@@ -16,7 +16,9 @@ List createNode(Aeroporto aeroporto){
 
 
 
+
 List insertList(List head, Aeroporto aeroporto) {
+
 
     //Creo il nodo se la lista è vuota
     if(head==NULL){
@@ -31,7 +33,6 @@ List insertList(List head, Aeroporto aeroporto) {
 
     }
 
-
     //Se la lista non � vuota creo un nuovo nodo e decido dove metterlo
     List newNode = (List) malloc (sizeof(struct TList));
 
@@ -39,12 +40,19 @@ List insertList(List head, Aeroporto aeroporto) {
             printf("Errore, probabilmente la memoria non e' sufficente");
             return newNode;
     }
+
+    List tmp = head;
+    while(tmp->next ){
+
+        tmp = tmp->next;
+
+    }
+
+    tmp->next = newNode;
+
     newNode->aeroporto=aeroporto;
-
-    //Controllo se il nodo dovrebbe essere posto prima della testa
-
-        newNode->next=head;
-        return newNode;
+    newNode->next = NULL;
+    return head;
 
 }
 
