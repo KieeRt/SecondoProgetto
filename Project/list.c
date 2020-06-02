@@ -3,6 +3,14 @@
 #include <stdbool.h>
 #include "list.h"
 
+List createNode(Aeroporto aeroporto){
+    List newNode = (List) malloc (sizeof(struct TList));
+    newNode->aeroporto = aeroporto;
+    newNode->next = NULL;
+    return newNode;
+}
+
+
 
 
 List initNodeListFromFile(){

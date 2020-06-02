@@ -4,6 +4,46 @@
 #include "graph.h"
 #include "list.h"
 
+
+Graph createGraph(int numeroAeroporti){
+    Graph graph = (Graph)malloc(sizeof(struct TGraph));
+    graph->numeroAeroporti = numeroAeroporti;
+
+    graph->adjList = malloc(numeroAeroporti * sizeof(struct TList*));
+
+    int i;
+
+    for(i = 0;i<numeroAeroporti; i++){
+       graph->adjList[i] = NULL;
+    }
+
+    return graph;
+}
+
+void addEdge(Graph graph, Aeroporto s, Aeroporto d){
+  // Add edge from s to d
+   List newNode = createNode(d);
+    newNode->next =  graph->adjList[s.index];
+    graph->adjList[s.index] = newNode;
+
+
+}
+void printGraphX(Graph graph){
+   // List aeroporto = initFromFile();
+
+    int v;
+    for(v = 0; v < graph->numeroAeroporti; v++){
+
+        List tmp = graph->adjList[v];
+        printf("\n Vertice: %d\n",  v);
+      //  aeroporto = aeroporto->next;
+        while(tmp){
+            printf("%s -> ", tmp->aeroporto.nomeAeroporto);
+            tmp = tmp->next;
+        }
+    }
+}
+/*
 Graph initGraph(){
     int i;
     Graph G = (Graph)malloc(sizeof(struct TGraph));
@@ -53,3 +93,4 @@ void printGraph(Graph  graph){
 }
 
 
+*/
