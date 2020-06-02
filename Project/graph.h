@@ -16,8 +16,16 @@ struct TEdge{
 typedef struct TGraph* Graph;
 
 Graph createGraph(int numeroAeroporto);
-void addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo);
+bool addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo);
 void printGraphX(Graph graph);
+//Controlli sugli archi
+bool checkEdge(Graph graph ,Aeroporto a1, Aeroporto a2);
+//Grado entrante
+int* findDegree(Graph graph);
+//Grado uscente
+int* findoutDegree(Graph graph);
+//Controlla se il nodo associato all'aeroporto e' un nodo pozzo
+bool isPozzo(Graph  graph,Aeroporto a1);
 /*
 Graph initGraph();
 void printGraph(Graph G);*/

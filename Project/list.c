@@ -45,7 +45,7 @@ List initNodeListFromFile(){
             aeroporto.costoVita=atoi(strremove(read_line,"@costoVita"));
 
         }
-        if(strstr(read_line,"@costoVita")){
+        if(strstr(read_line,"@index")){
             aeroporto.index = atoi(strremove(read_line, "@index"));
              head=insertList(head,aeroporto);
         }
