@@ -43,6 +43,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Utente.h" />
+		<Unit filename="archi.txt" />
 		<Unit filename="checkInput.c">
 			<Option compilerVar="CC" />
 		</Unit>
