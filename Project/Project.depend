@@ -76,37 +76,38 @@
 	<string.h>
 	"Utente.h"
 
-1590763979 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\checkinput.c
+1591123372 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\checkinput.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"./lib/inputReader.h"
 
-1590762091 c:\users\angel\onedrive\desktop\secondoprogetto\project\lib\inputreader.h
+1591123372 c:\users\angel\onedrive\desktop\secondoprogetto\project\lib\inputreader.h
 
-1590850387 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\interfaccia.c
+1591123372 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"Utente.h"
 
-1590850387 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\lib\inputreader.c
+1591123372 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\lib\inputreader.c
 	<stdio.h>
 	<stdlib.h>
 	"inputReader.h"
 
-1591092665 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\main.c
+1591124250 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
 	"list.h"
 	"graph.h"
+	"file.h"
 
-1590765277 c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.h
+1591123378 c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.h
 	<stdbool.h>
 
-1590850387 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.c
+1591123372 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\utente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -154,28 +155,29 @@
 1591106248 c:\users\dimal\documents\github\secondoprogetto\project\list.h
 	"Aeroporto.h"
 
-1591035545 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\aeroporto.c
+1591123372 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\aeroporto.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"Aeroporto.h"
 
-1591035545 c:\users\angel\onedrive\desktop\secondoprogetto\project\aeroporto.h
+1591123372 c:\users\angel\onedrive\desktop\secondoprogetto\project\aeroporto.h
 
-1591092837 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\graph.c
+1591123378 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\graph.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"graph.h"
 	"list.h"
 
-1591092291 c:\users\angel\onedrive\desktop\secondoprogetto\project\graph.h
+1591123378 c:\users\angel\onedrive\desktop\secondoprogetto\project\graph.h
 	"list.h"
+	<stdbool.h>
 
-1591089664 c:\users\angel\onedrive\desktop\secondoprogetto\project\list.h
+1591123378 c:\users\angel\onedrive\desktop\secondoprogetto\project\list.h
 	"Aeroporto.h"
 
-1591089763 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\list.c
+1591123378 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\list.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -223,4 +225,14 @@
 	<stdio.h>
 	<stdlib.h>
 	"file.h"
+
+1591124314 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\file.c
+	<stdio.h>
+	<stdlib.h>
+	"file.h"
+
+1591123641 c:\users\angel\onedrive\desktop\secondoprogetto\project\file.h
+	"list.h"
+	"graph.h"
+	<stdbool.h>
 

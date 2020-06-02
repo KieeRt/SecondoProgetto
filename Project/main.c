@@ -49,6 +49,9 @@ a3.index = 2;
 
     printGraphX(graph);
     updateFileArchi(graph, tmp);
+    int n =0;
+
+    updateFileAeroporti(tmp);
     printf("\n\n");
 
 

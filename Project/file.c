@@ -190,16 +190,15 @@ bool updateFileArchi(Graph graph, List aeroporti){
             aeroporti = aeroporti->next;
         }
     }
-
-
-
 }
 
-bool printListOnFile(List aeroporti){
+
+
+void updateFileAeroporti(List aeroporti){
     FILE *file_aeroporti;
     file_aeroporti = fopen("Aeroporti.txt", "w");
     fflush(stdin);
-    Aeroporto support;
+    char tmp[256];
 
 
    if(!file_aeroporti){
@@ -207,18 +206,16 @@ bool printListOnFile(List aeroporti){
         return -1;
     }
 
-    while(tmp){
-        fprintf(file_archi, "%s\n", concatenation("@partenza ", support.nomeAeroporto));
-        fprintf(file_archi, "%s\n", concatenation("@destinazione ", tmp->aeroporto.nomeAeroporto));
-
-        fprintf(file_archi, "%s ", "@prezzo");
-        fprintf(file_archi, "%d\n", tmp->prezzo);
-        fprintf(file_archi, "%s ", "@tempo");
-        fprintf(file_archi, "%d\n", tmp->tempo);
-
-        tmp = tmp->next;
-            }
-            aeroporti = aeroporti->next;
-        }
+    while(aeroporti){
+        fprintf(file_aeroporti, "%s\n", concatenation("@nomeAeroporto ", aeroporti->aeroporto.nomeAeroporto));
+        fprintf(file_aeroporti, "%s\n", concatenation("@nomeCitta ", aeroporti->aeroporto.nomeCitta));
+        fprintf(file_aeroporti, "%s", "@popolarita ");
+        fprintf(file_aeroporti, "%d\n",aeroporti->aeroporto.popolarita );
+        fprintf(file_aeroporti,"%s", "@costoVita ");
+        fprintf(file_aeroporti, "%d\n",aeroporti->aeroporto.costoVita );
+        fprintf(file_aeroporti, "%s", "@index ");
+        fprintf(file_aeroporti, "%d\n",aeroporti->aeroporto.index );
+        aeroporti =  aeroporti->next;
+    }
 
 }
