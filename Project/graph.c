@@ -134,6 +134,18 @@ bool isPozzo(Graph  graph,Aeroporto a1){
 }
 
 
+Aeroporto findAeroporto(List lista, char* nomeCode){
+Aeroporto fake = initAeroporto();
+    if(lista){
+        if(!strcmp(nomeCode, lista->aeroporto.nomeAeroporto)){
+            return lista->aeroporto;
+        }
+       fake = findAeroporto(lista->next, nomeCode);
+    }
+    return fake;
+}
+
+
 /*
 Graph initGraph(){
     int i;

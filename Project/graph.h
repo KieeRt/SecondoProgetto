@@ -1,15 +1,11 @@
 #ifndef GRAPH__H_INCLUDED
 #define GRAPH__H_INCLUDED
 #include "list.h"
+#include <stdbool.h>
 
 struct TGraph {
     List *adjList;
     int numeroAeroporti;
-};
-
-struct TEdge{
-    int src, dest;
-    int peso, prezzo;
 };
 
 
@@ -26,6 +22,10 @@ int* findDegree(Graph graph);
 int* findoutDegree(Graph graph);
 //Controlla se il nodo associato all'aeroporto e' un nodo pozzo
 bool isPozzo(Graph  graph,Aeroporto a1);
+//Ritorna l'aeroporto ricercato o uno fake se questo non esiste
+Aeroporto findAeroporto(List lista, char* nomeCode);
+
+
 /*
 Graph initGraph();
 void printGraph(Graph G);*/

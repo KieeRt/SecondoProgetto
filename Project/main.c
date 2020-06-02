@@ -3,7 +3,7 @@
 #include "Utente.h"
 #include "list.h"
 #include "graph.h"
-
+#include "file.h"
 
 void menu();
 
@@ -34,19 +34,27 @@ a3.index = 2;
 
 
 
+    List tmp = initNodeListFromFile();
 
-    Graph graph = createGraph(3);
-    addEdge(graph, a3, a2, 0, 1);
+    Graph graph = createGraph(numeroAeroporto(tmp));
+  /*  addEdge(graph, a3, a2, 0, 1);
     addEdge(graph, a1, a3, 0, 2);
     addEdge(graph, a1, a3, 0, 3);
         addEdge(graph, a1, a3, 0, 3);
     //addEdge(graph, a3, a1, 0, 4);
-    //addEdge(graph, a3, a2, 0, 5);
+    //addEdge(graph, a3, a2, 0, 5);*/
+    createEdgeFromFile(graph, tmp);
+
+   // printAereoporto(tmp);
 
     printGraphX(graph);
+    updateFileArchi(graph);
     printf("\n\n");
-    bool find = isPozzo(graph,a3);
-    printf("%d", find);
+
+
+
+   // bool find = isPozzo(graph,a3);
+   // printf("%d", find);
 
     return 0;
 }
