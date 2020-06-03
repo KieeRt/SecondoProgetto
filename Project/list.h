@@ -22,6 +22,7 @@ Aeroporto findAeroportoIndex(int v, List aeroporti);
 List insertList(List head, Aeroporto aereoporto);
 void printAereoporto(List list);
 int numeroAeroporto(List list);
+void freeList(List L);
 
 
 #endif // LIST_H_INCLUDED

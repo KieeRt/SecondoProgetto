@@ -111,10 +111,12 @@ Aeroporto fake = initAeroporto();
 
 
 
-
-
-
-
+void freeList(List L) {
+    if (L != NULL) {
+        freeList(L->next);
+        free(L);
+    }
+}
 
 
 

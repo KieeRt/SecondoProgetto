@@ -17,21 +17,21 @@ strcpy(a1.nomeCitta, "Napoli");
 strcpy(a1.nomeAeroporto, "Ae.Napoli");
 a1.popolarita = 5;
 a1.costoVita = 1000;
-a1.index = 25;
+a1.index = 20;
 
 
 strcpy(a2.nomeCitta, "Milano");
 strcpy(a2.nomeAeroporto, "Ae.Milano");
 a2.popolarita = 5;
 a2.costoVita = 1000;
-a2.index = 1;
+a2.index = 25;
 
 
 strcpy(a3.nomeCitta, "Roma");
 strcpy(a3.nomeAeroporto, "Ae.Roma");
 a3.popolarita = 5;
 a3.costoVita = 1000;
-a3.index = 2;
+a3.index = 20;
 
 
 
@@ -41,9 +41,10 @@ a3.index = 2;
 
     Graph graph = createGraph(numeroAeroporto(tmp));
       createEdgeFromFile(graph, tmp);
-
-    graph = addAeroporto(tmp, graph, a1);
-    graph = addAeroporto(tmp, graph, a2);
+    printGraphX(graph);
+    removeNode(graph, 1);
+    printGraphX(graph);
+    removeNode(graph, 2);
     printGraphX(graph);
 
 

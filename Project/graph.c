@@ -68,9 +68,8 @@ void printGraphX(Graph graph){
 
     int v;
     for(v = 0; v < graph->numeroAeroporti; v++){
-
-        List tmp = graph->adjList[v];
-        printf("\n Vertice: %d\n",  v);
+      List tmp = graph->adjList[v];
+      printf("\n Vertice: %d\n",  v);
       //  aeroporto = aeroporto->next;
         while(tmp){
             printf("%s(%d) -> ", tmp->aeroporto.nomeAeroporto, tmp->tempo);
@@ -166,6 +165,53 @@ Graph addAeroporto(List aeroporti, Graph g, Aeroporto aeroporto){
 
 }
 
+
+void removeNode(Graph G, int node_to_remove) {
+    if (G != NULL) {
+        int i = 0;
+        int x = 0;
+        List *tmp = G->adjList;
+        G->adjList = (List *)malloc((G->numeroAeroporti-1) * sizeof(List));
+        printf("Debug\n");
+        for (i = 0; i < G->numeroAeroporti; i++) {
+                printf("Debug2\n");
+            if (i != node_to_remove) {
+                printf("Debug3\n");
+                G->adjList[x] = checkListRemoval(tmp[i], node_to_remove);
+                printf("x : %d %d\n", x, i);
+                x++;
+            } else
+             {
+                 printf("Debug4\n");
+				//freeList(G->adj[x]);
+                freeList(tmp[i]);
+                x++;
+            }
+        }
+        printf("Debug5\n");
+        if(tmp == NULL){
+            printf("Ciao silvia \n");
+        }
+    //    free(tmp);
+    printf("Debug6\n");
+        G->numeroAeroporti -= 1;
+    }
+}
+
+
+List checkListRemoval(List L, int node_to_remove) {
+    if (L != NULL) {
+        L->next = checkListRemoval(L->next, node_to_remove);
+        if (L->aeroporto.index == node_to_remove) {
+            List tmp = L->next;
+            free(L);
+            return tmp;
+        } else if (L->aeroporto.index > node_to_remove) {
+            L->aeroporto.index -= 1;
+        }
+    }
+    return L;
+}
 
 
 
