@@ -1,7 +1,7 @@
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
 #include "Aeroporto.h"
-#include "graph.h"
+
 struct TList{
     Aeroporto aeroporto;
     int prezzo;

@@ -9,7 +9,7 @@
 @costoVita 1200
 @index 1
 @nomeAeroporto BGY
-@nomeCitta milano
+@nomeCitta Milano
 @popolarita 0
 @costoVita 1200
 @index 2

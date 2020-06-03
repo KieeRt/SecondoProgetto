@@ -154,10 +154,12 @@ Graph  g_insert(Graph G) {
 
 Graph addAeroporto(List aeroporti, Graph g, Aeroporto aeroporto){
 
-      if (findAeroporto(aeroporti, aeroporto.nomeAeroporto).index != -1){
+      if (findAeroporto(aeroporti, aeroporto.nomeAeroporto).index == -1){
             aeroporti = insertList(aeroporti, aeroporto);
            g =  g_insert(g);
 
+      } else {
+          printf("Aeroporto  gia presente %s\n", aeroporto);
       }
       return g;
 
