@@ -134,26 +134,37 @@ bool isPozzo(Graph  graph,Aeroporto a1){
 }
 
 
-Aeroporto findAeroporto(List lista, char* nomeCode){
-Aeroporto fake = initAeroporto();
-    if(lista){
-        if(!strcmp(nomeCode, lista->aeroporto.nomeAeroporto)){
-            return lista->aeroporto;
-        }
-       fake = findAeroporto(lista->next, nomeCode);
-    }
-    return fake;
+
+
+Graph  g_insert(Graph G) {
+     List *e;
+     if (G==NULL)
+     return createGraph(20);
+      e = realloc(G->adjList,(G->numeroAeroporti+1) *sizeof(List));
+      if ((e == NULL))
+          printf("ERRORE: impossibile reallocarememoria \n");
+          else {
+          G->adjList=e;
+          G->adjList[G->numeroAeroporti]=NULL;
+          G->numeroAeroporti= G->numeroAeroporti+1;
+          }
+            return(G);
 }
-Aeroporto findAeroportoIndex(int v, List aeroporti){
-Aeroporto fake = initAeroporto();
-    if(aeroporti){
-        if(aeroporti->aeroporto.index == v){
-            return aeroporti->aeroporto;
-        }
-       fake = findAeroportoIndex(v, aeroporti->next);
-    }
-    return fake;
+
+
+Graph addAeroporto(List aeroporti, Graph g, Aeroporto aeroporto){
+
+      if (findAeroporto(aeroporti, aeroporto.nomeAeroporto).index != -1){
+            aeroporti = insertList(aeroporti, aeroporto);
+           g =  g_insert(g);
+
+      }
+      return g;
+
+
 }
+
+
 
 
 /*

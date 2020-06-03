@@ -83,4 +83,44 @@ void printAereoporto(List list) {
 
 }
 
+Aeroporto findAeroporto(List lista, char* nomeCode){
+Aeroporto fake = initAeroporto();
+    if(lista){
+        if(!strcmp(nomeCode, lista->aeroporto.nomeAeroporto)){
+            return lista->aeroporto;
+        }
+       fake = findAeroporto(lista->next, nomeCode);
+    }
+    return fake;
+}
+
+Aeroporto findAeroportoIndex(int v, List aeroporti){
+Aeroporto fake = initAeroporto();
+    if(aeroporti){
+        if(aeroporti->aeroporto.index == v){
+            return aeroporti->aeroporto;
+        }
+       fake = findAeroportoIndex(v, aeroporti->next);
+    }
+    return fake;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -54,14 +54,15 @@
 	<stdbool.h>
 	"Utente.h"
 
-1591022921 source:e:\codeblockprojects\secondoprogetto\project\main.c
+1591190668 source:e:\codeblockprojects\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
 	"list.h"
 	"graph.h"
+	"file.h"
 
-1590921346 e:\codeblockprojects\secondoprogetto\project\utente.h
+1591108727 e:\codeblockprojects\secondoprogetto\project\utente.h
 	<stdbool.h>
 
 1590921346 source:e:\codeblockprojects\secondoprogetto\project\lib\inputreader.c
@@ -183,32 +184,35 @@
 	<stdbool.h>
 	"list.h"
 
-1590921346 source:e:\codeblockprojects\secondoprogetto\project\aeroporto.c
+1591101406 source:e:\codeblockprojects\secondoprogetto\project\aeroporto.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"Aeroporto.h"
 
-1590921346 e:\codeblockprojects\secondoprogetto\project\aeroporto.h
+1591101406 e:\codeblockprojects\secondoprogetto\project\aeroporto.h
 
-1590921346 source:e:\codeblockprojects\secondoprogetto\project\graph.c
+1591190885 source:e:\codeblockprojects\secondoprogetto\project\graph.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"graph.h"
 	"list.h"
 
-1590921346 e:\codeblockprojects\secondoprogetto\project\graph.h
+1591190885 e:\codeblockprojects\secondoprogetto\project\graph.h
 	"list.h"
+	<stdbool.h>
 
-1590921346 e:\codeblockprojects\secondoprogetto\project\list.h
+1591190885 e:\codeblockprojects\secondoprogetto\project\list.h
 	"Aeroporto.h"
+	"graph.h"
 
-1591025028 source:e:\codeblockprojects\secondoprogetto\project\list.c
+1591190643 source:e:\codeblockprojects\secondoprogetto\project\list.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"list.h"
+	"graph.h"
 
 1591127129 source:c:\users\dimal\documents\github\secondoprogetto\project\list.c
 	<stdio.h>
@@ -232,6 +236,16 @@
 	"file.h"
 
 1591123641 c:\users\angel\onedrive\desktop\secondoprogetto\project\file.h
+	"list.h"
+	"graph.h"
+	<stdbool.h>
+
+1591187634 source:e:\codeblockprojects\secondoprogetto\project\file.c
+	<stdio.h>
+	<stdlib.h>
+	"file.h"
+
+1591125011 e:\codeblockprojects\secondoprogetto\project\file.h
 	"list.h"
 	"graph.h"
 	<stdbool.h>

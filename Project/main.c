@@ -9,6 +9,9 @@ void menu();
 
 int main()
 {
+
+
+
 Aeroporto a1, a2, a3;
 strcpy(a1.nomeCitta, "Napoli");
 strcpy(a1.nomeAeroporto, "Ae.Napoli");
@@ -37,22 +40,23 @@ a3.index = 2;
     List tmp = initNodeListFromFile();
 
     Graph graph = createGraph(numeroAeroporto(tmp));
-  /*  addEdge(graph, a3, a2, 0, 1);
-    addEdge(graph, a1, a3, 0, 2);
-    addEdge(graph, a1, a3, 0, 3);
-        addEdge(graph, a1, a3, 0, 3);
-    //addEdge(graph, a3, a1, 0, 4);
-    //addEdge(graph, a3, a2, 0, 5);*/
-    createEdgeFromFile(graph, tmp);
+      createEdgeFromFile(graph, tmp);
+     printGraphX(graph);
+    graph = addAeroporto(tmp, graph, a2);
+    printGraphX(graph);
 
-    printAereoporto(tmp);
+
+
+  //  createEdgeFromFile(graph, tmp);
+
+   // printAereoporto(tmp);
 
     //printGraphX(graph);
     //printAereoporto(tmp);
-    updateFileArchi(graph, tmp);
-    int n =0;
+ //  updateFileArchi(graph, tmp);
+   //int n =0;
    //printAereoporto(tmp);
-    updateFileAeroporti(tmp);
+    //updateFileAeroporti(tmp);
     //printf("\n\n");
 
 
