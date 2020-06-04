@@ -19,10 +19,17 @@ List initNodeList(Aeroporto aeroporto);
 Aeroporto findAeroporto(List lista, char* nomeCode);
 //Ritorna l'aeroporto ricercato o uno fake in base all'indice
 Aeroporto findAeroportoIndex(int v, List aeroporti);
+
+//Rimuove un elemento dalla lista
+List removeNodeList(List L, int target);
+//Aggiorna il campo index della lista che contiene tutti gli aeroporti
+List updateNodeListIndex(List L, int numeroAeroporti);
+//Aggiorna il campo index della lista che contiene tutti gli aeroporti in modo ricorsivo
+List updateNodeListIndexR(List L, int numeroAeroporti);
 List insertList(List head, Aeroporto aereoporto);
 void printAereoporto(List list);
 int numeroAeroporto(List list);
-void freeList(List L);
+List freeList(List L);
 
 
 #endif // LIST_H_INCLUDED

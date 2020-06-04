@@ -171,44 +171,60 @@ void removeNode(Graph G, int node_to_remove) {
         int i = 0;
         int x = 0;
         List *tmp = G->adjList;
-        G->adjList = (List *)malloc((G->numeroAeroporti-1) * sizeof(List));
+        printf("NUMERO AEROPORTI:%d\n", G->numeroAeroporti);
+        //Viene decrementato il numero di aeroporti
+        G->adjList = (List *)calloc(G->numeroAeroporti -=1, sizeof(List));
         printf("Debug\n");
         for (i = 0; i < G->numeroAeroporti; i++) {
+        printf("NUMERO AEROPORTI:%d\n", G->numeroAeroporti);
                 printf("Debug2\n");
             if (i != node_to_remove) {
                 printf("Debug3\n");
-                G->adjList[x] = checkListRemoval(tmp[i], node_to_remove);
-                printf("x : %d %d\n", x, i);
+                printf("x:%d\n i:%d\n node_rm:%d\n", x, i, node_to_remove);
+                G->adjList[i] = checkListRemoval(G->adjList[i], node_to_remove);
+                //printf("x : %d %d\n", x, i);
                 x++;
             } else
              {
                  printf("Debug4\n");
 				//freeList(G->adj[x]);
-                freeList(tmp[i]);
+               tmp[i] = freeList(tmp[i]);
                 x++;
             }
         }
         printf("Debug5\n");
-        if(tmp == NULL){
-            printf("Ciao silvia \n");
-        }
-    //    free(tmp);
+
+        //free(tmp);
     printf("Debug6\n");
-        G->numeroAeroporti -= 1;
     }
 }
 
+void removeNode2(Graph graph, int node_to_remove){
+    int i;
+    for(i = 0; i < graph->numeroAeroporti; i++){
+        if(i == node_to_remove){
+            graph->adjList[i] = freeList(graph->adjList[i]);
+        }
+        else{
+
+              graph->adjList[i]  = checkListRemoval(graph->adjList[i] , node_to_remove);
+        }
+    }
+    graph->numeroAeroporti -=1;
+}
 
 List checkListRemoval(List L, int node_to_remove) {
+
     if (L != NULL) {
         L->next = checkListRemoval(L->next, node_to_remove);
         if (L->aeroporto.index == node_to_remove) {
             List tmp = L->next;
             free(L);
+            L = NULL;
             return tmp;
-        } else if (L->aeroporto.index > node_to_remove) {
+        }/*else if (L->aeroporto.index > node_to_remove) {
             L->aeroporto.index -= 1;
-        }
+        }*/
     }
     return L;
 }

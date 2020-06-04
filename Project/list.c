@@ -111,16 +111,47 @@ Aeroporto fake = initAeroporto();
 
 
 
-void freeList(List L) {
+List freeList(List L) {
     if (L != NULL) {
         freeList(L->next);
         free(L);
+        L = NULL;
     }
+    return L;
 }
 
 
 
+List removeNodeList(List L, int target){
+    if (L != NULL) {
+        if (L->aeroporto.index == target) {
+            List tmp = L->next;
+            free(L);
+            L = NULL;
+            return tmp;
+        }
+        L->next = removeNodeList(L->next, target);
+    }
+    return L;
 
+}
+List updateNodeListIndex(List L, int numeroAeroporti){
+    int i;
+    List tmp = L;
+    for(i = 0; i < numeroAeroporti; i++){
+        L->aeroporto.index = i;
+        L = L->next;
+    }
+    return tmp;
+}
+List updateNodeListIndexR(List L, int numero){
+    List tmp = L;
+    if(L != NULL){
+        L->next = updateNodeListIndexR(L->next, numero+1);
+        L->aeroporto.index = numero;
+    }
+    return L;
+}
 
 
 

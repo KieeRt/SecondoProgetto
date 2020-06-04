@@ -11,11 +11,11 @@
 @prezzo 50
 @tempo 90
 @partenza FCO
-@destinazione JFK
+@destinazione BGY
 @prezzo 30
 @tempo 60
 @partenza FCO
-@destinazione BGY
+@destinazione MXP
 @prezzo 30
 @tempo 60
 @partenza MXP

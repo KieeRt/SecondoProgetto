@@ -38,14 +38,33 @@ a3.index = 20;
 
 
     List tmp = initNodeListFromFile();
+    //printAereoporto(tmp);
 
     Graph graph = createGraph(numeroAeroporto(tmp));
-      createEdgeFromFile(graph, tmp);
+    createEdgeFromFile(graph, tmp);
+   // printGraphX(graph);
+
+
+
+
+
+
+
+
+    removeNode2(graph, 1);
+    tmp = removeNodeList(tmp, 1);
+    tmp = updateNodeListIndexR(tmp, 0);
+
     printGraphX(graph);
-    removeNode(graph, 1);
-    printGraphX(graph);
-    removeNode(graph, 2);
-    printGraphX(graph);
+
+
+  // printGraphX(graph);
+
+  //  removeNode(graph, 1);
+ //   printf("PROVA\n");
+ //   printGraphX(graph);
+    //removeNode(graph, 2);
+   // printGraphX(graph);
 
 
 
