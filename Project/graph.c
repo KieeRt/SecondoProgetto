@@ -201,13 +201,15 @@ void removeNode(Graph G, int node_to_remove) {
 
 void removeNode2(Graph graph, int node_to_remove){
     int i;
+    int x = 0;
     for(i = 0; i < graph->numeroAeroporti; i++){
         if(i == node_to_remove){
             graph->adjList[i] = freeList(graph->adjList[i]);
         }
         else{
 
-              graph->adjList[i]  = checkListRemoval(graph->adjList[i] , node_to_remove);
+              graph->adjList[x]  = checkListRemoval(graph->adjList[i] , node_to_remove);
+            x++;
         }
     }
     graph->numeroAeroporti -=1;

@@ -31,31 +31,32 @@ strcpy(a3.nomeCitta, "Roma");
 strcpy(a3.nomeAeroporto, "Ae.Roma");
 a3.popolarita = 5;
 a3.costoVita = 1000;
-a3.index = 20;
+a3.index = 19;
 
 
 
 
 
     List tmp = initNodeListFromFile();
-    //printAereoporto(tmp);
-
     Graph graph = createGraph(numeroAeroporto(tmp));
     createEdgeFromFile(graph, tmp);
-   // printGraphX(graph);
 
-
-
-
-
-
-
-
+    // Rimuove node
     removeNode2(graph, 1);
     tmp = removeNodeList(tmp, 1);
     tmp = updateNodeListIndexR(tmp, 0);
 
+   graph = addAeroporto(tmp, graph, a3);
+
+     removeNode2(graph, 3);
+    tmp = removeNodeList(tmp, 3);
+    tmp = updateNodeListIndexR(tmp, 0);
+
+ // int z =   updateFileArchi(graph, tmp);
+
+
     printGraphX(graph);
+    printAereoporto(tmp);
 
 
   // printGraphX(graph);
