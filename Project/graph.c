@@ -36,16 +36,26 @@ bool addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo){
     return result;
 
 }
+
 bool checkEdge(Graph graph ,Aeroporto a1, Aeroporto a2){
     bool find = true;
     int i;
-    if(a1.index == a2.index){ // controlla nodo cappio
+    if(a1.index ==-1 && a2.index == -1){ // controlla nodo cappio
+        printf("Aeroporti non esisteni\n");
+        return false;
+    }
+    else if(a1.index == a2.index){ // controlla nodo cappio
         printf("Non puoi collegare un aeroporto con se stesso\n");
         return false;
     }
     //Controllo che i vertici facciano parte del grafo
     if(a1.index >= graph->numeroAeroporti || a2.index >= graph->numeroAeroporti){
         printf("Non e' possibile aggiungere questa tratta (Out of range)\n");
+        return false;
+    }
+    //Controllo che i vertici facciano parte del grafo
+    if(a1.index < 0 || a2.index < 0){
+        printf("Uno degli aeroporti non è stato trovato\n");
         return false;
     }
 
@@ -64,7 +74,7 @@ bool checkEdge(Graph graph ,Aeroporto a1, Aeroporto a2){
 
 
 
-void printGraphX(Graph graph){
+void printGraph(Graph graph){
    // List aeroporto = initFromFile();
 
     int v;
@@ -203,66 +213,8 @@ List checkListRemoval(List L, int node_to_remove) {
         L->next = checkListRemoval(L->next, node_to_remove);
         if (L->aeroporto.index == node_to_remove) {
             List tmp = L->next;
-            free(L);
-            L = NULL;
-            return tmp;
-        }/*else if (L->aeroporto.index > node_to_remove) {
-            L->aeroporto.index -= 1;
-        }*/
-    }
-    return L;
-}
 
 
-
-/*
-Graph initGraph(){
-    int i;
-    Graph G = (Graph)malloc(sizeof(struct TGraph));
-    List list = initNodeListFromFile();
-    int node_number = numeroAeroporto(list);
-
-    G->adj = (List*)malloc(node_number*sizeof(List));
-    G->numeroAeroporti=node_number;
-
-    for(i=0;i<node_number;i++){
-        G->adj[i]=list;
-        list = list->next;
-
-    }
-
-
-    return G;
-}
-
-
-
-void printGraph(Graph  graph){
-    int i;
-    List e;
-    List a = initNodeListFromFile();
-    if(graph != NULL){
-        for (i=0;i<graph->numeroAeroporti;i++){
-
-
-
-            printf("nodi adiacenti al nodo %s->",a->aeroporto.nomeCitta);
-            a= a->next;
-            e=graph->adj[i];
-            while(e!=NULL){
-                printf("%s ",e->aeroporto.nomeAeroporto);
-                e=e->next;
-            }
-            printf("\n\n");
         }
-
-
-
     }
-
-
-
 }
-
-
-*/

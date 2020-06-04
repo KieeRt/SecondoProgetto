@@ -5,10 +5,20 @@
 
 Aeroporto initAeroporto(){
     Aeroporto aeroporto;
-//   aeroporto.nomeAeroporto = (char*)malloc(sizeof(char)*20);
-//    aeroporto.nomeCitta = (char*)malloc(sizeof(char)*20);
     aeroporto.popolarita = 0;
     aeroporto.costoVita = 0;
     aeroporto.index = -1;
+    return aeroporto;
+}
+
+Aeroporto insertAeroporto(){
+    Aeroporto aeroporto;
+
+    strcpy(aeroporto.nomeAeroporto, doSceltaString("-Nome Aeroporto\nInput -> ",0, 2, 256));
+    strcpy(aeroporto.nomeCitta, doSceltaString("-Nome Citta\nInput -> ", 0, 2, 256));
+    aeroporto.costoVita = doSceltaInt("-Costo vita\nInput->",500000);
+    aeroporto.popolarita = doSceltaIntZero("-Popolarita\nInput->",5000);
+    aeroporto.index = -1;
+
     return aeroporto;
 }

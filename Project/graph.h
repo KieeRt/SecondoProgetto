@@ -12,25 +12,34 @@ struct TGraph {
 typedef struct TGraph* Graph;
 
 Graph createGraph(int numeroAeroporto);
+
 bool addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo);
-void printGraphX(Graph graph);
+
+void printGraph(Graph graph);
+
 //Controlli sugli archi
 bool checkEdge(Graph graph ,Aeroporto a1, Aeroporto a2);
+
 //Grado entrante
 int* findDegree(Graph graph);
+
 //Grado uscente
 int* findoutDegree(Graph graph);
+
 //Controlla se il nodo associato all'aeroporto e' un nodo pozzo
 bool isPozzo(Graph  graph,Aeroporto a1);
 
 Graph addAeroporto(List aeroporti, Graph g, Aeroporto aeroporto);
 
 Graph  g_insert(Graph G);
+
 void removeNode(Graph graph, int node_to_remove);
+
 List checkListRemoval(List L, int node_to_remove);
-/*
-Graph initGraph();
-void printGraph(Graph G);*/
+
+List deleteEdge(Graph graph, int src, int dest);
+
+
 
 
 

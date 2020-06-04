@@ -20,10 +20,10 @@ User registazioneUtente(){
 
     printf("Compila i seguenti campi:\n");
 
-    strcpy(utente.nome, doSceltaString("Nome\nInput -> ", 0, 2, 20));
+    strcpy(utente.nome, doSceltaString("Nome\nInput -> ", 2,0 , 20));
 
 
-    strcpy(utente.cognome, doSceltaString("Cognome\nInput -> ", 0, 2, 20));
+    strcpy(utente.cognome, doSceltaString("Cognome\nInput -> ", 2, 0, 20));
 
     do{
         if(count > 0)

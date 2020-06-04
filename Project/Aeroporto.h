@@ -11,4 +11,7 @@ struct TAeroporto{
 typedef struct TAeroporto Aeroporto;
 
 Aeroporto initAeroporto();
+
+Aeroporto insertAeroporto();
+
 #endif // AEROPORTO_H_INCLUDED

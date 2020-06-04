@@ -96,61 +96,6 @@ List initNodeListFromFile(){
 }
 
 
-//!!! Funzione da implementare !!!
-bool updateCampoFile(char* nomeCampo, int nuovoValore){
-    FILE *source, *target;
-    char buff[100];
-    int local_value;
-
-
-    source = fopen("archi.txt", "r");
-     if (source == NULL){
-        printf("Apertura del file log.txt in lettura e' fallita");
-        return;
-    }
-    else{
-       target = fopen("archiTMP.txt", "w+");
-
-       if(target == NULL){
-            printf("Apertura del file new_log.txt in scrittura e' fallita");
-            return;
-       }
-       else{
-            while(!feof(source)){
-                fscanf(source, "%s %d", &buff, &local_value);
-                if(!strcmp(buff, nomeCampo)){
-                    fprintf(target, "%s %d\n", buff, nuovoValore);
-                }
-                 else if(!strcmp(buff, "END_OF_FILE")){ // \n dopo l'ultimo elemento causa la rilettura dell'ultimo campo nel nuovo file e di conseguenza la riscrittura del ultimo elemento nel utilizzo successivo
-                    fprintf(target, "%s %d", buff, local_value);
-                }
-                else{
-                    fprintf(target, "%s %d\n", buff, local_value);
-                }
-
-            }
-            fclose(target);
-       }
-       fclose(source);
-    }
-
-
-    if(remove("log.txt") == 0){
-
-    }
-    else{
-        printf("Impossibile eliminare il file\n");
-    }
-
-    if(rename("log1.txt", "log.txt") == 0){
-
-    }
-    else{
-        printf("Impossibile rinominare il nome del file\n");
-    }
-
-}
-
 bool updateFileArchi(Graph graph, List aeroporti){
     FILE *file_archi;
     file_archi = fopen("archi.txt", "w");

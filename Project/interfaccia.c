@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "Utente.h"
+#include "interfaccia.h"
 
 
-void welcome(){
+void welcome(Graph graph, List aeroporti){
     User utente=initUtente();
     int scelta=-1;
 
@@ -14,37 +14,41 @@ void welcome(){
     printf("3 - Esci\n");
 
 
+    do{
+        scelta=doSceltaInt("Input -> ",3);
 
-   scelta=doSceltaInt("Input -> ",3);
-    switch(scelta){
-
-
-    case 1:
-        system("cls");
-        utente = login();
-
-        if(!strcmp(utente.codiceFiscale, "admin"))
-            homeAdmin(utente);
-        else
-            home(utente);
+        switch(scelta){
 
 
-    break;
-    case 2:
-        system("cls");
-        utente = registazioneUtente();
-        printf("Account creato con successo.\nBenvenuto!");
+        case 1:
+            system("cls");
+            utente = login();
 
-    break;
-    case 3:
-        exit(0);
-    break;
-    default:
-        printf("\n\n\tScelta non valida\n");
-    }
+            if(!strcmp(utente.codiceFiscale, "admin"))
+
+                homeAdmin(utente,graph,aeroporti);
+
+            else
+                home(utente,graph, aeroporti);
+
+
+        break;
+        case 2:
+            system("cls");
+            utente = registazioneUtente();
+            printf("Account creato con successo.\nBenvenuto!");
+
+        break;
+        case 3:
+            exit(0);
+        break;
+        default:
+            printf("\n\n\tScelta non valida\n");
+        }
+    }while(scelta!=3);
 }
 
-void home(User utente){
+void home(User utente,Graph graph, List aeroporti){
     int scelta;
     system("cls");
     printf("\n");
@@ -66,6 +70,7 @@ void home(User utente){
     case 1:
        system("cls");
 
+
     break;
     case 2:
         system("cls");
@@ -82,7 +87,7 @@ void home(User utente){
         break;
     case 6:
         system("cls");
-        welcome();
+        welcome(graph, aeroporti);
     break;
 
     default:
@@ -92,48 +97,77 @@ void home(User utente){
 
 }
 
-void homeAdmin(User utente){
+void homeAdmin(User utente,Graph graph, List aeroporti){
  int scelta;
-    int destinazione, sorgente, prezzo, tempo;
-
-    system("cls");
-    printf("\n");
-    printf("Bentornato %s %s.",utente.cognome,utente.nome);
-    printf("\n\n");
-    printf("1 - Aggiungere un nuovo aeroporto\n");
-    printf("2 - Aggiungere una tratta\n");
-    printf("3 - Rimuovere aeroporto\n");
-    printf("4 - Rimuovere la tratta\n");
-    printf("5 - Logout\n");
+    Aeroporto srcAeroporto;
+    Aeroporto destAeroporto;
+    int  prezzo, tempo;
+    char buffer;
 
 
-    scelta=doSceltaInt("Input -> ", 5);
-
-    switch(scelta){
-
-
-    case 1:
-       system("cls");
-
-    break;
-    case 2:
+    do{
         system("cls");
+        printf("\n");
+        printf("Bentornato %s %s.",utente.cognome,utente.nome);
+        printf("\n\n");
+        printf("1 - Aggiungere un nuovo aeroporto\n");
+        printf("2 - Aggiungere una tratta\n");
+        printf("3 - Rimuovere aeroporto\n");
+        printf("4 - Rimuovere la tratta\n");
+        printf("5 - Logout\n");
 
-    break;
-    case 3:
+        scelta=doSceltaIntError("Input -> ", 5,"Scelta non valida,riprova\n");
+
+        switch(scelta){
+
+
+        case 1:
+            system("cls");
+
+            srcAeroporto = insertAeroporto();
+            srcAeroporto.index = graph->numeroAeroporti;
+            graph=addAeroporto(aeroporti,graph,srcAeroporto);
+
 
         break;
-    case 4:
+        case 2:
+            printf("Lista aeroporti disponibili:\n");
+            printAereoporto(aeroporti);
+
+            do{
+                strcpy(srcAeroporto.nomeAeroporto, doSceltaString("-Inserire codice IATA dell'aeroporto di partenza\nInput -> ",3, 0, 0));
+                upperCase(srcAeroporto.nomeAeroporto);
+                srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
+
+                strcpy(destAeroporto.nomeAeroporto, doSceltaString("-Inserire codice IATA dell'aeroporto di arrivo\nInput -> ",3, 0, 0));
+                upperCase(destAeroporto.nomeAeroporto);
+                destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
+
+                prezzo= doSceltaInt("-Inserire prezzo volo\nInput -> ",50000);
+
+                tempo= doSceltaInt("-Inserire durata volo\nInput -> ",1500);
+
+            }while(!addEdge(graph,srcAeroporto,destAeroporto,prezzo,tempo));
+
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
 
         break;
-    case 5:
-        system("cls");
-        welcome();
-    break;
 
-    default:
-        printf("\n\n\tScelta non valida\n");
-    }
+        case 3:
 
+            break;
+        case 4:
+
+            break;
+        case 5:
+            system("cls");
+
+        break;
+
+        default:
+            printf("\n\n\tScelta non valida\n");
+        }
+    }while(scelta!=5);
 
 }
