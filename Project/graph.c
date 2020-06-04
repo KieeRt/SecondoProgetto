@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "graph.h"
 #include "list.h"
+#include <assert.h>
 
 
 Graph createGraph(int numeroAeroporti){
@@ -165,41 +166,22 @@ Graph addAeroporto(List aeroporti, Graph g, Aeroporto aeroporto){
 
 }
 
+List deleteEdge(Graph graph, int src, int dest){
 
-void removeNode(Graph G, int node_to_remove) {
-    if (G != NULL) {
-        int i = 0;
-        int x = 0;
-        List *tmp = G->adjList;
-        printf("NUMERO AEROPORTI:%d\n", G->numeroAeroporti);
-        //Viene decrementato il numero di aeroporti
-        G->adjList = (List *)calloc(G->numeroAeroporti -=1, sizeof(List));
-        printf("Debug\n");
-        for (i = 0; i < G->numeroAeroporti; i++) {
-        printf("NUMERO AEROPORTI:%d\n", G->numeroAeroporti);
-                printf("Debug2\n");
-            if (i != node_to_remove) {
-                printf("Debug3\n");
-                printf("x:%d\n i:%d\n node_rm:%d\n", x, i, node_to_remove);
-                G->adjList[i] = checkListRemoval(G->adjList[i], node_to_remove);
-                //printf("x : %d %d\n", x, i);
-                x++;
-            } else
-             {
-                 printf("Debug4\n");
-				//freeList(G->adj[x]);
-               tmp[i] = freeList(tmp[i]);
-                x++;
-            }
-        }
-        printf("Debug5\n");
+    assert(graph != NULL);
+    assert(src < graph->numeroAeroporti);
+    assert(dest < graph->numeroAeroporti);
 
-        //free(tmp);
-    printf("Debug6\n");
+    if (src != dest) {
+        graph->adjList[src] = removeNodeList(graph->adjList[src], dest);
     }
+    return graph->adjList[src];
 }
 
-void removeNode2(Graph graph, int node_to_remove){
+
+
+
+void removeNode(Graph graph, int node_to_remove){
     int i;
     int x = 0;
     for(i = 0; i < graph->numeroAeroporti; i++){

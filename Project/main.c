@@ -7,6 +7,9 @@
 
 void menu();
 
+
+
+
 int main()
 {
 
@@ -41,25 +44,20 @@ a3.index = 19;
     Graph graph = createGraph(numeroAeroporto(tmp));
     createEdgeFromFile(graph, tmp);
 
-    // Rimuove node
-    removeNode2(graph, 1);
-    tmp = removeNodeList(tmp, 1);
-    tmp = updateNodeListIndexR(tmp, 0);
 
-   graph = addAeroporto(tmp, graph, a3);
 
-     removeNode2(graph, 3);
-    tmp = removeNodeList(tmp, 3);
-    tmp = updateNodeListIndexR(tmp, 0);
 
+    graph->adjList[0] = deleteEdge(graph,0,1);
+
+ graph->adjList[1] = deleteEdge(graph,1,0);
  // int z =   updateFileArchi(graph, tmp);
 
 
-    printGraphX(graph);
-    printAereoporto(tmp);
+//    printGraph(graph);
+   // printAereoporto(tmp);
 
 
-  // printGraphX(graph);
+   printGraphX(graph);
 
   //  removeNode(graph, 1);
  //   printf("PROVA\n");

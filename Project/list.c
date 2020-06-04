@@ -80,7 +80,6 @@ void printAereoporto(List list) {
         printAereoporto(list->next);
     }
 
-
 }
 
 Aeroporto findAeroporto(List lista, char* nomeCode){

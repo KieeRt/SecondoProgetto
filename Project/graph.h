@@ -26,7 +26,7 @@ bool isPozzo(Graph  graph,Aeroporto a1);
 Graph addAeroporto(List aeroporti, Graph g, Aeroporto aeroporto);
 
 Graph  g_insert(Graph G);
-void removeNode(Graph G, int node_to_remove);
+void removeNode(Graph graph, int node_to_remove);
 List checkListRemoval(List L, int node_to_remove);
 /*
 Graph initGraph();

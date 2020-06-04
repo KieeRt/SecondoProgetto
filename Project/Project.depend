@@ -97,7 +97,7 @@
 	<stdlib.h>
 	"inputReader.h"
 
-1591124250 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\main.c
+1591278528 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
@@ -164,21 +164,22 @@
 
 1591123372 c:\users\angel\onedrive\desktop\secondoprogetto\project\aeroporto.h
 
-1591123378 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\graph.c
+1591278609 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\graph.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"graph.h"
 	"list.h"
+	<assert.h>
 
-1591123378 c:\users\angel\onedrive\desktop\secondoprogetto\project\graph.h
+1591278106 c:\users\angel\onedrive\desktop\secondoprogetto\project\graph.h
 	"list.h"
 	<stdbool.h>
 
-1591123378 c:\users\angel\onedrive\desktop\secondoprogetto\project\list.h
+1591259640 c:\users\angel\onedrive\desktop\secondoprogetto\project\list.h
 	"Aeroporto.h"
 
-1591123378 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\list.c
+1591277760 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\list.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -228,12 +229,12 @@
 	<stdlib.h>
 	"file.h"
 
-1591124314 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\file.c
+1591276628 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\file.c
 	<stdio.h>
 	<stdlib.h>
 	"file.h"
 
-1591123641 c:\users\angel\onedrive\desktop\secondoprogetto\project\file.h
+1591259640 c:\users\angel\onedrive\desktop\secondoprogetto\project\file.h
 	"list.h"
 	"graph.h"
 	<stdbool.h>
