@@ -86,26 +86,28 @@ void printGraph(Graph graph){
     }
 }
 void printAereoportoCollegamenti(Graph graph, List aeroporti){
-Aeroporto partenza: Napoli
 
-
-    Collegamento 1:
-    Roma (FCO)
-    prezzo
-        tempo
-
-Collegamento 2:
 
     int v;
+
     for(v = 0; v < graph->numeroAeroporti; v++){
-      List tmp = graph->adjList[v];
+        int i = 0;
+        List tmp = graph->adjList[v];
 
       printf("\n Aeroporto partenza:%s\n",  aeroporti->aeroporto.nomeAeroporto);
       aeroporti = aeroporti->next;
         while(tmp){
-            printf("\tCollegamento %d:\n%s(%s)\n", v, tmp->aeroporto.nomeCitta, tm tmp->tempo);
+        i++;
+            printf("\tCollegamento %d:\n", i);
+            printf("\t%s(%s)\n",  tmp->aeroporto.nomeCitta, tmp->aeroporto.nomeAeroporto);
+            printf("\tPrezzo: %d\n",  tmp->prezzo);
+            printf("\tTempo: ");
+            printTimeVolo(tmp->tempo);
+            printf("\n");
+
             tmp = tmp->next;
         }
+
     }
 }
 
@@ -207,7 +209,23 @@ List deleteEdge(Graph graph, int src, int dest){
     return graph->adjList[src];
 }
 
+bool isDeletedEdge(Graph graph, int src, int dest){
+    bool find = false;
+    Aeroporto support;
 
+    support = findAeroportoIndex(dest, graph->adjList[src]);
+
+    if(support.index != -1){
+        find = true;
+        graph->adjList[src] = deleteEdge(graph, src, dest);
+        printf("Collegamento cancellato\n");
+    }
+    else{
+        printf("Collegamento non trovato\n");
+    }
+
+    return find;
+}
 
 
 bool removeNode(Graph graph, int node_to_remove){

@@ -20,7 +20,7 @@ int main()
    welcome(graph,aeroportiList);
 
 
-    printGraph(graph);
+
     return 0;
 }
 

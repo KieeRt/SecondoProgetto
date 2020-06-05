@@ -20,6 +20,7 @@ int doSceltaString(char* messaggio, int dimensione_esatta, int dimensione_min, i
 //In più stampa il messaggio di errore
 int doSceltaStringError(char* messaggio, char* error, int dimensione_esatta, int dimensione_min, int dimensione_max);
 
+void printTimeVolo(int minuti);
 char* doCompare();
 char* strremove(char *str, const char *sub);
 void upperCase(char * str);

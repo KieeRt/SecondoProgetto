@@ -17,6 +17,8 @@ bool addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo);
 
 void printGraph(Graph graph);
 
+void printAereoportoCollegamenti(Graph graph, List aeroporti);
+
 //Controlli sugli archi
 bool checkEdge(Graph graph ,Aeroporto a1, Aeroporto a2);
 
@@ -38,6 +40,8 @@ bool removeNode(Graph graph, int node_to_remove);
 List checkListRemoval(List L, int node_to_remove);
 
 List deleteEdge(Graph graph, int src, int dest);
+
+bool isDeletedEdge(Graph graph, int src, int dest);
 
 
 

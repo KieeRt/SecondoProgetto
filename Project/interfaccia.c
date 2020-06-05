@@ -117,9 +117,11 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
         printf("2 - Aggiungere una tratta\n");
         printf("3 - Rimuovere aeroporto\n");
         printf("4 - Rimuovere la tratta\n");
-        printf("5 - Logout\n");
+        printf("5 - Stampare tutti gli aeroporti\n");
+        printf("6 - Stampare tutti gli aeroporti con destinazioni possibili\n");
+        printf("7 - Logout\n");
 
-        scelta=doSceltaIntError("Input -> ", 5,"Scelta non valida,riprova\n");
+        scelta=doSceltaIntError("Input -> ", 7,"Scelta non valida,riprova\n");
 
         switch(scelta){
 
@@ -189,6 +191,8 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
 
             }while(!removeNode(graph, srcAeroporto.index));
 
+            aeroporti = removeNodeList(aeroporti, srcAeroporto.index);
+            aeroporti = updateNodeListIndexR(aeroporti, 0);
 
 
             fflush(stdin);
@@ -197,16 +201,50 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
 
             break;
         case 4:
+            printf("-Collegamenti disponibili\n");
+            printAereoportoCollegamenti(graph, aeroporti);
 
+             do{
+                strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n", 0, 1, 3));
+                if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
+                    break;
+                upperCase(srcAeroporto.nomeAeroporto);
+                srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
+
+
+                strcpy(destAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di arrivo(0 se si vuole uscire)\nInput -> ", "Input non valido\n", 0, 1, 3));
+
+                if(!strcmp(destAeroporto.nomeAeroporto,"0"))
+                    break;
+                upperCase(destAeroporto.nomeAeroporto);
+                destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
+
+                if(!strcmp(destAeroporto.nomeAeroporto,"0"))
+                    break;
+
+            }while(!isDeletedEdge(graph, srcAeroporto.index, destAeroporto.index));
+
+
+            fflush(stdin);
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
             break;
         case 5:
-            system("cls");
-
+            printAereoporto(aeroporti);
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
         break;
-
+        case 6:
+            printAereoportoCollegamenti(graph, aeroporti);
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
+        break;
+        case 7:
+            system("cls");
+            break;
         default:
             printf("\n\n\tScelta non valida\n");
         }
-    }while(scelta!=5);
+    }while(scelta!=7);
 
 }

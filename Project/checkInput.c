@@ -153,7 +153,19 @@ bool checkIfExist(char *st1, char *nomeFile){
 }
 
 
+void printTimeVolo(int minuti){
 
+    if ( (minuti / 60) == 1 ) /* display 'x' hour... */
+        printf("%01d hour",minuti/60);
+    else /* display 'x' hours .... */
+        printf("%01d hours",minuti/60);
+
+    if ( (minuti % 60) == 1) /* display 'x' minute... */
+        printf(" %01d minute\n", minuti%60);
+    else /* display 'x' minutes....*/
+        printf(" %01d minutes\n",minuti%60);
+
+}
 
 
 char * concatenation(char *a, char *b){
