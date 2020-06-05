@@ -17,9 +17,10 @@ int main()
     Graph graph = createGraph(numeroAeroporto(aeroportiList));
     createEdgeFromFile(graph, aeroportiList);
 
-    welcome(graph,aeroportiList);
+   welcome(graph,aeroportiList);
 
 
+    printGraph(graph);
     return 0;
 }
 

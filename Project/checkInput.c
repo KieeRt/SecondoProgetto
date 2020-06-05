@@ -79,6 +79,22 @@ int* pt = &buff;
    return pt;
 }
 
+int doSceltaStringError(char* messaggio, char* error, int dimensione_esatta, int dimensione_min, int dimensione_max){
+char buff[20];
+int* pt = &buff;
+int i = 0;
+
+    do{
+        if(i>0)
+            printf("%s",error);
+        i++;
+        printf("%s", messaggio);
+        scanf("%s", buff);
+
+    }while(!controllaLunghezza(buff, dimensione_esatta, dimensione_min, dimensione_max));
+   return pt;
+}
+
 
 char* doCompare () {
   char* buff;

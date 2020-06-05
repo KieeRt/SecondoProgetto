@@ -8,13 +8,16 @@ void welcome(Graph graph, List aeroporti){
     User utente=initUtente();
     int scelta=-1;
 
+
+
+
+    do{
+
     printf("\n");
     printf("1 - Login\n");
     printf("2 - Registrati\n");
     printf("3 - Esci\n");
 
-
-    do{
         scelta=doSceltaInt("Input -> ",3);
 
         switch(scelta){
@@ -128,6 +131,12 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
             srcAeroporto.index = graph->numeroAeroporti;
             graph=addAeroporto(aeroporti,graph,srcAeroporto);
 
+            fflush(stdin);
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
+
+
+
 
         break;
         case 2:
@@ -135,26 +144,56 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
             printAereoporto(aeroporti);
 
             do{
-                strcpy(srcAeroporto.nomeAeroporto, doSceltaString("-Inserire codice IATA dell'aeroporto di partenza\nInput -> ",3, 0, 0));
+                strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n", 0, 1, 3));
+                if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
+                    break;
                 upperCase(srcAeroporto.nomeAeroporto);
                 srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
 
-                strcpy(destAeroporto.nomeAeroporto, doSceltaString("-Inserire codice IATA dell'aeroporto di arrivo\nInput -> ",3, 0, 0));
+
+                strcpy(destAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di arrivo(0 se si vuole uscire)\nInput -> ", "Input non valido\n", 0, 1, 3));
+               if(!strcmp(destAeroporto.nomeAeroporto,"0"))
+                    break;
                 upperCase(destAeroporto.nomeAeroporto);
                 destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
+                if(!strcmp(destAeroporto.nomeAeroporto,"0"))
+                    break;
 
-                prezzo= doSceltaInt("-Inserire prezzo volo\nInput -> ",50000);
+                prezzo = doSceltaIntZero("-Inserire prezzo volo\nInput -> ",50000);
+                if(prezzo == 0)
+                    break;
 
-                tempo= doSceltaInt("-Inserire durata volo\nInput -> ",1500);
+                tempo = doSceltaIntZero("-Inserire durata volo\nInput -> ",1500);
+                if(tempo == 0)
+                    break;
 
             }while(!addEdge(graph,srcAeroporto,destAeroporto,prezzo,tempo));
 
+            fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
             while(getchar()!='\n'); // option TWO to clean stdin
 
         break;
 
         case 3:
+            printf("Lista aeroporti disponibili:\n");
+            printAereoporto(aeroporti);
+
+            do{
+
+                strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
+                if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
+                    break;
+                upperCase(srcAeroporto.nomeAeroporto);
+                srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
+
+            }while(!removeNode(graph, srcAeroporto.index));
+
+
+
+            fflush(stdin);
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
 
             break;
         case 4:

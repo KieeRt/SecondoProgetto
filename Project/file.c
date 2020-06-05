@@ -95,8 +95,8 @@ List initNodeListFromFile(){
 
 }
 
-
 bool updateFileArchi(Graph graph, List aeroporti){
+
     FILE *file_archi;
     file_archi = fopen("archi.txt", "w");
     fflush(stdin);

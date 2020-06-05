@@ -33,7 +33,7 @@ Graph addAeroporto(List aeroporti, Graph g, Aeroporto aeroporto);
 
 Graph  g_insert(Graph G);
 
-void removeNode(Graph graph, int node_to_remove);
+bool removeNode(Graph graph, int node_to_remove);
 
 List checkListRemoval(List L, int node_to_remove);
 

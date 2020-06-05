@@ -75,20 +75,39 @@ bool checkEdge(Graph graph ,Aeroporto a1, Aeroporto a2){
 
 
 void printGraph(Graph graph){
-   // List aeroporto = initFromFile();
-
     int v;
     for(v = 0; v < graph->numeroAeroporti; v++){
       List tmp = graph->adjList[v];
       printf("\n Vertice: %d\n",  v);
-      //  aeroporto = aeroporto->next;
         while(tmp){
             printf("%s(%d) -> ", tmp->aeroporto.nomeAeroporto, tmp->tempo);
             tmp = tmp->next;
         }
     }
 }
+void printAereoportoCollegamenti(Graph graph, List aeroporti){
+Aeroporto partenza: Napoli
 
+
+    Collegamento 1:
+    Roma (FCO)
+    prezzo
+        tempo
+
+Collegamento 2:
+
+    int v;
+    for(v = 0; v < graph->numeroAeroporti; v++){
+      List tmp = graph->adjList[v];
+
+      printf("\n Aeroporto partenza:%s\n",  aeroporti->aeroporto.nomeAeroporto);
+      aeroporti = aeroporti->next;
+        while(tmp){
+            printf("\tCollegamento %d:\n%s(%s)\n", v, tmp->aeroporto.nomeCitta, tm tmp->tempo);
+            tmp = tmp->next;
+        }
+    }
+}
 
 
 int* findoutDegree(Graph graph){
@@ -191,20 +210,32 @@ List deleteEdge(Graph graph, int src, int dest){
 
 
 
-void removeNode(Graph graph, int node_to_remove){
+bool removeNode(Graph graph, int node_to_remove){
     int i;
     int x = 0;
-    for(i = 0; i < graph->numeroAeroporti; i++){
-        if(i == node_to_remove){
-            graph->adjList[i] = freeList(graph->adjList[i]);
-        }
-        else{
+    bool find = false;
 
-              graph->adjList[x]  = checkListRemoval(graph->adjList[i] , node_to_remove);
-            x++;
+    if(node_to_remove <= graph->numeroAeroporti-1 && node_to_remove >= 0){
+        find = true;
+
+        for(i = 0; i < graph->numeroAeroporti; i++){
+            if(i == node_to_remove){
+                graph->adjList[i] = freeList(graph->adjList[i]);
+            }
+            else{
+
+                  graph->adjList[x]  = checkListRemoval(graph->adjList[i] , node_to_remove);
+                x++;
+            }
         }
+        graph->numeroAeroporti -=1;
+        printf("-Aeroporto e' stato eliminato\n");
     }
-    graph->numeroAeroporti -=1;
+    else{
+        printf("-Aeroporto non e' presente nella lista\n");
+    }
+
+    return find;
 }
 
 List checkListRemoval(List L, int node_to_remove) {
@@ -213,8 +244,11 @@ List checkListRemoval(List L, int node_to_remove) {
         L->next = checkListRemoval(L->next, node_to_remove);
         if (L->aeroporto.index == node_to_remove) {
             List tmp = L->next;
-
-
+            free(L);
+            L = NULL;
+            return tmp;
         }
+
     }
+    return L;
 }

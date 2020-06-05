@@ -15,6 +15,10 @@ int doSceltaIntError(char* messaggio, int valore_max,char * error);
 //Chiede in input una stringa e stampa il messaggio finche la stringa non soddisfa le dimensioni indicate, mettere 0 nel campo nel caso in cui un paramentro deve essere ignorato.
 //Ritorna l'indirizzo della stringa che contiene l'input
 int doSceltaString(char* messaggio, int dimensione_esatta, int dimensione_min, int dimensione_max);
+//Chiede in input una stringa e stampa il messaggio finche la stringa non soddisfa le dimensioni indicate, mettere 0 nel campo nel caso in cui un paramentro deve essere ignorato.
+//Ritorna l'indirizzo della stringa che contiene l'input
+//In più stampa il messaggio di errore
+int doSceltaStringError(char* messaggio, char* error, int dimensione_esatta, int dimensione_min, int dimensione_max);
 
 char* doCompare();
 char* strremove(char *str, const char *sub);
