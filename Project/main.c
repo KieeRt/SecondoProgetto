@@ -17,7 +17,11 @@ int main()
     Graph graph = createGraph(numeroAeroporto(aeroportiList));
     createEdgeFromFile(graph, aeroportiList);
 
-   welcome(graph,aeroportiList);
+    MergeSort(&aeroportiList);
+
+    printAereoporto(aeroportiList);
+
+  // welcome(graph,aeroportiList);
 
 
 

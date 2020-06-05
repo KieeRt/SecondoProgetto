@@ -31,5 +31,10 @@ void printAereoporto(List list);
 int numeroAeroporto(List list);
 List freeList(List L);
 
+//Funzioni per il mergeSort
+void MergeSort(List* headRef);
+void FrontBackSplit(List source, List* frontRef, List* backRef);
+List SortedMergePopular(List a, List b);
+
 
 #endif // LIST_H_INCLUDED

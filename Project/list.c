@@ -156,3 +156,60 @@ List updateNodeListIndexR(List L, int numero){
 
 
 
+void MergeSort(List* headRef){
+    List head = *headRef;
+    List a;
+    List b;
+
+    if((head == NULL) || (head->next == NULL)){
+        return;
+    }
+    FrontBackSplit(head, &a, &b);
+
+    MergeSort(&a);
+    MergeSort(&b);
+
+    *headRef = SortedMergePopular(a,b);
+
+}
+
+List SortedMergePopular(List a, List b){
+    List result = NULL;
+
+    if(a == NULL)
+        return (b);
+    else if(b == NULL)
+        return (a);
+
+    if(a->aeroporto.popolarita <= b->aeroporto.popolarita){
+        result = a;
+        result->next = SortedMergePopular(a->next, b);
+    }
+    else{
+        result = b;
+        result->next = SortedMergePopular(a, b->next);
+    }
+    return result;
+}
+
+void FrontBackSplit(List source, List* frontRef, List* backRef){
+    List fast;
+    List slow;
+    slow = source;
+    fast = source->next;
+
+    while(fast != NULL){
+        fast = fast->next;
+        if(fast != NULL){
+            slow = slow->next;
+            fast = fast->next;
+        }
+    }
+
+    *frontRef = source;
+    *backRef = slow->next;
+    slow->next = NULL;
+}
+
+
+
