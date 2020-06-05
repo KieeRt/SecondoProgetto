@@ -156,7 +156,7 @@ List updateNodeListIndexR(List L, int numero){
 
 
 
-void MergeSort(List* headRef){
+void MergeSort(List* headRef, int modalita){
     List head = *headRef;
     List a;
     List b;
@@ -166,10 +166,16 @@ void MergeSort(List* headRef){
     }
     FrontBackSplit(head, &a, &b);
 
-    MergeSort(&a);
-    MergeSort(&b);
+    MergeSort(&a, modalita);
+    MergeSort(&b, modalita);
 
-    *headRef = SortedMergePopular(a,b);
+    if(modalita == 0)
+        *headRef = SortedMergePrice(a,b);
+    else if(modalita == 1)
+        *headRef = SortedMergePopular(a,b);
+    else{
+        printf("Errore inserimento della modalita di MergeSort\n");
+    }
 
 }
 
@@ -181,13 +187,32 @@ List SortedMergePopular(List a, List b){
     else if(b == NULL)
         return (a);
 
-    if(a->aeroporto.popolarita <= b->aeroporto.popolarita){
+    if(a->aeroporto.popolarita >= b->aeroporto.popolarita){
         result = a;
         result->next = SortedMergePopular(a->next, b);
     }
     else{
         result = b;
         result->next = SortedMergePopular(a, b->next);
+    }
+    return result;
+}
+
+List SortedMergePrice(List a, List b){
+    List result = NULL;
+
+    if(a == NULL)
+        return (b);
+    else if(b == NULL)
+        return (a);
+
+    if(a->prezzo <= b->prezzo){
+        result = a;
+        result->next = SortedMergePrice(a->next, b);
+    }
+    else{
+        result = b;
+        result->next = SortedMergePrice(a, b->next);
     }
     return result;
 }
@@ -212,4 +237,15 @@ void FrontBackSplit(List source, List* frontRef, List* backRef){
 }
 
 
+List copyList(List L)
+{
+    if(L==NULL) return;
+    List tmp= (List)malloc(sizeof(struct TList));
+    tmp->aeroporto = L->aeroporto;
+    tmp->prezzo = L->prezzo;
+    tmp->tempo = L->tempo;
+
+    tmp->next=copyList(L->next);
+    return tmp;
+}
 

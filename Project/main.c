@@ -16,10 +16,11 @@ int main()
     List aeroportiList = initNodeListFromFile();
     Graph graph = createGraph(numeroAeroporto(aeroportiList));
     createEdgeFromFile(graph, aeroportiList);
+    List tmp = copyList(graph->adjList[1]);
 
-    MergeSort(&aeroportiList);
+    MergeSort(&tmp, 0);
 
-    printAereoporto(aeroportiList);
+    printAereoporto(tmp);
 
   // welcome(graph,aeroportiList);
 

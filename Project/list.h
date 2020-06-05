@@ -32,9 +32,11 @@ int numeroAeroporto(List list);
 List freeList(List L);
 
 //Funzioni per il mergeSort
-void MergeSort(List* headRef);
+void MergeSort(List* headRef, int modalita);
 void FrontBackSplit(List source, List* frontRef, List* backRef);
 List SortedMergePopular(List a, List b);
+List SortedMergePrice(List a, List b);
 
+List copyList(List L);
 
 #endif // LIST_H_INCLUDED
