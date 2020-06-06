@@ -2,7 +2,7 @@
 #define GRAPH__H_INCLUDED
 #include "list.h"
 #include <stdbool.h>
-
+#include "queue.h"
 struct TGraph {
     List *adjList;
     int numeroAeroporti;

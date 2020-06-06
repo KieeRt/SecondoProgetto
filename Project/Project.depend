@@ -260,3 +260,95 @@
 	"graph.h"
 	"list.h"
 
+1591454958 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\aeroporto.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Aeroporto.h"
+
+1591454958 c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\aeroporto.h
+
+1591454958 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\checkinput.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"./lib/inputReader.h"
+
+1591454878 c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\lib\inputreader.h
+
+1591454958 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\file.c
+	<stdio.h>
+	<stdlib.h>
+	"file.h"
+
+1591454958 c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\file.h
+	"list.h"
+	"graph.h"
+	<stdbool.h>
+
+1591455281 c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\list.h
+	"Aeroporto.h"
+
+1591455865 c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\graph.h
+	"list.h"
+	<stdbool.h>
+	"queue.h"
+
+1591456828 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\graph.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"graph.h"
+	"list.h"
+	<assert.h>
+
+1591454878 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\lib\inputreader.c
+	<stdio.h>
+	<stdlib.h>
+	"inputReader.h"
+
+1591455974 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Utente.h"
+	"list.h"
+	"graph.h"
+	"file.h"
+
+1591454878 c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\utente.h
+	<stdbool.h>
+
+1591455639 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\interfaccia.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"interfaccia.h"
+
+1591454958 c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\interfaccia.h
+	"Utente.h"
+	"graph.h"
+	"list.h"
+
+1591455283 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\list.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"list.h"
+
+1591455316 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\utente.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"Utente.h"
+
+1591455768 c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\queue.h
+
+1591455847 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\queue.c
+	<stdio.h>
+	<stdlib.h>
+	"queue.h"
+	<time.h>
+	<limits.h>
+

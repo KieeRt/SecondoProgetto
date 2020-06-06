@@ -125,6 +125,7 @@ User getUtente(char* codiceFiscale){
         User utente=initUtente();
         char buff[400];
         char punti[20];
+         char buffer[400];
         FILE *fp = fopen("Utenti.txt", "r");
         if(fp == NULL){
             printf("Impossibile aprire il file" );
@@ -133,7 +134,9 @@ User getUtente(char* codiceFiscale){
         while(fgets(buff,400,fp)!=NULL){
         //Controllo il contenuto di ogni riga e rimuovo un determinato prefisso
             if(strstr(buff,"@CodiceFiscale"))
-                strcpy(utente.codiceFiscale,strremove(buff,"@CodiceFiscale "));
+                strcpy(buffer,strremove(buff,"@CodiceFiscale "));
+            if (!strcmp(buffer,codiceFiscale)){
+                    strcpy(utente.codiceFiscale, buffer);
 
             if (!strcmp(utente.codiceFiscale,codiceFiscale)){
                 if(strstr(buff,"@Nome"))
@@ -149,6 +152,7 @@ User getUtente(char* codiceFiscale){
 
             }
 
+            }
         }
 
         return utente;

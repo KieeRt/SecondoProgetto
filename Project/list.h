@@ -20,6 +20,11 @@ Aeroporto findAeroporto(List lista, char* nomeCode);
 //Ritorna l'aeroporto ricercato o uno fake in base all'indice
 Aeroporto findAeroportoIndex(int v, List aeroporti);
 
+//Ritorna la città ricercato o un fake che avrà indice -1
+Aeroporto findCitta(List lista, char* nomeCitta);
+
+void printAereoportoPrice(List list);
+
 //Rimuove un elemento dalla lista
 List removeNodeList(List L, int target);
 //Aggiorna il campo index della lista che contiene tutti gli aeroporti

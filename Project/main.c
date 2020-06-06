@@ -12,20 +12,23 @@
 
 int main()
 {
-
     List aeroportiList = initNodeListFromFile();
     Graph graph = createGraph(numeroAeroporto(aeroportiList));
     createEdgeFromFile(graph, aeroportiList);
-    List tmp = copyList(graph->adjList[1]);
+//    List tmp = copyList(graph->adjList[0]);
 
-    MergeSort(&tmp, 0);
+  //  MergeSort(&tmp, 1);
 
-    printAereoporto(tmp);
+    //printAereoporto(tmp);
 
-  // welcome(graph,aeroportiList);
+//  welcome(graph,aeroportiList);
+    int dist [20];
+    int prev[20];
+    shortestPathPrice( graph, &dist, &prev,  0,  aeroportiList);
 
-
-
+for(int i=0;i<20;i++){
+        printf("index %d -> %d\n",i,prev[i]);
+    }
     return 0;
 }
 

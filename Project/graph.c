@@ -270,3 +270,90 @@ List checkListRemoval(List L, int node_to_remove) {
     }
     return L;
 }
+
+
+void shortestPathTime(Graph g, int *dist, int *prev, int start, List list) {
+   int n = g->numeroAeroporti;
+    int alt;
+    //Initialize distance's array
+    for(int u = 0; u<n; u++) {
+        dist[u] = 9999;   //set as infinity
+        prev[u] = -1;    //undefined previous
+    }
+
+    dist[start] = 0;   //distance of start is 0
+
+    Queue queue = initQueue();
+
+    //Add each vertex to queue
+    int i =0;
+    for (i =0 ; i< g->numeroAeroporti;i++){
+        enqueue(queue, list->aeroporto.index);
+        list = list->next;
+    }
+
+
+    while(!emptyQueue(queue)){
+        //find min in queue
+        int u = dequeue(queue);
+
+        List pCrawl = g->adjList[u];
+
+        while(pCrawl){
+
+            alt = dist[u] + pCrawl->tempo;
+
+            if(alt < dist[pCrawl->aeroporto.index]){
+
+                dist[pCrawl->aeroporto.index] = alt;
+                prev[pCrawl->aeroporto.index] = u;
+            }
+            pCrawl= pCrawl->next;
+        }
+
+    }
+}
+
+
+
+void shortestPathPrice(Graph g, int *dist, int *prev, int start, List list) {
+   int n = g->numeroAeroporti;
+    int alt;
+    //Initialize distance's array
+    for(int u = 0; u<n; u++) {
+        dist[u] = 9999;   //set as infinity
+        prev[u] = -1;    //undefined previous
+    }
+
+    dist[start] = 0;   //distance of start is 0
+
+    Queue queue = initQueue();
+
+    //Add each vertex to queue
+    int i =0;
+    for (i =0 ; i< g->numeroAeroporti;i++){
+        enqueue(queue, list->aeroporto.index);
+        list = list->next;
+    }
+
+
+    while(!emptyQueue(queue)){
+        //find min in queue
+        int u = dequeue(queue);
+
+        List pCrawl = g->adjList[u];
+
+        while(pCrawl){
+
+            alt = dist[u] + pCrawl->prezzo;
+
+            if(alt < dist[pCrawl->aeroporto.index]){
+
+                dist[pCrawl->aeroporto.index] = alt;
+                prev[pCrawl->aeroporto.index] = u;
+            }
+            pCrawl= pCrawl->next;
+        }
+
+    }
+}
