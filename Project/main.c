@@ -7,6 +7,9 @@
 
 
 
+List checkPrice2(int *array, int n, List list, int max);
+List headNode(List lista);
+List insertListNoAeroporto(List lista, List nodo);
 
 List checkPrice(int * array,int n, List list, int max);
 
@@ -28,7 +31,7 @@ int main()
 
     for(int i=0;i<graph->numeroAeroporti;i++)
             printf("%d %d\n",i,dist[i]);
-    List tmp = checkPrice(dist,graph->numeroAeroporti,aeroportiList,9999);
+    List tmp = checkPrice2(dist,graph->numeroAeroporti,aeroportiList,9999);
     //MergeSort(&tmp,0);
     //printAereoportoPrice(tmp);
     return 0;
@@ -55,7 +58,43 @@ List checkPrice(int * array,int n, List list, int max){
 
 }
 
+List checkPrice2(int *array, int n, List list, int max){
+    int i = 0;
+    Aeroporto aeroporto;
+    List tmp = (List)malloc(sizeof(struct TList));
+    tmp = NULL;
 
+    for(i = 0; i < n; i++){
+        if(array[i] != 0 && array[i] != max){
+            tmp = insertListNoAeroporto(tmp, headNode(list));
+        }
+    list = list->next;
+    }
+
+
+
+}
+List headNode(List lista){
+Aeroporto aeroporto;
+List tmp = (List) malloc (sizeof(struct TList));
+tmp = NULL;
+    if( lista != NULL){
+        tmp->aeroporto = lista->aeroporto;
+        tmp->prezzo = lista->prezzo;
+        tmp->tempo = lista->tempo;
+        tmp->next = NULL;
+
+    }
+    return tmp;
+}
+
+List insertListNoAeroporto(List lista, List nodo){
+    if(nodo != NULL){
+        nodo->next = lista;
+    }
+
+    return nodo;
+}
 
 
 
