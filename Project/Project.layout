@@ -2,14 +2,34 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Utente.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="checkInput.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="381" topLine="0" />
+			<Cursor1 position="251" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Aeroporti.txt" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="archi.txt" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1404" topLine="65" />
+			<Cursor1 position="444" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="list.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1118" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="checkInput.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2356" topLine="61" />
+		</Cursor>
+	</File>
+	<File name="list.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4675" topLine="181" />
+		</Cursor>
+	</File>
+	<File name="TODO.txt" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="483" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="interfaccia.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -17,29 +37,24 @@
 			<Cursor1 position="155" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="archi.txt" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Utente.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="260" topLine="0" />
+			<Cursor1 position="492" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="file.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="898" topLine="35" />
+			<Cursor1 position="2685" topLine="41" />
 		</Cursor>
 	</File>
-	<File name="list.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Aeroporto.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3224" topLine="112" />
+			<Cursor1 position="202" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Aeroporto.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Aeroporti.txt" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="298" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="interfaccia.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1893" topLine="0" />
+			<Cursor1 position="375" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="lib\inputReader.c" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -47,24 +62,9 @@
 			<Cursor1 position="63" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="checkInput.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2923" topLine="86" />
-		</Cursor>
-	</File>
-	<File name="Utente.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="490" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="file.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="245" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="checkInput.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="251" topLine="0" />
+			<Cursor1 position="421" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="lib\inputReader.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -72,9 +72,9 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="list.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Aeroporto.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="827" topLine="0" />
+			<Cursor1 position="298" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="graph.c" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -82,24 +82,24 @@
 			<Cursor1 position="5211" topLine="196" />
 		</Cursor>
 	</File>
-	<File name="TODO.txt" open="1" top="1" tabpos="13" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="Utente.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="9" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1175" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Aeroporto.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="332" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="file.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2647" topLine="70" />
+			<Cursor1 position="3406" topLine="116" />
 		</Cursor>
 	</File>
 	<File name="graph.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="114" topLine="4" />
+			<Cursor1 position="114" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="file.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="245" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="interfaccia.c" open="1" top="1" tabpos="11" split="0" active="1" splitpos="0" zoom_1="13" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1188" topLine="38" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

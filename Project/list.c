@@ -81,6 +81,22 @@ void printAereoporto(List list) {
     }
 
 }
+void printAereoportoPrice(List list) {
+
+
+    if (list != NULL) {
+
+
+
+        printf("-Nome aeroporto %s\n", list->aeroporto.nomeAeroporto);
+        printf("-Nome citta %s\n", list->aeroporto.nomeCitta);
+        printf("-Prezzo volo %d\n",list->prezzo);
+        printf("-Popolarita  %d\n", list->aeroporto.popolarita);
+        printf("-Costo della vita %d\n\n", list->aeroporto.costoVita);
+
+        printAereoportoPrice(list->next);
+    }
+}
 
 Aeroporto findAeroporto(List lista, char* nomeCode){
 Aeroporto fake = initAeroporto();
@@ -104,6 +120,16 @@ Aeroporto fake = initAeroporto();
     return fake;
 }
 
+Aeroporto findCitta(List lista, char* nomeCitta){
+Aeroporto fake = initAeroporto();
+    if(lista){
+        if(!strcmp(nomeCitta, lista->aeroporto.nomeCitta)){
+            return lista->aeroporto;
+        }
+       fake = findAeroporto(lista->next, nomeCitta);
+    }
+    return fake;
+}
 
 
 

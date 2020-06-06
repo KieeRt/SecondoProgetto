@@ -13,6 +13,7 @@ void menu();
 int main()
 {
 
+<<<<<<< Updated upstream
 
 
 Aeroporto a1, a2, a3;
@@ -79,6 +80,18 @@ a3.index = 19;
     //updateFileAeroporti(tmp);
     //printf("\n\n");
 
+=======
+    List aeroportiList = initNodeListFromFile();
+    Graph graph = createGraph(numeroAeroporto(aeroportiList));
+    createEdgeFromFile(graph, aeroportiList);
+//    List tmp = copyList(graph->adjList[0]);
+
+  //  MergeSort(&tmp, 1);
+
+    //printAereoporto(tmp);
+
+  welcome(graph,aeroportiList);
+>>>>>>> Stashed changes
 
 
    // bool find = isPozzo(graph,a3);

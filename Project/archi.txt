@@ -22,3 +22,11 @@
 @destinazione BGY
 @prezzo 30
 @tempo 60
+@partenza NAP
+@destinazione VLC
+@prezzo 150
+@tempo 90
+@partenza NAP
+@destinazione AMS
+@prezzo 15
+@tempo 90
