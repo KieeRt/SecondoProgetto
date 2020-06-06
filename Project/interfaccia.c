@@ -57,6 +57,7 @@ void home(User utente,Graph graph, List aeroporti){
     List tmp = NULL;
     Aeroporto srcAeroporto;
     Aeroporto destAeroporto;
+    int *prev, *dist;
     do{
         system("cls");
         printf("\n");
@@ -95,11 +96,13 @@ void home(User utente,Graph graph, List aeroporti){
                         srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
 
                 }while(srcAeroporto.index == -1);
-                tmp = copyList(graph->adjList[srcAeroporto.index]);
-                MergeSort(&tmp, 0);
-                printAereoportoPrice(tmp);
-                fflush(stdin);
-                printf("\nPremi invio per tornare al menu precedente\n");
+                dist = (int *)malloc (sizeof(int)*(graph->numeroAeroporti-1));
+                prev = (int *)malloc (sizeof(int)*(graph->numeroAeroporti-1));
+                shortestPathPrice(graph,&dist,&prev,srcAeroporto.index,aeroporti);
+
+
+                free(dist);
+                free(prev);
                 while(getchar()!='\n'); // option TWO to clean stdin
                 //TODO prenotazione!!!
             break;

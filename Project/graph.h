@@ -43,6 +43,9 @@ List deleteEdge(Graph graph, int src, int dest);
 
 bool isDeletedEdge(Graph graph, int src, int dest);
 
+void shortestPathPrice(Graph g, int *dist, int *prev, int start, List list);
+
+void shortestPathTime(Graph g, int *dist, int *prev, int start, List list);
 
 
 

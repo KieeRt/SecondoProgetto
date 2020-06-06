@@ -1,17 +1,3 @@
 TO-DO
-1. riusciamo ad eliminare il nodo dal grafo:
-    1.1 Eliminandolo dalle liste di adiacenza di tutti gli altri nodi (altri nodi che puntano al nostro nodo)
-    1.2 Eliminando vertice in questione, la sua lista di adiacenza viene completamente liberata
-2. Riusciamo ad eliminare il nodo eliminato dal grafo anche dalla lista che contiene tutti gli aeroporti
-3. Riusciamo ad aggiornare gli indici dei aeroporti contenuti nella lista aeroprti (lista->aeroporto)
-
-Cosa manca:
-1.Adesso abbiamo perso la corrispondenza tra n-esimo elemento della lista di aeroporti e n-esima lista di adiacenza del grafo, cioe:
-    Se avevamo (1)NAP (2)MXP (3)RGP LISTA DI aeroporti (N.B X,Y,Z .... != NAP,MXP,RPG)
-    Lista di adiacenza (1)NAP -> 1[X,Y Z] | (2)MXP (2) -> [X1,Y1,Z1]  | (3)RPG (3) -> [X2,Y2,Z2]
-    dopo rimozione del nodo (2)MXP, il collegamento logico sara:
-    (1)NAP -> 1[X,Y Z] | (2)RPG (2) -> NULL  |  NESSUNO -> [X2,Y2,Z2]
-    cioe' il terzo elemento della lista adesso avra un collegamento logico alla lista di adiacenza del secondo elemento ( il quale e' stato eliminato)
-    (FORSE AVEVA IL SENSO LA DISTIZIONE TRA IL PUNTATORE X E I NELLA remove_node)
-
+1- Imprementare dijkcoso per percossi minimini in punti
 

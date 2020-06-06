@@ -8,7 +8,7 @@
 
 
 
-
+List checkPrice(int * array,int n, List list, int max);
 
 int main()
 {
@@ -21,15 +21,38 @@ int main()
 
     //printAereoporto(tmp);
 
-//  welcome(graph,aeroportiList);
+   // welcome(graph,aeroportiList);
     int dist [20];
     int prev[20];
     shortestPathPrice( graph, &dist, &prev,  0,  aeroportiList);
 
-for(int i=0;i<20;i++){
-        printf("index %d -> %d\n",i,prev[i]);
-    }
+    for(int i=0;i<graph->numeroAeroporti;i++)
+            printf("%d %d\n",i,dist[i]);
+    List tmp = checkPrice(dist,graph->numeroAeroporti,aeroportiList,9999);
+    //MergeSort(&tmp,0);
+    //printAereoportoPrice(tmp);
     return 0;
+}
+
+List checkPrice(int * array,int n, List list, int max){
+    int i=0;
+    Aeroporto aeroporto;
+    List tmp = (List) malloc (sizeof(struct TList));
+    tmp = NULL;
+    for(i=0;i <n ;i++){
+        List head = list;
+        head->next=NULL;
+    printf("Test\n");
+        if(array[i]!=0 && array[i]!=max){
+            aeroporto = findAeroportoIndex(i,list);
+            tmp = insertList(head,aeroporto);
+
+        }
+        list=list->next;
+    }
+
+    return tmp;
+
 }
 
 
