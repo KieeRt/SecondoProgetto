@@ -10,7 +10,7 @@
 List checkPrice2(int *array, int n, List list, int max);
 List headNode(List lista);
 List insertListNoAeroporto(List lista, List nodo);
-
+void bubbleSort(int *array, int n);
 List checkPrice(int * array,int n, List list, int max);
 
 int main()
@@ -26,74 +26,70 @@ int main()
 
    // welcome(graph,aeroportiList);
     int dist [20];
+
     int prev[20];
     shortestPathPrice( graph, &dist, &prev,  0,  aeroportiList);
 
-    for(int i=0;i<graph->numeroAeroporti;i++)
-            printf("%d %d\n",i,dist[i]);
-    List tmp = checkPrice2(dist,graph->numeroAeroporti,aeroportiList,9999);
-    //MergeSort(&tmp,0);
-    //printAereoportoPrice(tmp);
+    for(int j =0; j<20;j++)
+        printf("%d %d prev%d\n",j,dist[j],prev[j]);
+
+    printOrder(dist,20,aeroportiList,prev);
+
+
     return 0;
 }
 
-List checkPrice(int * array,int n, List list, int max){
+void printOrder (int *array, int n, List list, int * prev){
+    int min;
+    int i =0;
+    Aeroporto a1 ;
+
+    while(true){
+        if (array[i] != 9999 && array[i]!=0){
+            min = findMin(array,n);
+            if(array[min] != 9999){
+                a1= findAeroportoIndex(min,list);
+                printf("%s %d\n",a1.nomeAeroporto,array[min]);
+                array[min]=9999;
+            }else{
+                break;
+            }
+        }
+        i++;
+    }
+
+    printf("\n\n");
+    int index=-1;
+    i=0;
+    while(i!=20){
+        if( prev[i]!=-1 ){
+            index = findScali(prev,i);
+            printf("%d %d\n",i,index);
+        }
+        i++;
+    }
+
+}
+
+int findScali(int *prev,int part){
+    int i =0;
+    int index;
+    // A partire da un indice trovo i predecessori e looppo finche non trovo 0
+    while()
+
+
+    return prev[part];
+}
+
+int findMin (int* array , int n){
     int i=0;
-    Aeroporto aeroporto;
-    List tmp = (List) malloc (sizeof(struct TList));
-    tmp = NULL;
-    for(i=0;i <n ;i++){
-        List head = list;
-        head->next=NULL;
-    printf("Test\n");
-        if(array[i]!=0 && array[i]!=max){
-            aeroporto = findAeroportoIndex(i,list);
-            tmp = insertList(head,aeroporto);
-
+    int min = 0;
+    for ( i= 0;i <n ; i++){
+        if(array[min]> array[i]){
+            min = i;
         }
-        list=list->next;
     }
-
-    return tmp;
-
-}
-
-List checkPrice2(int *array, int n, List list, int max){
-    int i = 0;
-    Aeroporto aeroporto;
-    List tmp = (List)malloc(sizeof(struct TList));
-    tmp = NULL;
-
-    for(i = 0; i < n; i++){
-        if(array[i] != 0 && array[i] != max){
-            tmp = insertListNoAeroporto(tmp, headNode(list));
-        }
-    list = list->next;
-    }
-
-
-
-}
-List headNode(List lista){
-Aeroporto aeroporto;
-List tmp = (List) malloc (sizeof(struct TList));
-tmp = NULL;
-    if( lista != NULL){
-        tmp->aeroporto = lista->aeroporto;
-        tmp->prezzo = lista->prezzo;
-        tmp->tempo = lista->tempo;
-        tmp->next = NULL;
-
-    }
-    return tmp;
-}
-
-List insertListNoAeroporto(List lista, List nodo){
-    if(nodo != NULL){
-        nodo->next = lista;
-    }
-
-    return nodo;
+    return min;
 }
 
 

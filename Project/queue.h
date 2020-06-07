@@ -1,9 +1,6 @@
 #ifndef QUEUE__H_INCLUDED
 #define QUEUE__H_INCLUDED
 
-
-#ifndef Library_queue_h
-#define Library_queue_h
 #define QUEUE_MAX 128
 
 struct TQueue {
@@ -48,7 +45,7 @@ void printQueue(Queue);
 
 //capovolge la coda data in input
 void reverseQueue(Queue);
-#endif
+
 
 
 #endif // QUEUE__H_INCLUDED
