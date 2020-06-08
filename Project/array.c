@@ -14,8 +14,6 @@ int* findScali(int *prev,int part, int *tmp,int pos){
         return tmp;
     }
 
-
-
 }
 
 

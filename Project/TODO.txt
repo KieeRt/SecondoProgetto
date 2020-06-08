@@ -1,3 +1,2 @@
 TO-DO
-1- Imprementare dijkcoso per percossi minimini in punti
-
+1- PrintAllGraph, modificare stampa
