@@ -14,4 +14,6 @@ Aeroporto initAeroporto();
 
 Aeroporto insertAeroporto();
 
+//void printAereoportoArray(int *array , List list ,int dim);
+
 #endif // AEROPORTO_H_INCLUDED

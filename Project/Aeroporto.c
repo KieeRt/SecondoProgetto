@@ -11,6 +11,8 @@ Aeroporto initAeroporto(){
     return aeroporto;
 }
 
+
+
 Aeroporto insertAeroporto(){
     Aeroporto aeroporto;
 

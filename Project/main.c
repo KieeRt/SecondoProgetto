@@ -5,13 +5,7 @@
 #include "graph.h"
 #include "file.h"
 
-
-
-List checkPrice2(int *array, int n, List list, int max);
-List headNode(List lista);
-List insertListNoAeroporto(List lista, List nodo);
-void bubbleSort(int *array, int n);
-List checkPrice(int * array,int n, List list, int max);
+int* findScali(int *prev,int part, int *tmp,int pos);
 
 int main()
 {
@@ -25,6 +19,8 @@ int main()
     //printAereoporto(tmp);
 
    // welcome(graph,aeroportiList);
+
+
     int dist [20];
 
     int prev[20];
@@ -33,24 +29,47 @@ int main()
     for(int j =0; j<20;j++)
         printf("%d %d prev%d\n",j,dist[j],prev[j]);
 
-    printOrder(dist,20,aeroportiList,prev);
-
+    printOrder(dist,20,aeroportiList,prev,0);
 
     return 0;
 }
 
-void printOrder (int *array, int n, List list, int * prev){
+void printOrder (int *array, int n, List list, int * prev,int src){
     int min;
     int i =0;
     Aeroporto a1 ;
+    Aeroporto a2 ;
+    a2= findAeroportoIndex(src,list);
+
+
 
     while(true){
-        if (array[i] != 9999 && array[i]!=0){
+        if (array[i] != 9999 && array[i] != 0){
             min = findMin(array,n);
-            if(array[min] != 9999){
+            if(array[min] != 9999    ){
                 a1= findAeroportoIndex(min,list);
-                printf("%s %d\n",a1.nomeAeroporto,array[min]);
-                array[min]=9999;
+                printf("%s (%s) ->",a2.nomeCitta ,a2.nomeAeroporto);
+                 if(a1.index != src)
+                    printf("\t\t%s (%s) Costo volo:%d",a1.nomeCitta,a1.nomeAeroporto,array[min]);
+
+                    int * tmp = (int*)calloc(sizeof(int),20);
+                    tmp=findScali(prev, min, tmp,0);
+
+                    int j=0;
+
+                    while(tmp[j]!=0){
+                        a1= findAeroportoIndex(tmp[j],list);
+                        printf(" ->%s  ",a1.nomeAeroporto);
+                        j++;
+                    }
+                    if(j == 0 && a1.index != src )
+                        printf(" ->Non presenti");
+
+
+                    free(tmp);
+                    array[min]=9999;
+                    printf("\n\n");
+
             }else{
                 break;
             }
@@ -59,26 +78,27 @@ void printOrder (int *array, int n, List list, int * prev){
     }
 
     printf("\n\n");
-    int index=-1;
-    i=0;
-    while(i!=20){
-        if( prev[i]!=-1 ){
-            index = findScali(prev,i);
-            printf("%d %d\n",i,index);
-        }
-        i++;
-    }
+
 
 }
 
-int findScali(int *prev,int part){
-    int i =0;
-    int index;
-    // A partire da un indice trovo i predecessori e looppo finche non trovo 0
-    while()
+int* findScali(int *prev,int part, int *tmp,int pos){
 
 
-    return prev[part];
+    if(prev[part]!= -1 ){
+        tmp[pos]=prev[part];
+        part = prev[part];
+        pos++;
+        tmp= findScali(prev,part,tmp,pos);
+
+
+    }else{
+
+        return tmp;
+    }
+
+
+
 }
 
 int findMin (int* array , int n){

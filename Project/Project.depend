@@ -352,3 +352,95 @@
 	<time.h>
 	<limits.h>
 
+1591622618 source:c:\users\angelo\documents\github\secondoprogetto\project\aeroporto.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Aeroporto.h"
+
+1591622624 c:\users\angelo\documents\github\secondoprogetto\project\aeroporto.h
+
+1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\checkinput.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"./lib/inputReader.h"
+
+1591616219 c:\users\angelo\documents\github\secondoprogetto\project\lib\inputreader.h
+
+1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\file.c
+	<stdio.h>
+	<stdlib.h>
+	"file.h"
+
+1591616219 c:\users\angelo\documents\github\secondoprogetto\project\file.h
+	"list.h"
+	"graph.h"
+	<stdbool.h>
+
+1591616219 c:\users\angelo\documents\github\secondoprogetto\project\list.h
+	"Aeroporto.h"
+
+1591616219 c:\users\angelo\documents\github\secondoprogetto\project\graph.h
+	"list.h"
+	<stdbool.h>
+	"queue.h"
+
+1591616219 c:\users\angelo\documents\github\secondoprogetto\project\queue.h
+
+1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\graph.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"graph.h"
+	"list.h"
+	<assert.h>
+
+1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"interfaccia.h"
+
+1591616219 c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.h
+	"Utente.h"
+	"graph.h"
+	"list.h"
+
+1591616219 c:\users\angelo\documents\github\secondoprogetto\project\utente.h
+	<stdbool.h>
+
+1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\lib\inputreader.c
+	<stdio.h>
+	<stdlib.h>
+	"inputReader.h"
+
+1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\list.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"list.h"
+
+1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\queue.c
+	<stdio.h>
+	<stdlib.h>
+	"queue.h"
+	<time.h>
+	<limits.h>
+
+1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\utente.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"Utente.h"
+
+1591624313 source:c:\users\angelo\documents\github\secondoprogetto\project\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Utente.h"
+	"list.h"
+	"graph.h"
+	"file.h"
+
