@@ -57,7 +57,8 @@ void home(User utente,Graph graph, List aeroporti){
     List tmp = NULL;
     Aeroporto srcAeroporto;
     Aeroporto destAeroporto;
-    int *prev, *dist;
+    int prev[20], dist[20];
+    int error=0;
     do{
         system("cls");
         printf("\n");
@@ -83,8 +84,31 @@ void home(User utente,Graph graph, List aeroporti){
         break;
         case 2:
             system("cls");
+                        printf("Lista aeroporti disponibili:\n");
+            printAereoporto(aeroporti);
+            do{
+                if(error>0){
+                    printf("Uno degli aeroporti inseriti non e' stato trovato, riprova\n");
+                }
+                error++;
+                strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
+                    if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
+                        break;
+                        upperCase(srcAeroporto.nomeAeroporto);
+                        srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
+                strcpy(destAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di arrivo(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
+                    if(!strcmp(destAeroporto.nomeAeroporto,"0"))
+                        break;
+                        upperCase(destAeroporto.nomeAeroporto);
+                        destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
 
+            }while(srcAeroporto.index == -1 || destAeroporto.index == -1);
+
+            printOrderDest(dist,graph->numeroAeroporti,aeroporti,prev,srcAeroporto.index,destAeroporto.index);
+            //addPrenotazione(Utente,src,dest)
+            error=0;
         break;
+
        case 3:
              printf("Lista aeroporti disponibili:\n");
                 printAereoporto(aeroporti);
@@ -96,15 +120,15 @@ void home(User utente,Graph graph, List aeroporti){
                         srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
 
                 }while(srcAeroporto.index == -1);
-                dist = (int *)malloc (sizeof(int)*(graph->numeroAeroporti-1));
-                prev = (int *)malloc (sizeof(int)*(graph->numeroAeroporti-1));
+
                 shortestPathPrice(graph,&dist,&prev,srcAeroporto.index,aeroporti);
 
+                printOrder(dist,graph->numeroAeroporti,aeroporti,prev,srcAeroporto.index);
 
-                free(dist);
-                free(prev);
+                fflush(stdin);
+                printf("\nPremi invio per tornare al menu precedente\n");
                 while(getchar()!='\n'); // option TWO to clean stdin
-                //TODO prenotazione!!!
+
             break;
         case 4:
             printf("Lista aeroporti disponibili:\n");
@@ -121,6 +145,7 @@ void home(User utente,Graph graph, List aeroporti){
             printAereoporto(graph->adjList[srcAeroporto.index]);
             MergeSort(&tmp, 1);
             printAereoportoPrice(tmp);
+
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
             while(getchar()!='\n'); // option TWO to clean stdin
@@ -292,4 +317,102 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
         }
     }while(scelta!=7);
 
+}
+
+
+void printOrder (int *array, int n, List list, int * prev,int src){
+    int min;
+    int i =0;
+    Aeroporto a1 ;
+
+    a1= findAeroportoIndex(src,list);
+    printf("%s (%s) ->",a1.nomeCitta ,a1.nomeAeroporto);
+
+
+    while(true){
+        if (array[i] != 9999 && array[i] != 0){
+            min = findMin(array,n);
+
+            if(array[min] != 9999    ){
+                a1= findAeroportoIndex(min,list);
+
+                 if(a1.index != src)
+                    printf("\t\t%s (%s) Costo volo:%d",a1.nomeCitta,a1.nomeAeroporto,array[min]);
+
+                    int * tmp = (int*)calloc(sizeof(int),20);
+                    tmp=findScali(prev, min, tmp,0);
+
+                    int j=0;
+
+                    while(tmp[j]!=0){
+                        a1= findAeroportoIndex(tmp[j],list);
+                        printf(" ->%s  ",a1.nomeAeroporto);
+                        j++;
+                    }
+                    if(j == 0 && a1.index != src )
+                        printf(" ->Non presenti");
+
+
+                    free(tmp);
+                    array[min]=9999;
+                    printf("\n\n");
+
+            }else{
+                break;
+            }
+        }
+        i++;
+    }
+
+    printf("\n\n");
+}
+
+
+
+void printOrderDest (int *array, int n, List list, int * prev,int src,int dest){
+    int min;
+    int i =0;
+    Aeroporto a1,a2 ;
+
+    a1= findAeroportoIndex(src,list);
+    printf("%s (%s) ->",a1.nomeCitta ,a1.nomeAeroporto);
+    a2= findAeroportoIndex(src,list);
+    printf("%s (%s) ->",a2.nomeCitta ,a2.nomeAeroporto);
+
+    for (int i=0;i<n ;i++){
+        if(a2.index == i){
+            if (array[i] != 9999 && array[i] != 0){
+                min = findMin(array,n);
+
+                if(array[min] != 9999    ){
+                    a1= findAeroportoIndex(min,list);
+
+                     if(a1.index != src  )
+                        printf("\t\t%s (%s) Costo volo:%d",a1.nomeCitta,a1.nomeAeroporto,array[min]);
+
+                        int * tmp = (int*)calloc(sizeof(int),20);
+                        tmp=findScali(prev, min, tmp,0);
+
+                        int j=0;
+
+                        while(tmp[j]!=0){
+                            a1= findAeroportoIndex(tmp[j],list);
+                            printf(" ->%s  ",a1.nomeAeroporto);
+                            j++;
+                        }
+                        if(j == 0 && a1.index != src )
+                            printf(" ->Non presenti");
+
+
+                        free(tmp);
+                        array[min]=9999;
+                        printf("\n\n");
+
+                }
+            }
+        }
+
+    }
+
+    printf("\n\n");
 }

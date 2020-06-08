@@ -397,16 +397,17 @@
 	"list.h"
 	<assert.h>
 
-1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.c
+1591625381 source:c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"interfaccia.h"
 
-1591616219 c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.h
+1591624887 c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.h
 	"Utente.h"
 	"graph.h"
 	"list.h"
+	"array.h"
 
 1591616219 c:\users\angelo\documents\github\secondoprogetto\project\utente.h
 	<stdbool.h>
@@ -436,11 +437,15 @@
 	<string.h>
 	"Utente.h"
 
-1591624313 source:c:\users\angelo\documents\github\secondoprogetto\project\main.c
+1591625193 source:c:\users\angelo\documents\github\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
 	"list.h"
 	"graph.h"
 	"file.h"
+
+1591626042 source:c:\users\angelo\documents\github\secondoprogetto\project\array.c
+
+1591624843 c:\users\angelo\documents\github\secondoprogetto\project\array.h
 
