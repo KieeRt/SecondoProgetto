@@ -64,10 +64,10 @@ void home(User utente,Graph graph, List aeroporti){
         printf("\n");
         printf("Bentornato %s %s. Finora hai accumulato %d punti",utente.cognome,utente.nome,utente.punti);
         printf("\n\n");
-        printf("1 - Visaulizza prenotazioni attive\n");
-        printf("2 - Effettua nuova prenotazione\n");
+        printf("1 - Visualizza prenotazioni attive\n");
+        printf("2 - Effettua una nuova prenotazione\n");
         printf("3 - Visualizza meta piu' economica\n");
-        printf("4 - Visualliza meta piu' gettonata\n");
+        printf("4 - Visualizza meta piu' gettonata\n");
         printf("5 - Cronologia ordini\n");
         printf("6 - Logout\n");
 
@@ -86,7 +86,7 @@ void home(User utente,Graph graph, List aeroporti){
             system("cls");
                         printf("Lista aeroporti disponibili:\n");
             printAereoporto(aeroporti);
-           /* do{
+            do{
                 if(error>0){
                     printf("Uno degli aeroporti inseriti non e' stato trovato, riprova\n");
                 }
@@ -102,9 +102,9 @@ void home(User utente,Graph graph, List aeroporti){
                         upperCase(destAeroporto.nomeAeroporto);
                         destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
 
-            }while(srcAeroporto.index == -1 || destAeroporto.index == -1);*/
-
-            //printOrderDest(dist,graph->numeroAeroporti,aeroporti,prev,0,1);
+            }while(srcAeroporto.index == -1 || destAeroporto.index == -1);
+            printAllPaths(srcAeroporto.index,destAeroporto.index, graph,aeroporti);
+           // printOrderDest(dist,graph->numeroAeroporti,aeroporti,prev,0,1);
             //addPrenotazione(Utente,src,dest)
             error=0;
 

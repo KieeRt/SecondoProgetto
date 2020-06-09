@@ -39,7 +39,7 @@
 	<stdlib.h>
 	"inputReader.h"
 
-1590921346 source:e:\codeblockprojects\secondoprogetto\project\checkinput.c
+1591457499 source:e:\codeblockprojects\secondoprogetto\project\checkinput.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -48,13 +48,13 @@
 
 1590761023 e:\codeblockprojects\secondoprogetto\project\lib\inputreader.h
 
-1590921346 source:e:\codeblockprojects\secondoprogetto\project\interfaccia.c
+1591721532 source:e:\codeblockprojects\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
-	"Utente.h"
+	"interfaccia.h"
 
-1591195693 source:e:\codeblockprojects\secondoprogetto\project\main.c
+1591721464 source:e:\codeblockprojects\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
@@ -70,7 +70,7 @@
 	<stdlib.h>
 	"inputReader.h"
 
-1590921346 source:e:\codeblockprojects\secondoprogetto\project\utente.c
+1591457499 source:e:\codeblockprojects\secondoprogetto\project\utente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -187,29 +187,31 @@
 	<stdbool.h>
 	"list.h"
 
-1591101406 source:e:\codeblockprojects\secondoprogetto\project\aeroporto.c
+1591626359 source:e:\codeblockprojects\secondoprogetto\project\aeroporto.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"Aeroporto.h"
 
-1591101406 e:\codeblockprojects\secondoprogetto\project\aeroporto.h
+1591626359 e:\codeblockprojects\secondoprogetto\project\aeroporto.h
 
-1591195633 source:e:\codeblockprojects\secondoprogetto\project\graph.c
+1591457499 source:e:\codeblockprojects\secondoprogetto\project\graph.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"graph.h"
 	"list.h"
+	<assert.h>
 
-1591193272 e:\codeblockprojects\secondoprogetto\project\graph.h
+1591462842 e:\codeblockprojects\secondoprogetto\project\graph.h
 	"list.h"
 	<stdbool.h>
+	"queue.h"
 
-1591193190 e:\codeblockprojects\secondoprogetto\project\list.h
+1591457499 e:\codeblockprojects\secondoprogetto\project\list.h
 	"Aeroporto.h"
 
-1591193190 source:e:\codeblockprojects\secondoprogetto\project\list.c
+1591457499 source:e:\codeblockprojects\secondoprogetto\project\list.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -241,12 +243,12 @@
 	"graph.h"
 	<stdbool.h>
 
-1591187634 source:e:\codeblockprojects\secondoprogetto\project\file.c
+1591457499 source:e:\codeblockprojects\secondoprogetto\project\file.c
 	<stdio.h>
 	<stdlib.h>
 	"file.h"
 
-1591125011 e:\codeblockprojects\secondoprogetto\project\file.h
+1591457499 e:\codeblockprojects\secondoprogetto\project\file.h
 	"list.h"
 	"graph.h"
 	<stdbool.h>
@@ -463,4 +465,26 @@
 	<limits.h>
 
 1591712296 source:c:\users\dimal\documents\github\secondoprogetto\project\array.c
+
+1591545607 e:\codeblockprojects\secondoprogetto\project\queue.h
+
+1591626373 e:\codeblockprojects\secondoprogetto\project\interfaccia.h
+	"Utente.h"
+	"graph.h"
+	"list.h"
+	"array.h"
+
+1591721298 e:\codeblockprojects\secondoprogetto\project\array.h
+	"graph.h"
+	"list.h"
+
+1591457499 source:e:\codeblockprojects\secondoprogetto\project\queue.c
+	<stdio.h>
+	<stdlib.h>
+	"queue.h"
+	<time.h>
+	<limits.h>
+
+1591722099 source:e:\codeblockprojects\secondoprogetto\project\array.c
+	"array.h"
 
