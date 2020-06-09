@@ -331,31 +331,33 @@ void printOrder (int *array, int n, List list, int * prev,int src){
     Aeroporto a1 ;
 
     a1= findAeroportoIndex(src,list);
-    printf("%s (%s) ->",a1.nomeCitta ,a1.nomeAeroporto);
+    printf("%s (%s): ",a1.nomeCitta ,a1.nomeAeroporto);
 
 
     while(true){
         if (array[i] != 9999 && array[i] != 0){
             min = findMin(array,n);
 
-            if(array[min] != 9999 ) {
+            if(array[min] != 9999    ){
                 a1= findAeroportoIndex(min,list);
 
                  if(a1.index != src)
-                    printf("\t\t%s (%s) Costo volo:%d",a1.nomeCitta,a1.nomeAeroporto,array[min]);
+                    printf("\t%s (%s) Costo volo:%d \t",a1.nomeCitta,a1.nomeAeroporto,array[min]);
 
                     int * tmp = (int*)calloc(sizeof(int),20);
                     tmp=findScali(prev, min, tmp,0);
 
                     int j=0;
-
+                     if(a1.index != src)
+                          printf("SCALI: ");
                     while(tmp[j]!=0){
                         a1= findAeroportoIndex(tmp[j],list);
-                        printf(" ->%s  ",a1.nomeAeroporto);
+
+                        printf("%s->", a1.nomeAeroporto);
                         j++;
                     }
                     if(j == 0 && a1.index != src )
-                        printf(" ->Non presenti");
+                        printf("Non presenti");
 
 
                     free(tmp);
