@@ -2,6 +2,7 @@
 
 
 Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int* percorso_scelto, List aeroporti, Graph graph){
+
     Prenotazione tmp = (Prenotazione)malloc(sizeof(struct TPrenotazione));
     int i = 0;
    // List tmp = NULL;
@@ -11,7 +12,7 @@ Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int* percorso_scelt
         i++;
     }
     tmp->aeroporto[i].index = -1;
-    tmp->codice = 1;
+    tmp->codice = 1; //Da gestine
     tmp->prezzo =  CostoVolo(graph, percorso_scelto);
     tmp->tempo = TempoVolo(graph, percorso_scelto);
 
@@ -24,11 +25,9 @@ Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int* percorso_scelt
 
 Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuovaPrenotazione){
     if( ListaPrenotazioni == NULL){
-            printf("CASO IF\n");
         nuovaPrenotazione->next = NULL;
     }
     else{
-        printf("CASO ELSE\n");
         nuovaPrenotazione->next = ListaPrenotazioni;
     }
     return nuovaPrenotazione;
@@ -39,7 +38,7 @@ Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuov
 void stampaPrenotazione(Prenotazione ListaPrenotazioni){
 int i = 0;
     if(ListaPrenotazioni){
-        printf(" - Codice:%d\n", ListaPrenotazioni->codice);
+        printf(" - Codice:%d\n - ", ListaPrenotazioni->codice);
         printTimeVolo(ListaPrenotazioni->tempo);
         printf(" - Costo:%d\n", ListaPrenotazioni->prezzo);
         while(ListaPrenotazioni->aeroporto[i].index != -1){

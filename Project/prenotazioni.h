@@ -7,7 +7,8 @@
 #include "graph.h"
 
 struct TPrenotazione{
-    int codice;
+    int codicePrenotazione;
+    int codiceVolo;
     Aeroporto aeroporto[10];
     int tempo;
     int prezzo;
