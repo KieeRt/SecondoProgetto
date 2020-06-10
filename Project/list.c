@@ -276,3 +276,12 @@ List copyList(List L)
     return tmp;
 }
 
+
+List findList(int indice, List listaAdj){
+    if(listaAdj != NULL || listaAdj->aeroporto.index != indice){
+        findList(indice, listaAdj->next);
+    }
+    else{
+        return listaAdj;
+    }
+}

@@ -4,9 +4,10 @@
 #include "graph.h"
 #include "list.h"
 #include "array.h"
+#include "prenotazioni.h"
 
-void welcome(Graph graph, List aeroporti);
-void home(User utente,Graph graph, List aeroporti);
+void welcome(Graph graph, List aeroporti, Prenotazione ListaPrenotazioni);
+void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazioni);
 void homeAdmin(User utente,Graph graph, List aeroporti);
 
 #endif // INTERFACCIA_H_INCLUDED

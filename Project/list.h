@@ -44,4 +44,6 @@ List SortedMergePrice(List a, List b);
 
 List copyList(List L);
 
+//A partire dal indice trova la elemento della lista di adj corrispondente
+List findList(int indice, List listaAdj);
 #endif // LIST_H_INCLUDED

@@ -67,6 +67,20 @@ int input_locale;
     return input_locale;
 
 }
+int doSceltaIntZeroError(char* messaggio, int valore_max, char* error){
+int input_locale;
+int i = 0;
+    do{
+        if(i>0)
+            printf("%s",error);
+        i++;
+        printf("%s", messaggio);
+    printf("%s", messaggio);
+    }while(!getPositive(&input_locale)  || input_locale > valore_max);
+
+    return input_locale;
+
+}
 
 int doSceltaString(char* messaggio, int dimensione_esatta, int dimensione_min, int dimensione_max){
 char buff[20];

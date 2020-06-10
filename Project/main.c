@@ -4,11 +4,13 @@
 #include "list.h"
 #include "graph.h"
 #include "file.h"
-#define GOD 0
+#include "prenotazioni.h"
 
 int* findScali(int *prev,int part, int *tmp,int pos);
 int main()
 {
+    Prenotazione ListaPrenotazioni = (Prenotazione)malloc(sizeof(struct TPrenotazione));
+    ListaPrenotazioni = NULL;
     List aeroportiList = initNodeListFromFile();
     Graph graph = createGraph(numeroAeroporto(aeroportiList));
     createEdgeFromFile(graph, aeroportiList);
@@ -17,8 +19,8 @@ int main()
   //  MergeSort(&tmp, 1);
 
     //printAereoporto(tmp);
-
-    welcome(graph,aeroportiList);
+    printf("%d", ListaPrenotazioni->next);
+  //  welcome(graph,aeroportiList);
 
   // printAllPaths(0,13, graph,aeroportiList);
 

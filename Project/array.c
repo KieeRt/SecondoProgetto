@@ -35,8 +35,7 @@ int findMin (int* array , int n){
 
 int** printAllPaths(int s, int d,Graph graph,List list){
     int *visited= (int*) calloc(sizeof(int),graph->numeroAeroporti);
-    int i;
-    int j;
+    int i, j, sumCosto = 0, sumTempo =0, count = 1;
     Aeroporto aeroporto;
     //Array per immagazinare i percorsi
     int *path = (int*) calloc(sizeof(int),graph->numeroAeroporti);
@@ -44,22 +43,33 @@ int** printAllPaths(int s, int d,Graph graph,List list){
 
     int** matrix = (int**)malloc(20*sizeof(int*));
     for(int i = 0; i < 20; i++){
-        matrix[i] = (int*)malloc(5*sizeof(int));
+        matrix[i] = (int*)malloc(10*sizeof(int));
     }
     for(i = 0; i < 20; i++){
-    for(j = 0; j < 5; j++){
+    for(j = 0; j < 10; j++){
             matrix[i][j] = -1;
         }
     }
 
 
     printAllPathsUntil(s,d,visited,path,&path_index,graph,list,matrix);
+
+    if(matrix[0][0] == -1){
+        printf("La tratta non e'disponibile\n");
+    }
+
+
+
    for(i = 0; i < 20; i++){
-        for(j = 0; j < 5; j++){
+        for(j = 0; j < 10; j++){
             if(matrix[i][j] != -1){
                     if(matrix[i][j] == s){
+                        sumCosto = CostoVolo(graph, matrix[i]);
+                        sumTempo = TempoVolo(graph, matrix[i]);
                         aeroporto = findAeroportoIndex(matrix[i][j], list);
-                        printf("%s(%s):\n",aeroporto.nomeAeroporto,aeroporto.nomeCitta);
+                        printf("%d - %s(%s):%d euro ",count, aeroporto.nomeAeroporto,aeroporto.nomeCitta, sumCosto);
+                        printTimeVolo(sumTempo);
+                        count++;
                     }else {
                         if(j==1){
                             aeroporto = findAeroportoIndex(matrix[i][j], list);
@@ -72,9 +82,11 @@ int** printAllPaths(int s, int d,Graph graph,List list){
         }
 
     }
-     if(matrix[i][--j] != -1)
-            printf("\n");
+     if(matrix[i][0] != -1)
+            printf("\n\n");
    }
+
+   return matrix;
 }
 
 void printAllPathsUntil(int u, int d,int * visited,int *path,int *path_index,Graph graph,List list,int** matrix){
@@ -121,6 +133,41 @@ void copyArray(int** a, int* b, int n){
 
 }
 
+int CostoVolo(Graph graph, int* percorso){
+    int i = 0;
+    int sum = 0;
+
+    while(percorso[i+1] != -1){
+        List tmp = graph->adjList[percorso[i]];
+        while(tmp){
+            if(tmp->aeroporto.index == percorso[i+1]){
+               sum += tmp->prezzo;
+            }
+            tmp = tmp->next;
+        }
+        i++;
+    }
+    return sum;
+
+}
+
+int TempoVolo(Graph graph, int* percorso){
+    int i = 0;
+    int sum = 0;
+
+    while(percorso[i+1] != -1){
+        List tmp = graph->adjList[percorso[i]];
+        while(tmp){
+            if(tmp->aeroporto.index == percorso[i+1]){
+               sum += tmp->tempo;
+            }
+            tmp = tmp->next;
+        }
+        i++;
+    }
+    return sum;
+
+}
 
 
 

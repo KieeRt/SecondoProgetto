@@ -4,7 +4,7 @@
 #include "interfaccia.h"
 
 
-void welcome(Graph graph, List aeroporti){
+void welcome(Graph graph, List aeroporti, Prenotazione ListaPrenotazioni){
     User utente=initUtente();
     int scelta=-1;
 
@@ -32,7 +32,7 @@ void welcome(Graph graph, List aeroporti){
                 homeAdmin(utente,graph,aeroporti);
 
             else
-                home(utente,graph, aeroporti);
+                home(utente,graph, aeroporti, ListaPrenotazioni);
 
 
         break;
@@ -52,13 +52,15 @@ void welcome(Graph graph, List aeroporti){
     }while(scelta!=3);
 }
 
-void home(User utente,Graph graph, List aeroporti){
-    int scelta;
+void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazioni){
+    int scelta, scelta2;
     List tmp = NULL;
     Aeroporto srcAeroporto;
     Aeroporto destAeroporto;
-    int prev[20], dist[20];
+    int prev[20], dist[20], **matrix;
     int error=0;
+    int i;
+    int count = 0;
     do{
         system("cls");
         printf("\n");
@@ -103,10 +105,21 @@ void home(User utente,Graph graph, List aeroporti){
                         destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
 
             }while(srcAeroporto.index == -1 || destAeroporto.index == -1);
-            printAllPaths(srcAeroporto.index,destAeroporto.index, graph,aeroporti);
-           // printOrderDest(dist,graph->numeroAeroporti,aeroporti,prev,0,1);
-            //addPrenotazione(Utente,src,dest)
             error=0;
+
+          matrix = printAllPaths(srcAeroporto.index,destAeroporto.index, graph,aeroporti);
+
+        for(i = 0; i < 20; i++){
+            if(matrix[i][0] != -1)
+                count++;
+            else
+                break;
+        }
+         scelta2 = doSceltaIntZeroError("Scegliere la tratta(0 per uscire) \nInput -> ", count, "Input non valido\n");
+            ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph);
+            //addPrenotazione(Utente,src,dest)
+            ListaPrenotazioni->next = NULL;
+            stampaPrenotazioneR(ListaPrenotazioni);
 
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
@@ -163,7 +176,7 @@ void home(User utente,Graph graph, List aeroporti){
             break;
         case 6:
             system("cls");
-            welcome(graph, aeroporti);
+            welcome(graph, aeroporti, ListaPrenotazioni);
         break;
 
         default:
