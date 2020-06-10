@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1591804489 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
+1591805101 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
@@ -10,7 +10,7 @@
 
 1590676268 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\studente.c
 
-1591804598 source:c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.c
+1591805319 source:c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -493,7 +493,7 @@
 1591722099 source:e:\codeblockprojects\secondoprogetto\project\array.c
 	"array.h"
 
-1591804230 source:c:\users\dimal\documents\github\secondoprogetto\project\prenotazioni.c
+1591805311 source:c:\users\dimal\documents\github\secondoprogetto\project\prenotazioni.c
 	"prenotazioni.h"
 
 1591804040 c:\users\dimal\documents\github\secondoprogetto\project\prenotazioni.h

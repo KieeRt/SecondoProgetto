@@ -19,8 +19,8 @@ int main()
   //  MergeSort(&tmp, 1);
 
     //printAereoporto(tmp);
-    printf("%d", ListaPrenotazioni->next);
-  //  welcome(graph,aeroportiList);
+
+    welcome(graph,aeroportiList, ListaPrenotazioni);
 
   // printAllPaths(0,13, graph,aeroportiList);
 

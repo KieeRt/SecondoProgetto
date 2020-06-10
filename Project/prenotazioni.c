@@ -10,6 +10,7 @@ Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int* percorso_scelt
         //tmp = findList(percorso_scelto[i+1], graph->adjList[percorso_scelto[i]]);
         i++;
     }
+    tmp->aeroporto[i].index = -1;
     tmp->codice = 1;
     tmp->prezzo =  CostoVolo(graph, percorso_scelto);
     tmp->tempo = TempoVolo(graph, percorso_scelto);
@@ -23,35 +24,31 @@ Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int* percorso_scelt
 
 Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuovaPrenotazione){
     if( ListaPrenotazioni == NULL){
+            printf("CASO IF\n");
         nuovaPrenotazione->next = NULL;
     }
     else{
+        printf("CASO ELSE\n");
         nuovaPrenotazione->next = ListaPrenotazioni;
     }
     return nuovaPrenotazione;
 }
 
 
+
 void stampaPrenotazione(Prenotazione ListaPrenotazioni){
-
-    while(ListaPrenotazioni->next){
-        printf(" - Codice:%d\n", ListaPrenotazioni->codice);
-        printTimeVolo(ListaPrenotazioni->tempo);
-        printf(" - Costo:%d", ListaPrenotazioni->prezzo);
-
-        ListaPrenotazioni = ListaPrenotazioni->next;
-    }
-
-}
-
-void stampaPrenotazioneR(Prenotazione ListaPrenotazioni){
-
+int i = 0;
     if(ListaPrenotazioni){
         printf(" - Codice:%d\n", ListaPrenotazioni->codice);
         printTimeVolo(ListaPrenotazioni->tempo);
-        printf(" - Costo:%d", ListaPrenotazioni->prezzo);
+        printf(" - Costo:%d\n", ListaPrenotazioni->prezzo);
+        while(ListaPrenotazioni->aeroporto[i].index != -1){
+            printf("%s(%s) -> ", ListaPrenotazioni->aeroporto[i].nomeCitta, ListaPrenotazioni->aeroporto[i].nomeAeroporto);
+        i++;
+        }
+        printf("\n\n");
 
-        stampaPrenotazioneR(ListaPrenotazioni->next);
+        stampaPrenotazione(ListaPrenotazioni->next);
     }
 
 }

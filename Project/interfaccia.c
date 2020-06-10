@@ -118,8 +118,8 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
          scelta2 = doSceltaIntZeroError("Scegliere la tratta(0 per uscire) \nInput -> ", count, "Input non valido\n");
             ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph);
             //addPrenotazione(Utente,src,dest)
-            ListaPrenotazioni->next = NULL;
-            stampaPrenotazioneR(ListaPrenotazioni);
+           // ListaPrenotazioni->next = NULL;
+            stampaPrenotazione(ListaPrenotazioni);
 
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
