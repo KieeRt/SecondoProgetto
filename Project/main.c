@@ -14,15 +14,8 @@ int main()
     List aeroportiList = initNodeListFromFile();
     Graph graph = createGraph(numeroAeroporto(aeroportiList));
     createEdgeFromFile(graph, aeroportiList);
-//    List tmp = copyList(graph->adjList[0]);
 
-  //  MergeSort(&tmp, 1);
-
-    //printAereoporto(tmp);
-
-    welcome(graph,aeroportiList, ListaPrenotazioni);
-
-  // printAllPaths(0,13, graph,aeroportiList);
+    readPrenotazioni("qawsedrftgyhujii");
 
 
 

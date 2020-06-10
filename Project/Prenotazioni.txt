@@ -1,0 +1,12 @@
+@CodiceFiscale 123456rftgyhujii
+@CodicePrenotazione 1
+@Aeroporti milano venezia napoli
+@CodiceFiscale qawsedrftgyhujii
+@CodicePrenotazione 1
+@Aeroporti milano venezia genova
+@Tempo
+@Prezzo 
+@CodicePrenotazione 2
+@Aeroporti amstedarm pechino
+@Tempo
+@Prezzo 

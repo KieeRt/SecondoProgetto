@@ -358,44 +358,44 @@
 	<time.h>
 	<limits.h>
 
-1591622618 source:c:\users\angelo\documents\github\secondoprogetto\project\aeroporto.c
+1591804820 source:c:\users\angelo\documents\github\secondoprogetto\project\aeroporto.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"Aeroporto.h"
 
-1591622624 c:\users\angelo\documents\github\secondoprogetto\project\aeroporto.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\aeroporto.h
 
-1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\checkinput.c
+1591804820 source:c:\users\angelo\documents\github\secondoprogetto\project\checkinput.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"./lib/inputReader.h"
 
-1591616219 c:\users\angelo\documents\github\secondoprogetto\project\lib\inputreader.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\lib\inputreader.h
 
-1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\file.c
+1591804820 source:c:\users\angelo\documents\github\secondoprogetto\project\file.c
 	<stdio.h>
 	<stdlib.h>
 	"file.h"
 
-1591616219 c:\users\angelo\documents\github\secondoprogetto\project\file.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\file.h
 	"list.h"
 	"graph.h"
 	<stdbool.h>
 
-1591616219 c:\users\angelo\documents\github\secondoprogetto\project\list.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\list.h
 	"Aeroporto.h"
 
-1591616219 c:\users\angelo\documents\github\secondoprogetto\project\graph.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\graph.h
 	"list.h"
 	<stdbool.h>
 	"queue.h"
 
-1591616219 c:\users\angelo\documents\github\secondoprogetto\project\queue.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\queue.h
 
-1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\graph.c
+1591804820 source:c:\users\angelo\documents\github\secondoprogetto\project\graph.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -403,57 +403,62 @@
 	"list.h"
 	<assert.h>
 
-1591629998 source:c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.c
+1591809837 source:c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"interfaccia.h"
 
-1591624887 c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\interfaccia.h
 	"Utente.h"
 	"graph.h"
 	"list.h"
 	"array.h"
+	"prenotazioni.h"
 
-1591616219 c:\users\angelo\documents\github\secondoprogetto\project\utente.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\utente.h
 	<stdbool.h>
 
-1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\lib\inputreader.c
+1591804820 source:c:\users\angelo\documents\github\secondoprogetto\project\lib\inputreader.c
 	<stdio.h>
 	<stdlib.h>
 	"inputReader.h"
 
-1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\list.c
+1591804820 source:c:\users\angelo\documents\github\secondoprogetto\project\list.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"list.h"
 
-1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\queue.c
+1591804820 source:c:\users\angelo\documents\github\secondoprogetto\project\queue.c
 	<stdio.h>
 	<stdlib.h>
 	"queue.h"
 	<time.h>
 	<limits.h>
 
-1591616219 source:c:\users\angelo\documents\github\secondoprogetto\project\utente.c
+1591821266 source:c:\users\angelo\documents\github\secondoprogetto\project\utente.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"Utente.h"
 
-1591630074 source:c:\users\angelo\documents\github\secondoprogetto\project\main.c
+1591822437 source:c:\users\angelo\documents\github\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
 	"list.h"
 	"graph.h"
 	"file.h"
+	"prenotazioni.h"
 
-1591629998 source:c:\users\angelo\documents\github\secondoprogetto\project\array.c
+1591804820 source:c:\users\angelo\documents\github\secondoprogetto\project\array.c
+	"array.h"
 
-1591624843 c:\users\angelo\documents\github\secondoprogetto\project\array.h
+1591804820 c:\users\angelo\documents\github\secondoprogetto\project\array.h
+	"graph.h"
+	"list.h"
 
 1591620460 c:\users\dimal\documents\github\secondoprogetto\project\queue.h
 
@@ -502,4 +507,14 @@
 	"Aeroporto.h"
 	"list.h"
 	"graph.h"
+
+1591809837 c:\users\angelo\documents\github\secondoprogetto\project\prenotazioni.h
+	<stdio.h>
+	<stdlib.h>
+	"Aeroporto.h"
+	"list.h"
+	"graph.h"
+
+1591828278 source:c:\users\angelo\documents\github\secondoprogetto\project\prenotazioni.c
+	"prenotazioni.h"
 
