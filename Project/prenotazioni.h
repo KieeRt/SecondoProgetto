@@ -21,6 +21,8 @@ Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelt
 
 void stampaPrenotazione(Prenotazione ListaPrenotazioni);
 void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni);
+//Se utente non e' presente nel file con la lista di prenotazioni lo mette in coda al file stesso
+void addNewUserFilePrenotazioni(char* codice_fiscale, Prenotazione ListaPrenotazioni);
 Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuovaPrenotazione);
 
 Prenotazione readPrenotazioni(char *codice_ficale, List listaAeroporti);

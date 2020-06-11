@@ -196,6 +196,9 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
             system("cls");
             writePrenotezioniFile(utente.codiceFiscale,  ListaPrenotazioni);
             welcome(graph, aeroporti, ListaPrenotazioni);
+             fflush(stdin);
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
         break;
 
         default:

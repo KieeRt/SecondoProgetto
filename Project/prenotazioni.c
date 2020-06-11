@@ -176,7 +176,7 @@ void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni)
     int i = 0;
     char* last_CF[400];
     char tmp[20];
-
+    bool find = false;
     source = fopen("Prenotazioni.txt", "r");
 
     if( source == NULL){
@@ -196,6 +196,7 @@ void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni)
                     concatenation(buff1,"@CodiceFiscale ");
                     strcpy(last_CF, buff2); // Salvo la variabile del attuale codice fiscale per i futuri controlli
                     if(!strcmp(buff2, codice_fiscale)){ //Se il valore del campo CodiceFiscale corrisponde al c.f passato
+                    find = true;
                     fprintf(target, "%s\n", concatenation("@CodiceFiscale ", codice_fiscale));
                         while(ListaPrenotazioni != NULL){
 
@@ -241,6 +242,10 @@ void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni)
     }
     fclose(source);
 
+    if(find == false){
+        addNewUserFilePrenotazioni(codice_fiscale, ListaPrenotazioni);
+        return;
+    }
     if(remove("Prenotazioni.txt") == 0){
 
     }
@@ -255,7 +260,50 @@ void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni)
         printf("Impossibile rinominare il nome del file\n");
     }
 
+}
+void addNewUserFilePrenotazioni(char* codice_fiscale, Prenotazione ListaPrenotazioni){
+    FILE *source;
+    char* buff1[400];
+    char* buff2[400];
+    int i = 0;
+    char* last_CF[400];
+    char tmp[20];
+    bool find = false;
+    source = fopen("Prenotazioni.txt", "a");
 
+    if( source == NULL){
+        printf("Impossibile aprire file Prenotazioni.txt\n");
+        exit(0);
+    }
+    else{
+
+        fprintf(source, "%s\n", concatenation("@CodiceFiscale ", codice_fiscale));
+            while(ListaPrenotazioni != NULL){
+
+                fprintf(source, "%s ", "@CodicePrenotazione ");
+                fprintf(source, "%d\n", ListaPrenotazioni->codicePrenotazione);
+
+                fprintf(source, "%s ", "@CodiceVolo ");
+                fprintf(source, "%d\n", ListaPrenotazioni->codiceVolo);
+
+
+               fprintf(source, "%s ", "@Aeroporto ");
+               for(int h = 0; ListaPrenotazioni->aeroporto[h].index != -1;h++){
+                   fprintf(source, "%d ", ListaPrenotazioni->aeroporto[h].index);
+               }
+                    fprintf(source, "\n");
+                fprintf(source, "%s ", "@Tempo ");
+                fprintf(source, "%d\n", ListaPrenotazioni->tempo);
+                fprintf(source, "%s ", "@Prezzo ");
+                fprintf(source, "%d\n\n", ListaPrenotazioni->prezzo);
+
+
+                ListaPrenotazioni = ListaPrenotazioni->next;
+            }
+
+
+    }
+    fclose(source);
 }
 
 int maxCodicePrenotazioneUtente(Prenotazione ListaPrenotazioni){
