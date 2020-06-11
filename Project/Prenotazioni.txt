@@ -1,12 +1,34 @@
-@CodiceFiscale 123456rftgyhujii
-@CodicePrenotazione 1
-@Aeroporti milano venezia napoli
+@CodiceFiscale qawsedrftgyhujXX
+@CodicePrenotazione  1
+@CodiceVolo  583239
+@Aeroporto  0 1 17 19 
+@Tempo  270
+@Prezzo  70
+
 @CodiceFiscale qawsedrftgyhujii
-@CodicePrenotazione 1
-@Aeroporti milano venezia genova
-@Tempo
-@Prezzo 
-@CodicePrenotazione 2
-@Aeroporti amstedarm pechino
-@Tempo
-@Prezzo 
+@CodicePrenotazione  1
+@CodiceVolo  1758239
+@Aeroporto  0 1 17 19 13 
+@Tempo  360
+@Prezzo  80
+
+@CodicePrenotazione  2
+@CodiceVolo  1762098
+@Aeroporto  1 0 
+@Tempo  90
+@Prezzo  50
+
+@CodicePrenotazione  3
+@CodiceVolo  583233
+@Aeroporto  0 5 7 2 
+@Tempo  55
+@Prezzo  33
+
+
+@CodiceFiscale qawsedrftgyhujZZ
+@CodicePrenotazione  1
+@CodiceVolo  583233
+@Aeroporto  0 5 7 2 
+@Tempo  55
+@Prezzo  33
+

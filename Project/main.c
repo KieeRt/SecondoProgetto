@@ -15,7 +15,8 @@ int main()
     Graph graph = createGraph(numeroAeroporto(aeroportiList));
     createEdgeFromFile(graph, aeroportiList);
 
-    readPrenotazioni("qawsedrftgyhujii");
+   readPrenotazioni("qawsedrftgyhujii", aeroportiList);
+   // welcome(graph, aeroportiList, ListaPrenotazioni);
 
 
 

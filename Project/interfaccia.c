@@ -81,14 +81,19 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
 
         case 1:
            system("cls");
+           stampaPrenotazione(ListaPrenotazioni);
+           writePrenotezioniFile(utente.codiceFiscale, ListaPrenotazioni);
 
+            fflush(stdin);
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
 
         break;
         case 2:
             system("cls");
                         printf("Lista aeroporti disponibili:\n");
             printAereoporto(aeroporti);
-            do{
+            do{ //!!BUG, inserimento di 0 non fa ritornare indietro
                 if(error>0){
                     printf("Uno degli aeroporti inseriti non e' stato trovato, riprova\n");
                 }
