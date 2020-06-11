@@ -1,0 +1,8 @@
+@partenza NAP
+@destinazione AMS
+@prezzo 34.00
+@tempo 34
+@partenza AMS
+@destinazione NAP
+@prezzo 34.00
+@tempo 34

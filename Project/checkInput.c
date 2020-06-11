@@ -69,13 +69,13 @@ int input_locale;
 }
 
 double doSceltaDoubleZero(char* messaggio, int valore_max){
-double input_locale;
+double input_locale=-1;
 
     do{
         printf("%s", messaggio);
 
     }while(!getPositiveDouble(&input_locale)  || input_locale > valore_max);
-
+    printf("AAA %f\n",input_locale);
     return input_locale;
 
 }

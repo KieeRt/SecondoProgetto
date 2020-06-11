@@ -138,6 +138,7 @@ bool updateFileArchi(Graph graph, List aeroporti){
             aeroporti = aeroporti->next;
         }
     }
+    fclose(file_archi);
 }
 
 
@@ -165,5 +166,5 @@ void updateFileAeroporti(List aeroporti){
         fprintf(file_aeroporti, "%d\n",aeroporti->aeroporto.index );
         aeroporti =  aeroporti->next;
     }
-
+    fclose(file_aeroporti);
 }

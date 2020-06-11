@@ -9,5 +9,5 @@
 void welcome(Graph graph, List aeroporti, Prenotazione ListaPrenotazioni);
 void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazioni);
 void homeAdmin(User utente,Graph graph, List aeroporti);
-int doSceltaDoubleZero(char* messaggio, int valore_max);
+double doSceltaDoubleZero(char* messaggio, int valore_max);
 #endif // INTERFACCIA_H_INCLUDED

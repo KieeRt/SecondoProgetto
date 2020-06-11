@@ -16,7 +16,7 @@ int main()
     createEdgeFromFile(graph, aeroportiList);
 
 
-   welcome(graph, aeroportiList, ListaPrenotazioni);
+    welcome(graph, aeroportiList, ListaPrenotazioni);
 
 
 

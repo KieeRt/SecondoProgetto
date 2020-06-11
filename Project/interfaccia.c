@@ -214,7 +214,7 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
  int scelta;
     Aeroporto srcAeroporto;
     Aeroporto destAeroporto;
-    double  prezzo;
+    double  prezzo = 0;
     int tempo;
     char buffer;
 
@@ -273,8 +273,7 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
                     break;
 
                 prezzo = doSceltaDoubleZero("-Inserire prezzo volo\nInput -> ",50000);
-
-                if(prezzo == 0)
+                if(prezzo == 0.0)
                     break;
 
                 tempo = doSceltaIntZero("-Inserire durata volo\nInput -> ",1500);
@@ -353,6 +352,8 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
         break;
         case 7:
             system("cls");
+
+
             updateFileAeroporti(aeroporti);
             updateFileArchi(graph,aeroporti);
             break;

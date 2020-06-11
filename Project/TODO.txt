@@ -1,14 +1,10 @@
 TO-DO
 1- Bug nella prenotazione dell'ordine, se scelgo 0 per uscire, esce dal ciclo for ma poi continua con le funzioni che stanno dopo.
 
-2-Fix inserimento inputReader getPotiveDOuble
+2-Fix inserimento inputReader getPotiveDOuble, probemi se l'input e con la ,
 
 3-Input
 
 4-Inserimento admin aggiungere uppercase
 
 5-Inserimento aeroporto stampa errore
-
-6-// concatenation(buff1,"@CodiceFiscale ");  CHE FACEVA STO COSO?! RIGA 196 
-
-7-File aeroporto vuoto fa crashare
