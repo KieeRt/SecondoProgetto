@@ -21,7 +21,7 @@ Graph createGraph(int numeroAeroporti){
     return graph;
 }
 
-bool addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo){
+bool addEdge(Graph graph, Aeroporto s, Aeroporto d, double prezzo, int tempo){
     bool result = false;
   // Add edge from s to d
     if(checkEdge(graph,s,d)){
@@ -100,7 +100,7 @@ void printAereoportoCollegamenti(Graph graph, List aeroporti){
         i++;
             printf("\tCollegamento %d:\n", i);
             printf("\t%s(%s)\n",  tmp->aeroporto.nomeCitta, tmp->aeroporto.nomeAeroporto);
-            printf("\tPrezzo: %d\n",  tmp->prezzo);
+            printf("\tPrezzo: %.2lf\n",  tmp->prezzo);
             printf("\tTempo: ");
             printTimeVolo(tmp->tempo);
             printf("\n");

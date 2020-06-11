@@ -17,7 +17,7 @@ struct TPrenotazione{
 
 typedef struct TPrenotazione* Prenotazione;
 
-Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int* percorso_scelto, List aeroporti, Graph graph);
+Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelto, List aeroporti, Graph graph,int* punti, bool usePoint);
 
 void stampaPrenotazione(Prenotazione ListaPrenotazioni);
 void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni);

@@ -8,7 +8,8 @@ void createEdgeFromFile(Graph graph, List head){
 
     char buff[100];
     Aeroporto src, dest;
-    int prezzo, tempo;
+    double prezzo;
+    int tempo;
 
     char read_line[150];
 
@@ -41,7 +42,7 @@ void createEdgeFromFile(Graph graph, List head){
         }
          if(strstr(read_line,"@prezzo")){
             strcpy(buff,strremove(read_line,"@prezzo "));
-            prezzo = atoi(buff);
+            prezzo = atof(buff);
         }
          if(strstr(read_line,"@tempo")){
             strcpy(buff,strremove(read_line,"@tempo "));
@@ -126,7 +127,7 @@ bool updateFileArchi(Graph graph, List aeroporti){
                 fprintf(file_archi, "%s\n", concatenation("@destinazione ", tmp->aeroporto.nomeAeroporto));
 
                 fprintf(file_archi, "%s ", "@prezzo");
-                fprintf(file_archi, "%d\n", tmp->prezzo);
+                fprintf(file_archi, "%.2lf\n", tmp->prezzo);
                 fprintf(file_archi, "%s ", "@tempo");
                 fprintf(file_archi, "%d\n", tmp->tempo);
 

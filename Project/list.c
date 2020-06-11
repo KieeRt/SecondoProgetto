@@ -101,7 +101,7 @@ void printAereoportoPrice(List list) {
 
         printf("-Nome aeroporto %s\n", list->aeroporto.nomeAeroporto);
         printf("-Nome citta %s\n", list->aeroporto.nomeCitta);
-        printf("-Prezzo volo %d\n",list->prezzo);
+        printf("-Prezzo volo %.2lf\n",list->prezzo);
         printf("-Popolarita  %d\n", list->aeroporto.popolarita);
         printf("-Costo della vita %d\n\n", list->aeroporto.costoVita);
 

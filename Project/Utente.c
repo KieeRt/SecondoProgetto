@@ -12,7 +12,7 @@ User initUtente(){
     return utente;
 }
 User registazioneUtente(){
-   User utente = initUtente();
+    User utente = initUtente();
     char buff [20];
     char buff1 [20];
     int count = 0;

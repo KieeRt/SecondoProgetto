@@ -2,7 +2,7 @@
 
 
 
-Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelto, List aeroporti, Graph graph,double* punti)
+Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelto, List aeroporti, Graph graph,int* punti, bool usePoint)
 {
 srand(time(0));
 int a = 1+rand()%1000;
@@ -19,11 +19,14 @@ int numeroPrenotazioni = maxCodicePrenotazioneUtente(ListaPrenotazioni);
     tmp->aeroporto[i].index = -1;
     tmp->codicePrenotazione = numeroPrenotazioni + 1;
     tmp->codiceVolo = a^b^ (int)tmp->aeroporto[0].nomeAeroporto; //Da gestine
-    tmp->prezzo = CostoVolo(graph, percorso_scelto) ;
+    if(usePoint){
+        tmp->prezzo = (CostoVolo(graph, percorso_scelto)) - ((*punti) / 10) ;
+    }else
+        tmp->prezzo = CostoVolo(graph, percorso_scelto);
     tmp->tempo = TempoVolo(graph, percorso_scelto);
 
     ListaPrenotazioni = inserPrenotezione(ListaPrenotazioni, tmp);
-
+    *punti =  CostoVolo(graph, percorso_scelto)/10;
     return ListaPrenotazioni;
 }
 

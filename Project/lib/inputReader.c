@@ -26,6 +26,28 @@ int getPositive(int *data){
 	return ok;
 }
 
+int getPositiveDouble(double *data){
+	int ok; // ritorno della funzione
+	int	i; // indice per scorrere la stringa letta
+	char buffer[51];
+
+	scanf("%50s",buffer);
+	clearBuffer();
+
+	i = 0;
+
+	while( buffer[i]>43 && buffer[i]<58 && buffer[i]!= 47&& buffer[i]!= 45 ) i++;
+    // !! Fix inserimento
+
+	ok = (buffer[i]=='\0' && i>0  );
+
+	if(ok) *data = atof(buffer);
+
+
+
+	return ok;
+}
+
 int getFloat(float *f){
 	char buffer[51];
 	int cont, //indice per lo scorrimento dell'input utente

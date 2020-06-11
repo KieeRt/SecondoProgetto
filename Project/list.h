@@ -4,7 +4,7 @@
 
 struct TList{
     Aeroporto aeroporto;
-    int prezzo;
+    double prezzo;
     int tempo;
     struct TList* next;
 };

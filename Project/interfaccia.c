@@ -132,7 +132,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
                     if(matrix[0][0] != -1)
                         scelta2 = doSceltaIntZeroError("Scegliere la tratta(0 per uscire) \nInput -> ", count, "Input non valido\n");
                 if(scelta2 !=  0){
-                    ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph);
+                    ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,true);
                     stampaPrenotazione(ListaPrenotazioni);
                 }
             }
@@ -194,6 +194,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
             break;
         case 6:
             system("cls");
+            writePrenotezioniFile(utente.codiceFiscale,  ListaPrenotazioni);
             welcome(graph, aeroporti, ListaPrenotazioni);
         break;
 
@@ -210,7 +211,8 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
  int scelta;
     Aeroporto srcAeroporto;
     Aeroporto destAeroporto;
-    int  prezzo, tempo;
+    double  prezzo;
+    int tempo;
     char buffer;
 
 
@@ -267,7 +269,7 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
                 if(!strcmp(destAeroporto.nomeAeroporto,"0"))
                     break;
 
-                prezzo = doSceltaIntZero("-Inserire prezzo volo\nInput -> ",50000);
+                prezzo = doSceltaDoubleZero("-Inserire prezzo volo\nInput -> ",50000);
                 if(prezzo == 0)
                     break;
 

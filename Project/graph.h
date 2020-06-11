@@ -13,7 +13,7 @@ typedef struct TGraph* Graph;
 
 Graph createGraph(int numeroAeroporto);
 
-bool addEdge(Graph graph, Aeroporto s, Aeroporto d, int prezzo, int tempo);
+bool addEdge(Graph graph, Aeroporto s, Aeroporto d, double prezzo, int tempo);
 
 void printGraph(Graph graph);
 

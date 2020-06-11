@@ -1,3 +1,6 @@
 TO-DO
 1- Bug nella prenotazione dell'ordine, se scelgo 0 per uscire, esce dal ciclo for ma poi continua con le funzioni che stanno dopo.
 
+2-Fix inserimento inputReader getPotiveDOuble
+
+3-Input

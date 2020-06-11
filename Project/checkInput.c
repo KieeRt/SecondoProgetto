@@ -67,6 +67,19 @@ int input_locale;
     return input_locale;
 
 }
+
+double doSceltaDoubleZero(char* messaggio, int valore_max){
+double input_locale;
+
+    do{
+        printf("%s", messaggio);
+
+    }while(!getPositiveDouble(&input_locale)  || input_locale > valore_max);
+
+    return input_locale;
+
+}
+
 int doSceltaIntZeroError(char* messaggio, int valore_max, char* error){
 int input_locale;
 int i = 0;
@@ -205,9 +218,6 @@ void upperCase(char * str) {
   }
 
 }
-
-
-
 
 
 

@@ -24,6 +24,24 @@
 @Tempo  55
 @Prezzo  33
 
+@CodicePrenotazione  4
+@CodiceVolo  38743513
+@Aeroporto  0 1 17 19 
+@Tempo  270
+@Prezzo  70
+
+@CodicePrenotazione  5
+@CodiceVolo  2086742
+@Aeroporto  0 1 17 19 
+@Tempo  270
+@Prezzo  70
+
+@CodicePrenotazione  6
+@CodiceVolo  7525634
+@Aeroporto  0 1 17 19 
+@Tempo  270
+@Prezzo  70
+
 @CodiceFiscale qawsedrftgyhujZZ
 @CodicePrenotazione  1
 @CodiceVolo  583233
