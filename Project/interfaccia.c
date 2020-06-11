@@ -31,9 +31,10 @@ void welcome(Graph graph, List aeroporti, Prenotazione ListaPrenotazioni){
 
                 homeAdmin(utente,graph,aeroporti);
 
-            else
+            else{
+                ListaPrenotazioni = readPrenotazioni(utente.codiceFiscale, aeroporti);
                 home(utente,graph, aeroporti, ListaPrenotazioni);
-
+            }
 
         break;
         case 2:
@@ -61,6 +62,9 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
     int error=0;
     int i;
     int count = 0;
+
+
+
     do{
         system("cls");
         printf("\n");
@@ -93,38 +97,47 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
             system("cls");
                         printf("Lista aeroporti disponibili:\n");
             printAereoporto(aeroporti);
-            do{ //!!BUG, inserimento di 0 non fa ritornare indietro
+            do{
                 if(error>0){
                     printf("Uno degli aeroporti inseriti non e' stato trovato, riprova\n");
                 }
                 error++;
                 strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
-                    if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
-                        break;
-                        upperCase(srcAeroporto.nomeAeroporto);
-                        srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
+                if(!strcmp(srcAeroporto.nomeAeroporto,"0")){
+                    error=-1;
+                    break;
+                }
+                upperCase(srcAeroporto.nomeAeroporto);
+                srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
                 strcpy(destAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di arrivo(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
-                    if(!strcmp(destAeroporto.nomeAeroporto,"0"))
-                        break;
-                        upperCase(destAeroporto.nomeAeroporto);
-                        destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
+
+                if(!strcmp(destAeroporto.nomeAeroporto,"0")){
+                    error=-1;
+                    break;
+                }
+                upperCase(destAeroporto.nomeAeroporto);
+                destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
 
             }while(srcAeroporto.index == -1 || destAeroporto.index == -1);
+
+            if(error != -1){
+                matrix = printAllPaths(srcAeroporto.index,destAeroporto.index, graph,aeroporti);
+
+                for(i = 0; i < 20; i++){
+                    if(matrix[i][0] != -1)
+                        count++;
+                    else
+                        break;
+                }
+                    if(matrix[0][0] != -1)
+                        scelta2 = doSceltaIntZeroError("Scegliere la tratta(0 per uscire) \nInput -> ", count, "Input non valido\n");
+                if(scelta2 !=  0){
+                    ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph);
+                    stampaPrenotazione(ListaPrenotazioni);
+                }
+            }
+
             error=0;
-
-          matrix = printAllPaths(srcAeroporto.index,destAeroporto.index, graph,aeroporti);
-
-        for(i = 0; i < 20; i++){
-            if(matrix[i][0] != -1)
-                count++;
-            else
-                break;
-        }
-         scelta2 = doSceltaIntZeroError("Scegliere la tratta(0 per uscire) \nInput -> ", count, "Input non valido\n");
-            ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph);
-            //addPrenotazione(Utente,src,dest)
-           // ListaPrenotazioni->next = NULL;
-            stampaPrenotazione(ListaPrenotazioni);
 
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");

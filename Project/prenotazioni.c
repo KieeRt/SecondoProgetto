@@ -1,6 +1,8 @@
 #include "prenotazioni.h"
 
-Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelto, List aeroporti, Graph graph)
+
+
+Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelto, List aeroporti, Graph graph,double* punti)
 {
 srand(time(0));
 int a = 1+rand()%1000;
@@ -17,7 +19,7 @@ int numeroPrenotazioni = maxCodicePrenotazioneUtente(ListaPrenotazioni);
     tmp->aeroporto[i].index = -1;
     tmp->codicePrenotazione = numeroPrenotazioni + 1;
     tmp->codiceVolo = a^b^ (int)tmp->aeroporto[0].nomeAeroporto; //Da gestine
-    tmp->prezzo = CostoVolo(graph, percorso_scelto);
+    tmp->prezzo = CostoVolo(graph, percorso_scelto) ;
     tmp->tempo = TempoVolo(graph, percorso_scelto);
 
     ListaPrenotazioni = inserPrenotezione(ListaPrenotazioni, tmp);
@@ -29,12 +31,10 @@ Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuov
 {
     if (ListaPrenotazioni == NULL)
     {
-        printf("Lista e' vuota\n");
         nuovaPrenotazione->next = NULL;
         return nuovaPrenotazione;
     }
     else{
-     printf("Lista non e' vuota\n");
 
         Prenotazione tmp = ListaPrenotazioni;
 
@@ -42,42 +42,13 @@ Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuov
                 tmp = tmp->next;
         }
         tmp->next = nuovaPrenotazione;
-        nuovaPrenotazione->next = NULL; //!! Da confermare
+        nuovaPrenotazione->next = NULL;
         return ListaPrenotazioni;
 
     }
 
 }
-Prenotazione inserPrenotezioneX(Prenotazione ListaPrenotazioni, Prenotazione nodo)
-{
-    Prenotazione tmp = (Prenotazione)malloc(sizeof(struct TPrenotazione));
-    tmp->codicePrenotazione = nodo->codicePrenotazione;
-    tmp->codiceVolo = nodo->codiceVolo;
-    tmp->prezzo = nodo->prezzo;
-    tmp->tempo = nodo->tempo;
-    tmp->next = NULL;
-    for(int i = 0; nodo->aeroporto[i].index != -1;i++){
-        tmp->aeroporto[i] = nodo->aeroporto[i];
-    }
-    if (ListaPrenotazioni == NULL)
-    {
-        return tmp;
-    }
-    else{
 
-
-        Prenotazione x = ListaPrenotazioni;
-
-        while(x->next != NULL){
-                x = x->next;
-        }
-        x->next = tmp;
-
-        return ListaPrenotazioni;
-
-    }
-
-}
 
 void stampaPrenotazione(Prenotazione ListaPrenotazioni)
 {
@@ -100,30 +71,9 @@ void stampaPrenotazione(Prenotazione ListaPrenotazioni)
     }
 
 }
-void stampaPrenotazioneX(Prenotazione ListaPrenotazioni)
-{
 
-    int i = 0;
-    if (ListaPrenotazioni)
-    {
-        printf(" - Codice Prenotazione:%d\n ", ListaPrenotazioni->codicePrenotazione);
-        printf(" - Codice Volo:%d\n - ", ListaPrenotazioni->codiceVolo);
-        printTimeVolo(ListaPrenotazioni->tempo);
-        printf(" - Costo:%d\n", ListaPrenotazioni->prezzo);
-        /*
-        while (ListaPrenotazioni->aeroporto[i].index != -1)
-        {
-            printf("%s(%s) -> ", ListaPrenotazioni->aeroporto[i].nomeCitta, ListaPrenotazioni->aeroporto[i].nomeAeroporto);
-            i++;
-        }*/
-        printf("\n\n");
 
-        stampaPrenotazioneX(ListaPrenotazioni->next);
-    }
-
-}
-
-void readPrenotazioni(char *codice_ficale, List listaAeroporti)
+Prenotazione readPrenotazioni(char *codice_ficale, List listaAeroporti)
 {
     FILE *file_prenotazioni;
     file_prenotazioni = fopen("Prenotazioni.txt", "r");
@@ -149,26 +99,22 @@ void readPrenotazioni(char *codice_ficale, List listaAeroporti)
         printf("Errore nell'apertura del file Prenotazioni.txt\n");
         return -1;
     }
-    //aggiungere campi di tempo e prezzo
     while (fgets(read_line, 150, file_prenotazioni) != NULL  ){
 
         if(strstr(read_line,"@CodiceFiscale")){
 
-            //tmp=(Prenotazione)malloc(sizeof(struct TPrenotazione));
             strcpy(tmpCf,strremove(read_line,"@CodiceFiscale "));
         }
         if(!strcmp(tmpCf,codice_ficale)){
             if(strstr(read_line,"@CodicePrenotazione"))
             {
 
-              //  tmp->codicePrenotazione = atoi(strremove(read_line, "@CodicePrenotazione "));
               codicePrenotazione = atoi(strremove(read_line, "@CodicePrenotazione "));
             }
 
              if(strstr(read_line,"@CodiceVolo"))
             {
 
-              //  tmp->codiceVolo = atoi(strremove(read_line, "@CodiceVolo "));
               codiceVolo =  atoi(strremove(read_line, "@CodiceVolo "));
             }
 
@@ -179,22 +125,18 @@ void readPrenotazioni(char *codice_ficale, List listaAeroporti)
                 strremove(read_line,"@Aeroporto ");
                 pch = strtok (read_line," ");
                 while (pch != NULL){
-                  //  tmp->aeroporto[i] = findAeroportoIndex(atoi(pch), listaAeroporti);
                     support[i] =  findAeroportoIndex(atoi(pch), listaAeroporti);
                     pch = strtok (NULL, " ");
                     i++;
                 }
-             //   tmp->aeroporto[i].index = -1;
                  support[i].index = -1;
             }
               if(strstr(read_line,"@Tempo"))
             {
-               // tmp->tempo = atoi(strremove(read_line, "@Tempo "));
                tempo =  atoi(strremove(read_line, "@Tempo "));
             }
             if(strstr(read_line,"@Prezzo"))
             {
-              //  tmp->prezzo = atoi(strremove(read_line, "@Prezzo "));
               prezzo =  atoi(strremove(read_line, "@Prezzo "));
 
                 tmp=(Prenotazione)malloc(sizeof(struct TPrenotazione));
@@ -219,6 +161,7 @@ void readPrenotazioni(char *codice_ficale, List listaAeroporti)
 
     fclose(file_prenotazioni);
 
+    return head;
 }
 
 

@@ -24,7 +24,6 @@
 @Tempo  55
 @Prezzo  33
 
-
 @CodiceFiscale qawsedrftgyhujZZ
 @CodicePrenotazione  1
 @CodiceVolo  583233

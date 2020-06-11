@@ -23,7 +23,7 @@ void stampaPrenotazione(Prenotazione ListaPrenotazioni);
 void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni);
 Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuovaPrenotazione);
 
-void readPrenotazioni(char *codice_ficale, List listaAeroporti);
+Prenotazione readPrenotazioni(char *codice_ficale, List listaAeroporti);
 
 int maxCodicePrenotazioneUtente(Prenotazione ListaPrenotazioni);
 
