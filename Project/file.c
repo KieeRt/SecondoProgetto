@@ -51,6 +51,7 @@ void createEdgeFromFile(Graph graph, List head){
         }
 
     }
+    fclose(file_aeroporti);
 
 }
 
@@ -92,6 +93,7 @@ List initNodeListFromFile(){
              head=insertList(head,aeroporto);
         }
     }
+    fclose(file_aeroporti);
     return head;
 
 }

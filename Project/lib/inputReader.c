@@ -27,22 +27,14 @@ int getPositive(int *data){
 }
 
 int getPositiveDouble(double *data){
-	int ok; // ritorno della funzione
-	int	i; // indice per scorrere la stringa letta
-	char buffer[51];
+	int ok=0; // ritorno della funzione
 
-	scanf("%50s",buffer);
-	clearBuffer();
 
-	i = 0;
-
-	while( buffer[i]>43 && buffer[i]<58 && buffer[i]!= 47&& buffer[i]!= 45 ) i++;
-    // !! Fix inserimento
-
-	ok = (buffer[i]=='\0' && i>0  );
-
-	if(ok) *data = atof(buffer);
-
+    fflush(stdin);
+    if(scanf("%lf", data) == 1){
+        ok=1;
+    }else
+        printf("input non valido\n");
 
 
 	return ok;

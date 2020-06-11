@@ -193,7 +193,7 @@ void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni)
             while(fgets(buff1,400,source)!=NULL){
                 if(strstr(buff1,"@CodiceFiscale")){ //Se il campo e' quello CodiceFiscale
                     strcpy(buff2,strremove(buff1,"@CodiceFiscale ")); //Viene rimosso il campo @CodiceFiscale dalla stringa buff1
-                    concatenation(buff1,"@CodiceFiscale ");
+                    // concatenation(buff1,"@CodiceFiscale ");  CHE FACEVA STO COSO?!
                     strcpy(last_CF, buff2); // Salvo la variabile del attuale codice fiscale per i futuri controlli
                     if(!strcmp(buff2, codice_fiscale)){ //Se il valore del campo CodiceFiscale corrisponde al c.f passato
                     find = true;

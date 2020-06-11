@@ -4,3 +4,11 @@ TO-DO
 2-Fix inserimento inputReader getPotiveDOuble
 
 3-Input
+
+4-Inserimento admin aggiungere uppercase
+
+5-Inserimento aeroporto stampa errore
+
+6-// concatenation(buff1,"@CodiceFiscale ");  CHE FACEVA STO COSO?! RIGA 196 
+
+7-File aeroporto vuoto fa crashare

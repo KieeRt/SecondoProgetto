@@ -273,6 +273,7 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
                     break;
 
                 prezzo = doSceltaDoubleZero("-Inserire prezzo volo\nInput -> ",50000);
+
                 if(prezzo == 0)
                     break;
 
@@ -352,6 +353,8 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
         break;
         case 7:
             system("cls");
+            updateFileAeroporti(aeroporti);
+            updateFileArchi(graph,aeroporti);
             break;
         default:
             printf("\n\n\tScelta non valida\n");

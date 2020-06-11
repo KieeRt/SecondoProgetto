@@ -1,26 +1,8 @@
-@CodiceFiscale qawsedrftgyhujXX
-@CodicePrenotazione  1
-@CodiceVolo  14801291
-@Aeroporto  0 1 17 19 13 
-@Tempo  360
-@Prezzo  80
-
-@CodicePrenotazione  2
-@CodiceVolo  14804789
-@Aeroporto  0 1 13 
-@Tempo  180
-@Prezzo  90
 
 @CodiceFiscale qawsedrftgyhujii
 @CodicePrenotazione  1
-@CodiceVolo  7723039
-@Aeroporto  0 1 13 
-@Tempo  180
-@Prezzo  90
-
-@CodicePrenotazione  2
-@CodiceVolo  7726910
-@Aeroporto  1 0 
-@Tempo  90
-@Prezzo  50
+@CodiceVolo  1955902
+@Aeroporto  0 1 17 19 
+@Tempo  270
+@Prezzo  70
 
