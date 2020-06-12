@@ -1,5 +1,5 @@
 #include "prenotazioni.h"
-
+#include "Utente.h"
 
 
 Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelto, List aeroporti, Graph graph,int* punti, bool usePoint)
@@ -266,6 +266,8 @@ void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni)
     }
 
 }
+
+
 void addNewUserFilePrenotazioni(char* codice_fiscale, Prenotazione ListaPrenotazioni){
     FILE *source;
     char* buff1[400];
@@ -325,3 +327,133 @@ int maxCodicePrenotazioneUtente(Prenotazione ListaPrenotazioni){
 
 }
 
+
+
+bool isEdgeOnPrenotazione(Prenotazione ListaPrenotazioni, int s, int d){
+    int array[10];
+    int h;
+    int loc_s, loc_d;
+    for(h = 0; ListaPrenotazioni->aeroporto[h].index != -1;h++){
+        loc_s = ListaPrenotazioni->aeroporto[h].index;
+        if( ListaPrenotazioni->aeroporto[h+1].index != -1){
+            loc_d = ListaPrenotazioni->aeroporto[h+1].index;
+                if(loc_s == s && loc_d == d)
+                    return true;
+        }
+
+    }
+    return false;
+}
+Prenotazione deletePrenotazioniSrcDst(Prenotazione P, int src,  int dest){
+	if(P != NULL){
+		if( isEdgeOnPrenotazione(P, src, dest)){
+			Prenotazione tmp = P->next;
+			free(P);
+			return tmp;
+		}
+		P->next = deletePrenotazioniSrcDst(P->next, src, dest);
+	}
+	return P;
+}
+
+void updatePrenotazioniFile(int src, int dest, List listaAeroporti){
+    int i;
+	int numberUser = countUtenti();
+    User *utenti = getAllUtenti(numberUser);
+
+
+
+	for (i = 0; i < numberUser; i++){//funzione che recupera nuovo utente.
+		Prenotazione ListaPrenotazioni = readPrenotazioni(utenti[i].codiceFiscale, listaAeroporti);
+			ListaPrenotazioni = deletePrenotazioniSrcDst(ListaPrenotazioni, src, dest);
+			ListaPrenotazioni = updateCodicePrenotazioneR(ListaPrenotazioni, 1);
+			//Aggiornare gli indici
+
+			if(ListaPrenotazioni != NULL)
+				writePrenotezioniFile(utenti[i].codiceFiscale, ListaPrenotazioni);
+			else
+				cancellaUtenteFilePrenotazioni(utenti[i].codiceFiscale);
+
+
+		free(ListaPrenotazioni);
+		i++;
+	}
+
+
+
+}
+
+void cancellaUtenteFilePrenotazioni(char* codice_fiscale){
+     FILE *source, *target;
+    char* buff1[400];
+    char* buff2[400];
+    int i = 0;
+    char* last_CF[400];
+    char tmp[20];
+    source = fopen("Prenotazioni.txt", "r");
+
+    if( source == NULL){
+        printf("Impossibile aprire file Prenotazioni.txt\n");
+        exit(0);
+    }
+    else{
+        target = fopen("tmp.txt", "w+");
+        if(target == NULL){
+            printf("Impossibile creare nuovo file tmp.txt\n");
+            exit(0);
+        }
+        else{
+            while(fgets(buff1,400,source)!=NULL){
+                if(strstr(buff1,"@CodiceFiscale")){ //Se il campo e' quello CodiceFiscale
+                    strcpy(buff2,strremove(buff1,"@CodiceFiscale ")); //Viene rimosso il campo @CodiceFiscale dalla stringa buff1
+                    // concatenation(buff1,"@CodiceFiscale ");  CHE FACEVA STO COSO?!
+                    strcpy(last_CF, buff2); // Salvo la variabile del attuale codice fiscale per i futuri controlli
+                    if(!strcmp(buff2, codice_fiscale)){ //Se il valore del campo CodiceFiscale corrisponde al c.f passato
+
+                    }
+                    else{
+                    	 fprintf(target, "%s\n", concatenation("@CodiceFiscale ", buff1)); // CASP ELSE Se il campo @CodiceFiscale e' diverso dal nostro codice_fiscale passato
+
+                    }
+                }
+                else if (!strcmp(last_CF, codice_fiscale)){
+                    // CASP ELSE IF Se il campo e' diverso dal @CodiceFiscale, faccio scorrere fgets
+                   // printf("CASP ELSE IF Se il campo e' diverso dal @CodiceFiscale \n");
+                }
+                else{
+                    fprintf(target, "%s", buff1); // CASP ELSE Se il campo e' diverso dal @CodiceFiscale
+
+                }
+            }
+
+        }
+        fclose(target);
+    }
+    fclose(source);
+
+    if(remove("Prenotazioni.txt") == 0){
+
+    }
+    else{
+        printf("Impossibile eliminare il file\n");
+    }
+
+    if(rename("tmp.txt", "Prenotazioni.txt") == 0){
+
+    }
+    else{
+        printf("Impossibile rinominare il nome del file\n");
+    }
+
+
+}
+
+
+Prenotazione updateCodicePrenotazioneR(Prenotazione P, int numero){
+    Prenotazione tmp = P;
+    if(P != NULL){
+        P->next = updateCodicePrenotazioneR(P->next, numero+1);
+        P->codicePrenotazione = numero;
+    }
+    return P;
+}

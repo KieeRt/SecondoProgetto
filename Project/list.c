@@ -183,7 +183,7 @@ List canRemove(List L, int target){
         printf("\nDegli utenti hanno prenotato un volo verso quest'aeroporto, sicuro di voler procedere con l'eliminazione?\n");
         printf("0.Torna indietro?\n");
         printf("1.Procedi con l'eliminazione?\n");
-        scanf("%d",&choose);
+        scanf("%d",&choose); //Da mettere il filtro
         if(choose ==1)
              return  removeNodeList(L,target);
         else

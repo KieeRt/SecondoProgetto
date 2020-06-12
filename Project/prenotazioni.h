@@ -6,6 +6,8 @@
 #include "list.h"
 #include "graph.h"
 #include <time.h>
+
+
 struct TPrenotazione{
     int codicePrenotazione;
     int codiceVolo;
@@ -21,12 +23,25 @@ Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelt
 
 void stampaPrenotazione(Prenotazione ListaPrenotazioni);
 void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni);
+
+
 //Se utente non e' presente nel file con la lista di prenotazioni lo mette in coda al file stesso
 void addNewUserFilePrenotazioni(char* codice_fiscale, Prenotazione ListaPrenotazioni);
 Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuovaPrenotazione);
+
 
 Prenotazione readPrenotazioni(char *codice_ficale, List listaAeroporti);
 
 int maxCodicePrenotazioneUtente(Prenotazione ListaPrenotazioni);
 
+//Restituisce true se nella Prenotazione esiste un arco da s a d
+bool isEdgeOnPrenotazione(Prenotazione ListaPrenotazioni, int s, int d);
+// Elimina le prenotazioni da P  in modo ricorsivo che contengono un percorso DIRETTO tra src e dest
+Prenotazione deletePrenotazioniSrcDst(Prenotazione P, int src,  int dest);
+// Per ogni utente controlla !!STA SUL MAIN
+void updatePrenotazioniFile(int src, int dest, List listaAeroporti);
+// Cancella dal file Prenotazioni.txt utente con le sue prenotazioni
+void cancellaUtenteFilePrenotazioni(char* codice_fiscale);
+//Aggiorna campo CodicePrenotazione nel caso viene rimossa una prenotazione
+Prenotazione updateCodicePrenotazioneR(Prenotazione P, int numero);
 #endif // PRENOTAZIONI_H_INCLUDED

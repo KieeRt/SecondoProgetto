@@ -354,7 +354,10 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
 
             }while(!isDeletedEdge(graph, srcAeroporto.index, destAeroporto.index));
 
-
+            printf("DEBUG 1\n");
+            updatePrenotazioniFile(srcAeroporto.index, destAeroporto.index, aeroporti);
+            printf("DEBUG 2\n");
+            //Controllo se e' stata effettuata la cancellazione, se si recupero indici srcAeroporto.index e destAeroporto.index
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
             while(getchar()!='\n'); // option TWO to clean stdin

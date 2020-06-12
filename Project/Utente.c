@@ -252,5 +252,91 @@ bool checkPassword(char* codiceFiscale, char* password){
     }
 }
 
+int countUtenti(){
+	FILE *fp;
+	char read_line[150];
+	int count = 0;
+	fp = fopen("Utenti.txt", "r");
+	if(fp == NULL){
+		printf("Errore apertura file Utenti.txt nella funzione countUtenti\n");
+	}
+	else{
+		while (fgets(read_line, 150, fp) != NULL  ){
+	        if(strstr(read_line,"@CodiceFiscale")){
+                strcpy(read_line,strremove(read_line,"@CodiceFiscale "));
+                if(strcmp(read_line, "admin")){
+                    count++;
+                }
+	        }
 
+        }
+        fclose(fp);
+	}
+	return count;
+}
+
+
+User* getAllUtenti(int numberUser){
+	User *utente = (User*)malloc(sizeof(struct TUtente)*numberUser);
+	char read_line[150];
+	char buff[150];
+	int i = 0;
+	FILE *fp;
+		fp = fopen("Utenti.txt", "r");
+		if(fp == NULL){
+			printf("Errore apertura file Utenti.txt\n");
+		}
+		else{
+			while (fgets(read_line, 150, fp) != NULL  ){
+
+		        if(strstr(read_line,"@CodiceFiscale")){
+
+	                strcpy(buff,strremove(read_line,"@CodiceFiscale "));
+	                if(strcmp(buff, "admin")){
+                         utente[i] = initUtente();
+                       //  printf("Valore buff:%s\n", buff);
+                        strcpy(utente[i].codiceFiscale, buff);
+
+	                }
+                  //  printf("Valore:%s\n", buff);
+		        }
+	                if(strcmp(buff, "admin")){
+
+			            if(strstr(read_line,"@Nome")){
+
+                            strcpy(utente[i].nome,strremove(read_line,"@Nome "));
+                            //printf("Nome:%s\n", utente[i].nome);
+			            }
+
+		                if(strstr(read_line,"@Cognome")){
+
+                            strcpy(utente[i].cognome,strremove(read_line,"@Cognome "));
+                           //  printf("Cognome:%s\n", utente[i].cognome);
+		                }
+
+		                if(strstr(read_line,"@Password")){
+
+                            strcpy(utente[i].password,strremove(read_line,"@Password "));
+                         //   printf("Password:%s\n", utente[i].password);
+		                }
+
+		                if(strstr(read_line,"@Punti")){
+		                    strcpy(read_line,strremove(read_line,"@Punti "));
+		                    utente[i].punti=atoi(read_line);
+		                     i++;
+		                }
+
+
+	                }
+
+
+
+
+	        }
+	        fclose(fp);
+		}
+
+
+		return utente;
+}
 

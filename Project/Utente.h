@@ -32,3 +32,6 @@ User login();
 bool checkPassword(char* codiceFiscale, char* password);
 
 User getUtente(char* codiceFiscale);
+//Conta numeri di utenti escluso quelli del amministratore
+int countUtenti();
+User* getAllUtenti(int numberUser);
