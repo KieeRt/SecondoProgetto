@@ -17,7 +17,9 @@ Aeroporto insertAeroporto(){
     Aeroporto aeroporto;
 
     strcpy(aeroporto.nomeAeroporto, doSceltaString("-Nome Aeroporto\nInput -> ",0, 2, 256));
+    upperCase(aeroporto.nomeAeroporto);
     strcpy(aeroporto.nomeCitta, doSceltaString("-Nome Citta\nInput -> ", 0, 2, 256));
+    upperCase(aeroporto.nomeCitta);
     aeroporto.costoVita = doSceltaInt("-Costo vita\nInput->",500000);
     aeroporto.popolarita = doSceltaIntZero("-Popolarita\nInput->",5000);
     aeroporto.index = -1;

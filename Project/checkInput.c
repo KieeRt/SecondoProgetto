@@ -75,7 +75,7 @@ double input_locale=-1;
         printf("%s", messaggio);
 
     }while(!getPositiveDouble(&input_locale)  || input_locale > valore_max);
-    printf("AAA %f\n",input_locale);
+   // printf("AAA %f\n",input_locale);
     return input_locale;
 
 }
@@ -88,7 +88,6 @@ int i = 0;
             printf("%s",error);
         i++;
         printf("%s", messaggio);
-    printf("%s", messaggio);
     }while(!getPositive(&input_locale)  || input_locale > valore_max);
 
     return input_locale;
@@ -175,6 +174,7 @@ bool checkIfExist(char *st1, char *nomeFile){
                find = true;
             }
         }
+        fclose(fp);
         return find;
     }
 }

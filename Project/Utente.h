@@ -20,7 +20,7 @@ typedef struct TUtente User;
 User initUtente();
 User registazioneUtente();
 
-bool registrazioneSulFile(User utente);
+bool updateUserOnFile(User utente);
 
 void stampaUtente(User utente);
 

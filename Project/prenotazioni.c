@@ -19,14 +19,19 @@ int numeroPrenotazioni = maxCodicePrenotazioneUtente(ListaPrenotazioni);
     tmp->aeroporto[i].index = -1;
     tmp->codicePrenotazione = numeroPrenotazioni + 1;
     tmp->codiceVolo = a^b^ (int)tmp->aeroporto[0].nomeAeroporto; //Da gestine
+
     if(usePoint){
         tmp->prezzo = (CostoVolo(graph, percorso_scelto)) - ((*punti) / 10) ;
-    }else
-        tmp->prezzo = CostoVolo(graph, percorso_scelto);
+        *punti =  CostoVolo(graph, percorso_scelto)/10;
+    }else{
+         tmp->prezzo = CostoVolo(graph, percorso_scelto);
+         *punti =  *punti + CostoVolo(graph, percorso_scelto)/10;
+    }
+
     tmp->tempo = TempoVolo(graph, percorso_scelto);
 
     ListaPrenotazioni = inserPrenotezione(ListaPrenotazioni, tmp);
-    *punti =  CostoVolo(graph, percorso_scelto)/10;
+
     return ListaPrenotazioni;
 }
 

@@ -20,10 +20,10 @@ User registazioneUtente(){
 
     printf("Compila i seguenti campi:\n");
 
-    strcpy(utente.nome, doSceltaString("Nome\nInput -> ", 2,0 , 20));
+    strcpy(utente.nome, doSceltaString("Nome\nInput -> ", 0, 2, 20));
 
 
-    strcpy(utente.cognome, doSceltaString("Cognome\nInput -> ", 2, 0, 20));
+    strcpy(utente.cognome, doSceltaString("Cognome\nInput -> ", 0, 2, 20));
 
     do{
         if(count > 0)
@@ -43,17 +43,80 @@ User registazioneUtente(){
 
 }
 
-bool registrazioneSulFile(User utente){
-FILE *source;
+bool updateUserOnFile(User utente){ // Da rinominare
+   FILE *source, *target;
+    char* buff1[400];
+    char* buff2[400];
+    int i = 0;
+    char* last_CF[400];
+    char tmp[20];
+    source = fopen("Utenti.txt", "r");
 
-    source = fopen("Utenti.txt", "w");
-    if(source == NULL){
-        printf("Errore apertura file Utenti.txt\n");
+    if( source == NULL){
+        printf("Impossibile aprire file Prenotazioni.txt\n");
+        exit(0);
     }
     else{
-        while(!feof(source)){
-          //  fscanf()
+        target = fopen("tmp.txt", "w+");
+        if(target == NULL){
+            printf("Impossibile creare nuovo file tmp.txt\n");
+            exit(0);
         }
+        else{
+            while(fgets(buff1,400,source)!=NULL){
+                if(strstr(buff1,"@CodiceFiscale")){ //Se il campo e' quello CodiceFiscale
+                    strcpy(buff2,strremove(buff1,"@CodiceFiscale ")); //Viene rimosso il campo @CodiceFiscale dalla stringa buff1
+
+                    strcpy(last_CF, buff2); // Salvo la variabile del attuale codice fiscale per i futuri controlli
+                    if(!strcmp(buff2, utente.codiceFiscale)){ //Se il valore del campo CodiceFiscale corrisponde al c.f passato
+                    fprintf(target, "%s\n", concatenation("@CodiceFiscale ", utente.codiceFiscale));
+
+                            fprintf(target, "%s", "@Nome ");
+                            fprintf(target, "%s\n", utente.nome);
+
+                            fprintf(target, "%s", "@Cognome ");
+                            fprintf(target, "%s\n", utente.cognome);
+
+
+	                        fprintf(target, "%s", "@Password ");
+	                        fprintf(target, "%s\n", utente.password);
+
+                            fprintf(target, "%s", "@Punti ");
+                            fprintf(target, "%d\n", utente.punti);
+                    }
+                    else{
+                    	 fprintf(target, "%s\n", concatenation("@CodiceFiscale ", buff1)); // CASP ELSE Se il campo @CodiceFiscale e' diverso dal nostro codice_fiscale passato
+
+                    }
+                }
+                else if (!strcmp(last_CF, utente.codiceFiscale)){
+                    // CASP ELSE IF Se il campo e' diverso dal @CodiceFiscale, faccio scorrere fgets
+                   // printf("CASP ELSE IF Se il campo e' diverso dal @CodiceFiscale \n");
+                }
+                else{
+                    fprintf(target, "%s", buff1); // CASP ELSE Se il campo e' diverso dal @CodiceFiscale
+
+                }
+            }
+
+        }
+        fclose(target);
+    }
+    fclose(source);
+
+
+    if(remove("Utenti.txt") == 0){
+
+    }
+    else{
+        printf("Impossibile eliminare il file Utenti.txt\n");
+    }
+
+    if(rename("tmp.txt", "Utenti.txt") == 0){
+
+    }
+    else{
+        printf("Impossibile rinominare il nome del file tmp.txt in Utenti.txt\n");
     }
 
 }
@@ -80,13 +143,15 @@ void registraFileUtente(User utente){
         printf("Errore nell'apertura del file");
         return -1;
     }
+    else{
     fprintf(fp,"%s\n" ,   concatenation("@CodiceFiscale ", utente.codiceFiscale));
     fprintf(fp,"%s\n" ,   concatenation("@Nome ", utente.nome));
     fprintf(fp,"%s\n" ,  concatenation("@Cognome ", utente.cognome));
     fprintf(fp,"%s\n" ,   concatenation("@Password ", utente.password));
     sprintf(tmp, "%d", utente.punti);
     fprintf(fp, "%s\n", concatenation("@Punti ", tmp));
-
+    }
+    fclose(fp);
 
 
 }
@@ -154,6 +219,7 @@ User getUtente(char* codiceFiscale){
 
             }
         }
+        fclose(fp);
 
         return utente;
     }
@@ -181,7 +247,7 @@ bool checkPassword(char* codiceFiscale, char* password){
                     if(!strcmp(tmpPassword,password))
                         find = true;
         }
-
+    fclose(fp);
         return find;
     }
 }

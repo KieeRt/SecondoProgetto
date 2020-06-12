@@ -54,7 +54,7 @@ void welcome(Graph graph, List aeroporti, Prenotazione ListaPrenotazioni){
 }
 
 void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazioni){
-    int scelta, scelta2;
+    int scelta, scelta2, scelta3;
     List tmp = NULL;
     Aeroporto srcAeroporto;
     Aeroporto destAeroporto;
@@ -132,8 +132,27 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
                     if(matrix[0][0] != -1)
                         scelta2 = doSceltaIntZeroError("Scegliere la tratta(0 per uscire) \nInput -> ", count, "Input non valido\n");
                 if(scelta2 !=  0){
-                    ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,true);
+
+                    if (utente.punti > 0){
+                        printf("Lei ha a disposizione %d punti \n", utente.punti);
+                        fflush(stdin);
+                        scelta3 = doSceltaIntZeroError("Vorebbe usarli per il viaggio?(0 per uscire) \n 1-No\n 2-Si\nInput-> ", 2, "Input non valido\n");
+                      //  scelta3 = doSceltaIntError("Vorebbe usarli per il viaggio?(0 per uscire) \n 1-No\n 2-Si\nInput-> ", 2, "Input non valido\n");
+                        if(scelta3 != 0){
+                            if(scelta3 == 1){
+                                ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,false);
+                            }
+                            else{
+                                 ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,true);
+                            }
+
+                        }
+                    }
+                    else{
+                        ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,false);
+                    }
                     stampaPrenotazione(ListaPrenotazioni);
+
                 }
             }
 
@@ -195,7 +214,8 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
         case 6:
             system("cls");
             writePrenotezioniFile(utente.codiceFiscale,  ListaPrenotazioni);
-            welcome(graph, aeroporti, ListaPrenotazioni);
+            updateUserOnFile(utente);
+        //    welcome(graph, aeroporti, ListaPrenotazioni);
              fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
             while(getchar()!='\n'); // option TWO to clean stdin

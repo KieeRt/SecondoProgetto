@@ -2,9 +2,14 @@
 @Nome mario
 @Cognome pietroluongo
 @Password ciao
-@Punti 0
+@Punti 2
 @CodiceFiscale admin
 @Nome Ciro
 @Cognome Esposito
 @Password admin
 @Punti 0
+@CodiceFiscale qawsedrftgyhujkk
+@Nome dmytro
+@Cognome lozyak
+@Password ciao
+@Punti 17
