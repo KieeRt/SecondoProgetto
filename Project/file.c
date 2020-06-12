@@ -117,9 +117,13 @@ bool updateFileArchi(Graph graph, List aeroporti){
 
         if(tmp != NULL){
                 support = findAeroportoIndex(v, aeroporti);
-                if(support.index != -1)
+                /*if(support.index != -1)
                     printf("Aeroporto trovato:%s\n", support.nomeAeroporto);
                 else{
+                    printf("Error aeroporto non trovato\n");
+                    exit(0);
+                }*/
+                if(support.index == -1){
                     printf("Error aeroporto non trovato\n");
                     exit(0);
                 }

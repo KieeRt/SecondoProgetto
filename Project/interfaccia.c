@@ -137,7 +137,6 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
                         printf("Lei ha a disposizione %d punti \n", utente.punti);
                         fflush(stdin);
                         scelta3 = doSceltaIntZeroError("Vorebbe usarli per il viaggio?(0 per uscire) \n 1-No\n 2-Si\nInput-> ", 2, "Input non valido\n");
-                      //  scelta3 = doSceltaIntError("Vorebbe usarli per il viaggio?(0 per uscire) \n 1-No\n 2-Si\nInput-> ", 2, "Input non valido\n");
                         if(scelta3 != 0){
                             if(scelta3 == 1){
                                 ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,false);
@@ -322,7 +321,7 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
 
             }while(!removeNode(graph, srcAeroporto.index));
 
-            aeroporti = removeNodeList(aeroporti, srcAeroporto.index);
+            aeroporti = canRemove(aeroporti, srcAeroporto.index);
             aeroporti = updateNodeListIndexR(aeroporti, 0);
 
 

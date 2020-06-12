@@ -4,4 +4,6 @@ TO-DO
 
 2-Input
 
-3-Implementare imitazione del volo
+3-Implementare imitazione del volo //come vediamo se l'utente ha effettuato il volo?
+
+4-canRemove (list.c) puo dare problemi con l'input visto che è presente una semplice scanf,necessita di ulteriori test

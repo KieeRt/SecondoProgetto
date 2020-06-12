@@ -147,6 +147,51 @@ List freeList(List L) {
 }
 
 
+List canRemove(List L, int target){
+    FILE* file;
+    char read_line[256];
+    char*pos;
+    int line=-1, col=-1;
+    int choose;
+    char word[20];
+    sprintf(word, "%d", target);
+
+    file = fopen("Prenotazioni.txt","r");
+    if(!file){
+        printf("Impossibile aprire il file prenotazione.txt, controlla di avere i permessi necessari\n");
+        return -1;
+    }
+
+    while ((fgets(read_line, 256, file)) != NULL){
+        line += 1;
+
+        // Find first occurrence of word in str
+        pos = strstr(read_line, word);
+
+        if (pos != NULL)
+        {
+            // First index of word in str is
+            // Memory address of pos - memory
+            // address of str.
+            col = (pos - read_line);
+            break;
+        }
+    }
+    if(col == -1){
+        return removeNodeList(L,target);
+    }else{
+        printf("\nDegli utenti hanno prenotato un volo verso quest'aeroporto, sicuro di voler procedere con l'eliminazione?\n");
+        printf("0.Torna indietro?\n");
+        printf("1.Procedi con l'eliminazione?\n");
+        scanf("%d",&choose);
+        if(choose ==1)
+             return  removeNodeList(L,target);
+        else
+        return L;
+    }
+    fclose(file);
+}
+
 
 List removeNodeList(List L, int target){
     if (L != NULL) {
