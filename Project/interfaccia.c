@@ -313,7 +313,7 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
 
             do{
 
-                strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
+                strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATa dell'aeroporto da rimuovere(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
                 if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
                     break;
                 upperCase(srcAeroporto.nomeAeroporto);
@@ -321,9 +321,9 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
 
             }while(!removeNode(graph, srcAeroporto.index));
 
-            aeroporti = canRemove(aeroporti, srcAeroporto.index);
-            aeroporti = updateNodeListIndexR(aeroporti, 0);
-
+            aeroporti= removeNodeList(aeroporti,srcAeroporto.index);
+            aeroporti= updateNodeListIndexR(aeroporti,0);
+            updatePrenotazioniFile(srcAeroporto.index,srcAeroporto.index,aeroporti);
 
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
@@ -354,9 +354,9 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
 
             }while(!isDeletedEdge(graph, srcAeroporto.index, destAeroporto.index));
 
-            printf("DEBUG 1\n");
+
             updatePrenotazioniFile(srcAeroporto.index, destAeroporto.index, aeroporti);
-            printf("DEBUG 2\n");
+
             //Controllo se e' stata effettuata la cancellazione, se si recupero indici srcAeroporto.index e destAeroporto.index
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
@@ -375,7 +375,7 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
         case 7:
             system("cls");
 
-
+            //printGraph(graph);
             updateFileAeroporti(aeroporti);
             updateFileArchi(graph,aeroporti);
             break;

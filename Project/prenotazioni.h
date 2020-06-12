@@ -29,6 +29,8 @@ void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni)
 void addNewUserFilePrenotazioni(char* codice_fiscale, Prenotazione ListaPrenotazioni);
 Prenotazione inserPrenotezione(Prenotazione ListaPrenotazioni, Prenotazione nuovaPrenotazione);
 
+//Controlla se degli utenti hanno dei voli prenotati verso target
+List canRemove(List L, int target);
 
 Prenotazione readPrenotazioni(char *codice_ficale, List listaAeroporti);
 

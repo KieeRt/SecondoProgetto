@@ -7,3 +7,7 @@ TO-DO
 3-Implementare imitazione del volo //come vediamo se l'utente ha effettuato il volo?
 
 4-canRemove (list.c) puo dare problemi con l'input visto che è presente una semplice scanf,necessita di ulteriori test
+
+5- Bug file archi vuoto, errore nella stampa.
+
+6- Bug se chiudo mentre aggiungo un aeroporto.

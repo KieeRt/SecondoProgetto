@@ -267,6 +267,51 @@ void writePrenotezioniFile(char* codice_fiscale, Prenotazione ListaPrenotazioni)
 
 }
 
+List canRemove(List L, int target){
+    FILE* file;
+    char read_line[256];
+    char*pos;
+    int line=-1, col=-1;
+    int choose;
+    char word[20];
+    sprintf(word, "%d", target);
+
+    file = fopen("Prenotazioni.txt","r");
+    if(!file){
+        printf("Impossibile aprire il file prenotazione.txt, controlla di avere i permessi necessari\n");
+        return -1;
+    }
+
+    while ((fgets(read_line, 256, file)) != NULL){
+        line += 1;
+
+        // Find first occurrence of word in str
+        pos = strstr(read_line, word);
+
+        if (pos != NULL)
+        {
+            // First index of word in str is
+            // Memory address of pos - memory
+            // address of str.
+            col = (pos - read_line);
+            break;
+        }
+    }
+    fclose(file);
+    if(col != -1){
+        printf("\nDegli utenti hanno prenotato un volo verso quest'aeroporto, sicuro di voler procedere con l'eliminazione?\n");
+        printf("0.Torna indietro?\n");
+        printf("1.Procedi con l'eliminazione?\n");
+        scanf("%d",&choose); //Da mettere il filtro
+        if(choose ==1)
+            updatePrenotazioniFile(target,target,L);
+    }
+    L = removeNodeList(L,target);
+    L= updateNodeListIndexR(L,0);
+
+    return L;
+
+}
 
 void addNewUserFilePrenotazioni(char* codice_fiscale, Prenotazione ListaPrenotazioni){
     FILE *source;
@@ -333,14 +378,26 @@ bool isEdgeOnPrenotazione(Prenotazione ListaPrenotazioni, int s, int d){
     int array[10];
     int h;
     int loc_s, loc_d;
-    for(h = 0; ListaPrenotazioni->aeroporto[h].index != -1;h++){
-        loc_s = ListaPrenotazioni->aeroporto[h].index;
-        if( ListaPrenotazioni->aeroporto[h+1].index != -1){
-            loc_d = ListaPrenotazioni->aeroporto[h+1].index;
-                if(loc_s == s && loc_d == d)
-                    return true;
-        }
+    int loc_target;
 
+
+    if(s == d){
+            for(h = 0; ListaPrenotazioni->aeroporto[h].index != -1; h++){
+                loc_target = ListaPrenotazioni->aeroporto[h].index;
+            if(loc_target == d){
+                return true;
+            }
+        }
+    }else{
+        for(h = 0; ListaPrenotazioni->aeroporto[h].index != -1;h++){
+            loc_s = ListaPrenotazioni->aeroporto[h].index;
+            if( ListaPrenotazioni->aeroporto[h+1].index != -1){
+                loc_d = ListaPrenotazioni->aeroporto[h+1].index;
+                    if(loc_s == s && loc_d == d)
+                        return true;
+            }
+
+        }
     }
     return false;
 }
@@ -374,10 +431,11 @@ void updatePrenotazioniFile(int src, int dest, List listaAeroporti){
 			else
 				cancellaUtenteFilePrenotazioni(utenti[i].codiceFiscale);
 
+            free(ListaPrenotazioni);
 
-		free(ListaPrenotazioni);
-		i++;
+		//i++; SERVE DAVVERO?! LA VITA C'E LO DIRA!
 	}
+
 
 
 
