@@ -433,10 +433,7 @@ void updatePrenotazioniFile(int src, int dest, List listaAeroporti){
 
 			ListaPrenotazioni = deletePrenotazioniSrcDst(ListaPrenotazioni, src, dest);
 			ListaPrenotazioni = updateCodicePrenotazioneR(ListaPrenotazioni, 1);
-			//Aggiornare gli indici
 
-            printf("LISTA PRENOTAZIONI:%d\n");
-            stampaPrenotazione(ListaPrenotazioni);
 
 			if(ListaPrenotazioni != NULL)
 				writePrenotezioniFile(utenti[i].codiceFiscale, ListaPrenotazioni);
@@ -529,11 +526,10 @@ Prenotazione updateCodicePrenotazioneR(Prenotazione P, int numero){
 }
 
 bool confermaVolo(Prenotazione *ListaPrenotazioni, int codicePrenotazione ){
-    stampaPrenotazione(*ListaPrenotazioni);
+   // stampaPrenotazione(*ListaPrenotazioni);
     Prenotazione tmp = deletePrenotazioni(*ListaPrenotazioni, codicePrenotazione);
     *ListaPrenotazioni = tmp;
-    //printf("RISULTATO\n");
-    //stampaPrenotazione(tmp);
+
 
     return true;
 }

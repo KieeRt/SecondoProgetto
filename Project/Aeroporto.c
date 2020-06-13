@@ -16,7 +16,7 @@ Aeroporto initAeroporto(){
 Aeroporto insertAeroporto(){
     Aeroporto aeroporto;
 
-    strcpy(aeroporto.nomeAeroporto, doSceltaStringZero("-Nome Aeroporto(IATA)(0 per uscire)\nInput -> ",0, 3, 256));
+    strcpy(aeroporto.nomeAeroporto, doSceltaStringZero("-Nome Aeroporto(IATA)(0 per uscire)\nInput -> ",0, 3, 3));
         if(!strcmp(aeroporto.nomeAeroporto, "0")){
             aeroporto.index = -1;
             return aeroporto;

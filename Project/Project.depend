@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1592052135 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
+1592054080 source:c:\users\dimal\documents\github\secondoprogetto\project\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Utente.h"
@@ -10,7 +10,7 @@
 
 1590676268 source:c:\users\angel\onedrive\desktop\secondoprogetto\project\studente.c
 
-1592052211 source:c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.c
+1592057960 source:c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -135,7 +135,7 @@
 1582367526 c:\users\dimal\documents\github\secondoprogetto\project\lib\graph.h
 	"list.h"
 
-1592042713 source:c:\users\dimal\documents\github\secondoprogetto\project\aeroporto.c
+1592057725 source:c:\users\dimal\documents\github\secondoprogetto\project\aeroporto.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -143,7 +143,7 @@
 
 1591626364 c:\users\dimal\documents\github\secondoprogetto\project\aeroporto.h
 
-1592052490 source:c:\users\dimal\documents\github\secondoprogetto\project\graph.c
+1592053336 source:c:\users\dimal\documents\github\secondoprogetto\project\graph.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -151,7 +151,7 @@
 	"list.h"
 	<assert.h>
 
-1592052490 c:\users\dimal\documents\github\secondoprogetto\project\graph.h
+1592053209 c:\users\dimal\documents\github\secondoprogetto\project\graph.h
 	"list.h"
 	<stdbool.h>
 	"queue.h"
@@ -259,12 +259,14 @@
 	"graph.h"
 	"list.h"
 
-1592038238 c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.h
+1592053012 c:\users\dimal\documents\github\secondoprogetto\project\interfaccia.h
 	"Utente.h"
 	"graph.h"
 	"list.h"
 	"array.h"
 	"prenotazioni.h"
+	"checkInput.h"
+	<string.h>
 
 1591454958 source:c:\users\angel\onedrive\documenti\programmazione\lasd\secondoprogetto\project\aeroporto.c
 	<stdio.h>
@@ -498,7 +500,7 @@
 1591722099 source:e:\codeblockprojects\secondoprogetto\project\array.c
 	"array.h"
 
-1592052124 source:c:\users\dimal\documents\github\secondoprogetto\project\prenotazioni.c
+1592054756 source:c:\users\dimal\documents\github\secondoprogetto\project\prenotazioni.c
 	"prenotazioni.h"
 	"Utente.h"
 
@@ -521,4 +523,7 @@
 1591998039 source:c:\users\angelo\documents\github\secondoprogetto\project\prenotazioni.c
 	"prenotazioni.h"
 	"Utente.h"
+
+1592053090 c:\users\dimal\documents\github\secondoprogetto\project\checkinput.h
+	<stdbool.h>
 

@@ -12,7 +12,11 @@ int doSceltaIntZero(char* messaggio, int valore_max);
 
 int doSceltaIntError(char* messaggio, int valore_max,char * error);
 
+int doSceltaIntZeroError(char* messaggio, int valore_max, char* error);
+
 int doSceltaStringZero(char* messaggio, int dimensione_esatta, int dimensione_min, int dimensione_max);
+
+
 
 //Chiede in input una stringa e stampa il messaggio finche la stringa non soddisfa le dimensioni indicate, mettere 0 nel campo nel caso in cui un paramentro deve essere ignorato.
 //Ritorna l'indirizzo della stringa che contiene l'input

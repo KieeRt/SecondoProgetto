@@ -1,7 +1,0 @@
-@CodiceFiscale qawsedrftgyhujii
-@CodicePrenotazione  1
-@CodiceVolo  14717145
-@Aeroporto  0 1 
-@Tempo  85
-@Prezzo  25
-

@@ -1,12 +1,4 @@
-@partenza NAP
-@destinazione VLC
+@partenza BGY
+@destinazione FCO
 @prezzo 150.00
-@tempo 90
-@partenza NAP
-@destinazione MXP
-@prezzo 25.40
-@tempo 85
-@partenza MXP
-@destinazione NAP
-@prezzo 55.00
-@tempo 50
+@tempo 9

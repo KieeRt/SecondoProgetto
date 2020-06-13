@@ -18,9 +18,14 @@ int main()
 
 
     welcome(graph, aeroportiList, ListaPrenotazioni);
+  /*
+int *prev = (int*)malloc(sizeof(int)* 20);
+int *dist = (int*)malloc(sizeof(int)* 20);
 
-
-
-    return 0;
+    shortestPathPrice(graph, &dist, &prev, 0, aeroportiList);
+    for(int i = 0; i < 20; i++){
+        printf("%d ", dist[i]);
+    }
+    return 0;*/
 }
 

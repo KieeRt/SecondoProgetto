@@ -5,6 +5,8 @@
 #include "list.h"
 #include "array.h"
 #include "prenotazioni.h"
+#include "checkInput.h"
+#include <string.h>
 
 void welcome(Graph graph, List aeroporti, Prenotazione ListaPrenotazioni);
 void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazioni);

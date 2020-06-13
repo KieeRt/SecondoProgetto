@@ -281,16 +281,16 @@ List checkListRemoval(List L, int node_to_remove) {
 }
 
 
-void shortestPathTime(Graph g, int *dist, int *prev, int start, List list) {
+void shortestPathTime(Graph g, int **dist, int **prev, int start, List list) {
    int n = g->numeroAeroporti;
     int alt;
     //Initialize distance's array
     for(int u = 0; u<n; u++) {
-        dist[u] = 9999;   //set as infinity
-        prev[u] = -1;    //undefined previous
+        (*dist)[u] = 9999;   //set as infinity
+        (*prev)[u] = -1;    //undefined previous
     }
 
-    dist[start] = 0;   //distance of start is 0
+    (*dist)[start] = 0;   //distance of start is 0
 
     Queue queue = initQueue();
 
@@ -310,12 +310,12 @@ void shortestPathTime(Graph g, int *dist, int *prev, int start, List list) {
 
         while(pCrawl){
 
-            alt = dist[u] + pCrawl->tempo;
+            alt = (*dist)[u] + pCrawl->tempo;
 
-            if(alt < dist[pCrawl->aeroporto.index]){
+            if(alt < (*dist)[pCrawl->aeroporto.index]){
 
-                dist[pCrawl->aeroporto.index] = alt;
-                prev[pCrawl->aeroporto.index] = u;
+                (*dist)[pCrawl->aeroporto.index] = alt;
+                (*prev)[pCrawl->aeroporto.index] = u;
             }
             pCrawl= pCrawl->next;
         }
@@ -325,16 +325,16 @@ void shortestPathTime(Graph g, int *dist, int *prev, int start, List list) {
 
 
 
-void shortestPathPrice(Graph g, int *dist, int *prev, int start, List list) {
+void shortestPathPrice(Graph g, int **dist, int **prev, int start, List list) {
    int n = g->numeroAeroporti;
     int alt;
     //Initialize distance's array
     for(int u = 0; u<n; u++) {
-        dist[u] = 9999;   //set as infinity
-        prev[u] = -1;    //undefined previous
+        (*dist)[u] = 9999;   //set as infinity
+        (*prev)[u] = -1;    //undefined previous
     }
 
-    dist[start] = 0;   //distance of start is 0
+    (*dist)[start] = 0;   //distance of start is 0
 
     Queue queue = initQueue();
 
@@ -354,12 +354,12 @@ void shortestPathPrice(Graph g, int *dist, int *prev, int start, List list) {
 
         while(pCrawl){
 
-            alt = dist[u] + pCrawl->prezzo;
+            alt = (*dist)[u] + pCrawl->prezzo;
 
-            if(alt < dist[pCrawl->aeroporto.index]){
+            if(alt < (*dist)[pCrawl->aeroporto.index]){
 
-                dist[pCrawl->aeroporto.index] = alt;
-                prev[pCrawl->aeroporto.index] = u;
+                (*dist)[pCrawl->aeroporto.index] = alt;
+                (*prev)[pCrawl->aeroporto.index] = u;
             }
             pCrawl= pCrawl->next;
         }
