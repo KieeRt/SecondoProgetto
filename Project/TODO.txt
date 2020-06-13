@@ -1,4 +1,1 @@
 TO-DO
-
-1. Quando viene eliminato aeroporto, il file arco deve essere aggiornato?
-2. perdiamo la coerenza con indici della nostra lista aeroporti e il grafo

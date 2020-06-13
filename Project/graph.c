@@ -205,9 +205,25 @@ List deleteEdge(Graph graph, int src, int dest){
 
     if (src != dest) {
         graph->adjList[src] = removeNodeList(graph->adjList[src], dest);
+
     }
     return graph->adjList[src];
 }
+
+void  updateAdjIndex(Graph graph,int dest){
+    int i;
+    for(i=0; i < graph->numeroAeroporti;i++ ){
+        List pCrawl = graph->adjList[i];
+        while(pCrawl){
+            if(pCrawl->aeroporto.index>dest)
+                pCrawl->aeroporto.index--;
+            pCrawl = pCrawl->next;
+        }
+    }
+
+}
+
+
 
 bool isDeletedEdge(Graph graph, int src, int dest){
     bool find = false;
@@ -219,17 +235,20 @@ bool isDeletedEdge(Graph graph, int src, int dest){
 
         if(support.index != -1){
             find = true;
+
             graph->adjList[src] = deleteEdge(graph, src, dest);
+
             printf("Collegamento cancellato\n");
         }
         else{
-            printf("Collegamento non trovato\n");
+
+            printf("Collegamento non trovato    %d - %d\n",dest,src);
         }
 
 
     }
     else{
-        printf("Collegamento non trovato\n");
+        printf("Collegamento non trovato 2 DUE\n");
     }
 
     return find;
@@ -248,6 +267,7 @@ bool removeNode(Graph graph, int node_to_remove){
         for(i = 0; i < graph->numeroAeroporti; i++){
             if(i == node_to_remove){
                 graph->adjList[i] = freeList(graph->adjList[i]);
+
             }
             else{
 
@@ -257,6 +277,7 @@ bool removeNode(Graph graph, int node_to_remove){
         }
         graph->numeroAeroporti -=1;
         printf("-Aeroporto e' stato eliminato\n");
+        updateAdjIndex(graph,node_to_remove);
     }
     else{
         printf("-Aeroporto non e' presente nella lista\n");
@@ -264,6 +285,7 @@ bool removeNode(Graph graph, int node_to_remove){
 
     return find;
 }
+
 
 List checkListRemoval(List L, int node_to_remove) {
 

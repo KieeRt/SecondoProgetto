@@ -367,22 +367,27 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
         break;
 
         case 3:
+            scelta2=-2;
             printf("Lista aeroporti disponibili:\n");
             printAereoporto(aeroporti);
 
             do{
 
                 strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATa dell'aeroporto da rimuovere(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
-                if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
+                if(!strcmp(srcAeroporto.nomeAeroporto,"0")){
+                    scelta2 =-1;
                     break;
+                }
                 upperCase(srcAeroporto.nomeAeroporto);
                 srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
 
             }while(!removeNode(graph, srcAeroporto.index));
 
-            aeroporti= removeNodeList(aeroporti,srcAeroporto.index);
-            aeroporti= updateNodeListIndexR(aeroporti,0);
-            updatePrenotazioniFile(srcAeroporto.index,srcAeroporto.index,aeroporti);
+            if(scelta2!=-1){
+                aeroporti= removeNodeList(aeroporti,srcAeroporto.index);
+                aeroporti= updateNodeListIndexR(aeroporti,0);
+                updatePrenotazioniFile(srcAeroporto.index,srcAeroporto.index,aeroporti);
+            }
 
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
@@ -419,9 +424,11 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
                 }
 
             }while(!isDeletedEdge(graph, srcAeroporto.index, destAeroporto.index));
+            if(scelta2 != -1){
 
-            if(scelta2 != -1)
                 updatePrenotazioniFile(srcAeroporto.index, destAeroporto.index, aeroporti);
+
+            }
 
             //Controllo se e' stata effettuata la cancellazione, se si recupero indici srcAeroporto.index e destAeroporto.index
             fflush(stdin);
