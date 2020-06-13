@@ -1,0 +1,7 @@
+@CodiceFiscale qawsedrftgyhujii
+@CodicePrenotazione  1
+@CodiceVolo  1870469
+@Aeroporto  1 13 
+@Tempo  5
+@Prezzo  461
+

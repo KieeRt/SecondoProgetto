@@ -401,14 +401,16 @@ bool isEdgeOnPrenotazione(Prenotazione ListaPrenotazioni, int s, int d){
     }
     return false;
 }
+
+
 Prenotazione deletePrenotazioniSrcDst(Prenotazione P, int src,  int dest){
 	if(P != NULL){
+        P->next = deletePrenotazioniSrcDst(P->next, src, dest);
 		if( isEdgeOnPrenotazione(P, src, dest)){
 			Prenotazione tmp = P->next;
 			free(P);
 			return tmp;
 		}
-		P->next = deletePrenotazioniSrcDst(P->next, src, dest);
 	}
 	return P;
 }
@@ -422,10 +424,15 @@ void updatePrenotazioniFile(int src, int dest, List listaAeroporti){
 
 	for (i = 0; i < numberUser; i++){//funzione che recupera nuovo utente.
 		Prenotazione ListaPrenotazioni = readPrenotazioni(utenti[i].codiceFiscale, listaAeroporti);
+
+
+
 			ListaPrenotazioni = deletePrenotazioniSrcDst(ListaPrenotazioni, src, dest);
 			ListaPrenotazioni = updateCodicePrenotazioneR(ListaPrenotazioni, 1);
 			//Aggiornare gli indici
 
+            printf("LISTA PRENOTAZIONI:%d\n");
+            stampaPrenotazione(ListaPrenotazioni);
 			if(ListaPrenotazioni != NULL)
 				writePrenotezioniFile(utenti[i].codiceFiscale, ListaPrenotazioni);
 			else

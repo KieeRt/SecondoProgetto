@@ -376,8 +376,8 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
             system("cls");
 
             //printGraph(graph);
-            updateFileAeroporti(aeroporti);
-            updateFileArchi(graph,aeroporti);
+           // updateFileAeroporti(aeroporti);
+            //updateFileArchi(graph,aeroporti);
             break;
         default:
             printf("\n\n\tScelta non valida\n");
