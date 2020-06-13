@@ -64,7 +64,7 @@ void stampaPrenotazione(Prenotazione ListaPrenotazioni)
     int i = 0;
     if (ListaPrenotazioni)
     {
-        printf(" - Codice Prenotazione:%d\n ", ListaPrenotazioni->codicePrenotazione);
+        printf(" - Codice Prenotazione:%d\n", ListaPrenotazioni->codicePrenotazione);
         printf(" - Codice Volo:%d\n - ", ListaPrenotazioni->codiceVolo);
         printTimeVolo(ListaPrenotazioni->tempo);
         printf(" - Costo:%d\n", ListaPrenotazioni->prezzo);
@@ -425,14 +425,13 @@ void updatePrenotazioniFile(int src, int dest, List listaAeroporti){
 	for (i = 0; i < numberUser; i++){//funzione che recupera nuovo utente.
 		Prenotazione ListaPrenotazioni = readPrenotazioni(utenti[i].codiceFiscale, listaAeroporti);
 
-
-
 			ListaPrenotazioni = deletePrenotazioniSrcDst(ListaPrenotazioni, src, dest);
 			ListaPrenotazioni = updateCodicePrenotazioneR(ListaPrenotazioni, 1);
 			//Aggiornare gli indici
 
             printf("LISTA PRENOTAZIONI:%d\n");
             stampaPrenotazione(ListaPrenotazioni);
+
 			if(ListaPrenotazioni != NULL)
 				writePrenotezioniFile(utenti[i].codiceFiscale, ListaPrenotazioni);
 			else
@@ -522,3 +521,27 @@ Prenotazione updateCodicePrenotazioneR(Prenotazione P, int numero){
     }
     return P;
 }
+
+bool confermaVolo(Prenotazione *ListaPrenotazioni, int codicePrenotazione ){
+    stampaPrenotazione(*ListaPrenotazioni);
+    Prenotazione tmp = deletePrenotazioni(*ListaPrenotazioni, codicePrenotazione);
+    *ListaPrenotazioni = tmp;
+    //printf("RISULTATO\n");
+    //stampaPrenotazione(tmp);
+
+    return true;
+}
+
+Prenotazione deletePrenotazioni(Prenotazione P, int codicePrenotazione){
+	if(P != NULL){
+        P->next = deletePrenotazioni(P->next, codicePrenotazione);
+		if( P->codicePrenotazione == codicePrenotazione){
+			Prenotazione tmp = P->next;
+			free(P);
+			return tmp;
+		}
+	}
+	return P;
+}
+
+

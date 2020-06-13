@@ -27,10 +27,11 @@ void welcome(Graph graph, List aeroporti, Prenotazione ListaPrenotazioni){
             system("cls");
             utente = login();
 
+
+
+
             if(!strcmp(utente.codiceFiscale, "admin"))
-
                 homeAdmin(utente,graph,aeroporti);
-
             else{
                 ListaPrenotazioni = readPrenotazioni(utente.codiceFiscale, aeroporti);
                 home(utente,graph, aeroporti, ListaPrenotazioni);
@@ -74,7 +75,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
         printf("2 - Effettua una nuova prenotazione\n");
         printf("3 - Visualizza meta piu' economica\n");
         printf("4 - Visualizza meta piu' gettonata\n");
-        printf("5 - Cronologia ordini\n");
+        printf("5 - Check-in volo\n");
         printf("6 - Logout\n");
 
 
@@ -129,14 +130,13 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
                     else
                         break;
                 }
-                    if(matrix[0][0] != -1)
-                        scelta2 = doSceltaIntZeroError("Scegliere la tratta(0 per uscire) \nInput -> ", count, "Input non valido\n");
+            if(matrix[0][0] != -1){
+                    scelta2 = doSceltaIntZeroError("Scegliere la tratta(0 per uscire) \nInput -> ", count, "Input non valido\n");
                 if(scelta2 !=  0){
-
-                    if (utente.punti > 0){
+                    if (utente.punti > 0 ){
                         printf("Lei ha a disposizione %d punti \n", utente.punti);
                         fflush(stdin);
-                        scelta3 = doSceltaIntZeroError("Vorebbe usarli per il viaggio?(0 per uscire) \n 1-No\n 2-Si\nInput-> ", 2, "Input non valido\n");
+                        scelta3 = doSceltaIntZeroError("Vorrebbe usarli per il viaggio?(0 per uscire) \n 1-No\n 2-Si\nInput-> ", 2, "Input non valido\n");
                         if(scelta3 != 0){
                             if(scelta3 == 1){
                                 ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,false);
@@ -153,6 +153,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
                     stampaPrenotazione(ListaPrenotazioni);
 
                 }
+            }
             }
 
             error=0;
@@ -208,7 +209,24 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
 
             break;
         case 5:
+            system("cls");
+           stampaPrenotazione(ListaPrenotazioni);
+        //   int numeroPrenotazioni = numberPrenotazioni(ListaPrenotazioni);
+            if(ListaPrenotazioni){
+             do{
+                   scelta2 = doSceltaIntZero("-Inserire il Codice Prenotazione \nInput -> ", 100);
+                    if(scelta2 == 0){
+                        break;
+                    }
 
+                }while(!confermaVolo(&ListaPrenotazioni, scelta2));
+            }
+            else{
+                printf("-Utente non ha nessun volo prenotato\n");
+            }
+            fflush(stdin);
+            printf("\nPremi invio per tornare al menu precedente\n");
+            while(getchar()!='\n'); // option TWO to clean stdin
             break;
         case 6:
             system("cls");
@@ -230,7 +248,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
 }
 
 void homeAdmin(User utente,Graph graph, List aeroporti){
- int scelta;
+ int scelta, scelta2 = 0;
     Aeroporto srcAeroporto;
     Aeroporto destAeroporto;
     double  prezzo = 0;
@@ -260,6 +278,9 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
             system("cls");
 
             srcAeroporto = insertAeroporto();
+            if(srcAeroporto.index == -1)
+                break;
+
             srcAeroporto.index = graph->numeroAeroporti;
             graph=addAeroporto(aeroporti,graph,srcAeroporto);
 
@@ -334,28 +355,35 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
             printf("-Collegamenti disponibili\n");
             printAereoportoCollegamenti(graph, aeroporti);
 
+
              do{
                 strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n", 0, 1, 3));
-                if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
+                if(!strcmp(srcAeroporto.nomeAeroporto,"0")){
+                scelta2 = -1;
                     break;
+                }
                 upperCase(srcAeroporto.nomeAeroporto);
                 srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
 
 
                 strcpy(destAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di arrivo(0 se si vuole uscire)\nInput -> ", "Input non valido\n", 0, 1, 3));
 
-                if(!strcmp(destAeroporto.nomeAeroporto,"0"))
+                if(!strcmp(destAeroporto.nomeAeroporto,"0")){
+                scelta2 = -1;
                     break;
+                }
                 upperCase(destAeroporto.nomeAeroporto);
                 destAeroporto = findAeroporto(aeroporti,destAeroporto.nomeAeroporto);
 
-                if(!strcmp(destAeroporto.nomeAeroporto,"0"))
+                if(!strcmp(destAeroporto.nomeAeroporto,"0")){
+                scelta2 = -1;
                     break;
+                }
 
             }while(!isDeletedEdge(graph, srcAeroporto.index, destAeroporto.index));
 
-
-            updatePrenotazioniFile(srcAeroporto.index, destAeroporto.index, aeroporti);
+            if(scelta2 != -1)
+                updatePrenotazioniFile(srcAeroporto.index, destAeroporto.index, aeroporti);
 
             //Controllo se e' stata effettuata la cancellazione, se si recupero indici srcAeroporto.index e destAeroporto.index
             fflush(stdin);
@@ -376,8 +404,8 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
             system("cls");
 
             //printGraph(graph);
-           // updateFileAeroporti(aeroporti);
-            //updateFileArchi(graph,aeroporti);
+            updateFileAeroporti(aeroporti);
+            updateFileArchi(graph,aeroporti);
             break;
         default:
             printf("\n\n\tScelta non valida\n");

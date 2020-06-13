@@ -120,7 +120,19 @@ int i = 0;
     }while(!controllaLunghezza(buff, dimensione_esatta, dimensione_min, dimensione_max));
    return pt;
 }
+int doSceltaStringZero(char* messaggio, int dimensione_esatta, int dimensione_min, int dimensione_max){
+char buff[20];
+int* pt = &buff;
 
+    do{
+        printf("%s", messaggio);
+        scanf("%s", buff);
+
+        if( !strcmp(buff,"0"))
+            break;
+    }while(!controllaLunghezza(buff, dimensione_esatta, dimensione_min, dimensione_max));
+   return pt;
+}
 
 char* doCompare () {
   char* buff;

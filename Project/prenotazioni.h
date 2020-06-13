@@ -40,10 +40,14 @@ int maxCodicePrenotazioneUtente(Prenotazione ListaPrenotazioni);
 bool isEdgeOnPrenotazione(Prenotazione ListaPrenotazioni, int s, int d);
 // Elimina le prenotazioni da P  in modo ricorsivo che contengono un percorso DIRETTO tra src e dest
 Prenotazione deletePrenotazioniSrcDst(Prenotazione P, int src,  int dest);
+//Elimina prenotazione che contiene codicePrenotazione passato come paramentro
+Prenotazione deletePrenotazioni(Prenotazione P, int codicePrenotazione);
 // Per ogni utente controlla !!STA SUL MAIN
 void updatePrenotazioniFile(int src, int dest, List listaAeroporti);
 // Cancella dal file Prenotazioni.txt utente con le sue prenotazioni
 void cancellaUtenteFilePrenotazioni(char* codice_fiscale);
 //Aggiorna campo CodicePrenotazione nel caso viene rimossa una prenotazione
 Prenotazione updateCodicePrenotazioneR(Prenotazione P, int numero);
+
+bool confermaVolo(Prenotazione *ListaPrenotazioni, int codicePrenotazione );
 #endif // PRENOTAZIONI_H_INCLUDED

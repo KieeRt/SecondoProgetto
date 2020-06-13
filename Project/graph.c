@@ -213,18 +213,27 @@ bool isDeletedEdge(Graph graph, int src, int dest){
     bool find = false;
     Aeroporto support;
 
-    support = findAeroportoIndex(dest, graph->adjList[src]);
+    if(src != -1 && dest != -1){
 
-    if(support.index != -1){
-        find = true;
-        graph->adjList[src] = deleteEdge(graph, src, dest);
-        printf("Collegamento cancellato\n");
+        support = findAeroportoIndex(dest, graph->adjList[src]); //perche dalla lista di adiacenza
+
+        if(support.index != -1){
+            find = true;
+            graph->adjList[src] = deleteEdge(graph, src, dest);
+            printf("Collegamento cancellato\n");
+        }
+        else{
+            printf("Collegamento non trovato\n");
+        }
+
+
     }
     else{
         printf("Collegamento non trovato\n");
     }
 
     return find;
+
 }
 
 
