@@ -240,11 +240,18 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
              do{
                    scelta2 = doSceltaIntZero("-Inserire il Codice Prenotazione \nInput -> ", 100);
                     if(scelta2 == 0){
+                        scelta2 = -1;
                         break;
                     }
 
                 }while(!confermaVolo(&ListaPrenotazioni, scelta2));
+                if(scelta2 != -1){
+                    ListaPrenotazioni = updateCodicePrenotazioneR(ListaPrenotazioni, 1);
+                }
+
             }
+
+
             else{
                 printf("-Utente non ha nessun volo prenotato\n");
             }
