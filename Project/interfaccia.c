@@ -130,6 +130,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
 
             }while(srcAeroporto.index == -1 || destAeroporto.index == -1);
 
+            system("cls");
             if(error != -1){
                 matrix = printAllPaths(srcAeroporto.index,destAeroporto.index, graph,aeroporti);
 
@@ -258,7 +259,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
             updateFileAeroporti(aeroporti);
 
             fflush(stdin);
-            printf("Grazie per aver usato il nostro servizio, arrividerci (Premi invsio per uscire)\n");
+            printf("Grazie per aver usato il nostro servizio, arrividerci (Premi invio per uscire)\n");
             while(getchar()!='\n'); // option TWO to clean stdin
         break;
 
@@ -373,7 +374,7 @@ void homeAdmin(User utente,Graph graph, List aeroporti){
 
             do{
 
-                strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATa dell'aeroporto da rimuovere(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
+                strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto da rimuovere(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
                 if(!strcmp(srcAeroporto.nomeAeroporto,"0")){
                     scelta2 =-1;
                     break;

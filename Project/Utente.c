@@ -5,10 +5,10 @@
 #include "Utente.h"
 User initUtente(){
     User utente;
-    utente.nome = (char*)malloc(sizeof(char)*10);
-    utente.cognome = (char*)malloc(sizeof(char)*10);
-    utente.codiceFiscale = (char*)malloc(sizeof(char)*10);
-    utente.password = (char*)malloc(sizeof(char)*10);
+    utente.nome = (char*)malloc(sizeof(char)*56);
+    utente.cognome = (char*)malloc(sizeof(char)*56);
+    utente.codiceFiscale = (char*)malloc(sizeof(char)*16);
+    utente.password = (char*)malloc(sizeof(char)*256);
     return utente;
 }
 User registazioneUtente(){
