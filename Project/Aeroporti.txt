@@ -5,7 +5,7 @@
 @index 0
 @nomeAeroporto MXP
 @nomeCitta MILANO
-@popolarita 10
+@popolarita 11
 @costoVita 1200
 @index 1
 @nomeAeroporto BGY

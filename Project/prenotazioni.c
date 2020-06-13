@@ -7,6 +7,7 @@ Prenotazione addPrenotazione(Prenotazione ListaPrenotazioni, int *percorso_scelt
 srand(time(0));
 int a = 1+rand()%1000;
 int b = 1+rand()%1000;
+int prezzoFake;
 int numeroPrenotazioni = maxCodicePrenotazioneUtente(ListaPrenotazioni);
 
     Prenotazione tmp = (Prenotazione)malloc(sizeof(struct TPrenotazione));
@@ -21,7 +22,12 @@ int numeroPrenotazioni = maxCodicePrenotazioneUtente(ListaPrenotazioni);
     tmp->codiceVolo = a^b^ (int)tmp->aeroporto[0].nomeAeroporto; //Da gestine
 
     if(usePoint){
-        tmp->prezzo = (CostoVolo(graph, percorso_scelto)) - ((*punti) / 10) ;
+        prezzoFake = (CostoVolo(graph, percorso_scelto)) - ((*punti) / 100) ; //
+        if(prezzoFake <= 0){
+            tmp->prezzo = 0;
+        }else{
+            tmp->prezzo = prezzoFake;
+        }
         *punti =  CostoVolo(graph, percorso_scelto)/10;
     }else{
          tmp->prezzo = CostoVolo(graph, percorso_scelto);
@@ -31,7 +37,7 @@ int numeroPrenotazioni = maxCodicePrenotazioneUtente(ListaPrenotazioni);
     tmp->tempo = TempoVolo(graph, percorso_scelto);
 
     ListaPrenotazioni = inserPrenotezione(ListaPrenotazioni, tmp);
-
+    incrementaPopolaritaAeroporto(aeroporti, tmp->aeroporto[i-1].index);
     return ListaPrenotazioni;
 }
 

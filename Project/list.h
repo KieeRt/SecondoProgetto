@@ -46,4 +46,7 @@ List copyList(List L);
 
 //A partire dal indice trova la elemento della lista di adj corrispondente
 List findList(int indice, List listaAdj);
+
+//Incrementa la popolarita di un aeroporto di uno a partire dal indice
+void incrementaPopolaritaAeroporto(List listaAeroporti, int index);
 #endif // LIST_H_INCLUDED

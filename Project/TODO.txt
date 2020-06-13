@@ -1,14 +1,3 @@
 TO-DO
 
-1-Fix inserimento inputReader getPotiveDOuble, probemi se l'input e con la ,
-
-2-Input
-
-
-//4-canRemove (list.c) puo dare problemi con l'input visto che è presente una semplice scanf,necessita di ulteriori test
-
-
-//6- Bug se chiudo mentre aggiungo un aeroporto.
-
-
-8 - r. 148 cambiare la disposizione degli if
+1.

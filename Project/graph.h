@@ -47,7 +47,8 @@ void shortestPathPrice(Graph g, int *dist, int *prev, int start, List list);
 
 void shortestPathTime(Graph g, int *dist, int *prev, int start, List list);
 
-
-
+//Imitazione DFS
+int** printAllPaths(int s, int d,Graph graph,List list);
+void  printAllPathsUntil(int u, int d,int * visited,int *path,int *path_index,Graph graph,List list,int **matrix);
 
 #endif // GRAPH__H_INCLUDED

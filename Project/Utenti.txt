@@ -2,7 +2,7 @@
 @Nome mario
 @Cognome pietroluongo
 @Password ciao
-@Punti 50
+@Punti 52
 @CodiceFiscale admin
 @Nome Ciro
 @Cognome Esposito

@@ -279,11 +279,12 @@ List copyList(List L)
 }
 
 
-List findList(int indice, List listaAdj){
-    if(listaAdj != NULL || listaAdj->aeroporto.index != indice){
-        findList(indice, listaAdj->next);
-    }
-    else{
-        return listaAdj;
-    }
+
+void incrementaPopolaritaAeroporto(List listaAeroporti, int index){
+   if(listaAeroporti != NULL){
+        if(listaAeroporti->aeroporto.index == index){
+            listaAeroporti->aeroporto.popolarita++;
+        }
+        incrementaPopolaritaAeroporto(listaAeroporti->next, index);
+   }
 }

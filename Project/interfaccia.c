@@ -87,7 +87,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
         case 1:
            system("cls");
            stampaPrenotazione(ListaPrenotazioni);
-           writePrenotezioniFile(utente.codiceFiscale, ListaPrenotazioni);
+       //    writePrenotezioniFile(utente.codiceFiscale, ListaPrenotazioni);
 
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
@@ -142,9 +142,8 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
                                 ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,false);
                             }
                             else{
-                                 ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,true);
+                                ListaPrenotazioni = addPrenotazione(ListaPrenotazioni, matrix[--scelta2], aeroporti, graph,&utente.punti,true);
                             }
-
                         }
                     }
                     else{
@@ -165,20 +164,26 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
         break;
 
        case 3:
-             printf("Lista aeroporti disponibili:\n");
-                printAereoporto(aeroporti);
+            printf("Lista aeroporti disponibili:\n");
+            printAereoporto(aeroporti);
+            scelta2 = -2;
          do{
                 strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
-                    if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
+                    if(!strcmp(srcAeroporto.nomeAeroporto,"0")){
+                        scelta2 = -1;
                         break;
+                    }
+
                         upperCase(srcAeroporto.nomeAeroporto);
                         srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
 
                 }while(srcAeroporto.index == -1);
 
-                shortestPathPrice(graph,&dist,&prev,srcAeroporto.index,aeroporti);
+                if(scelta2 != -1){
+                    shortestPathPrice(graph,&dist,&prev,srcAeroporto.index,aeroporti);
+                    printOrder(dist,graph->numeroAeroporti,aeroporti,prev,srcAeroporto.index);
+                }
 
-                printOrder(dist,graph->numeroAeroporti,aeroporti,prev,srcAeroporto.index);
 
                 fflush(stdin);
                 printf("\nPremi invio per tornare al menu precedente\n");
@@ -188,18 +193,24 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
         case 4:
             printf("Lista aeroporti disponibili:\n");
             printAereoporto(aeroporti);
+            scelta2 = -2;
             do{
                 strcpy(srcAeroporto.nomeAeroporto, doSceltaStringError("-Inserire codice IATA dell'aeroporto di partenza(0 se si vuole uscire)\nInput -> ", "Input non valido\n",0, 1, 3));
-                    if(!strcmp(srcAeroporto.nomeAeroporto,"0"))
-                        break;
+                    if(!strcmp(srcAeroporto.nomeAeroporto,"0")){
+                        scelta2 = -1;
+                         break;
+                    }
+
                         upperCase(srcAeroporto.nomeAeroporto);
                         srcAeroporto = findAeroporto(aeroporti,srcAeroporto.nomeAeroporto);
 
             }while(srcAeroporto.index == -1);
-            tmp = copyList(graph->adjList[srcAeroporto.index]);
 
-            MergeSort(&tmp, 1);
-            printAereoportoPrice(tmp);
+            if(scelta2 != -1){
+                tmp = copyList(graph->adjList[srcAeroporto.index]);
+                MergeSort(&tmp, 1);
+                printAereoportoPrice(tmp);
+            }
 
             fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");
@@ -209,6 +220,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
 
             break;
         case 5:
+            scelta2 = -2;
             system("cls");
            stampaPrenotazione(ListaPrenotazioni);
         //   int numeroPrenotazioni = numberPrenotazioni(ListaPrenotazioni);
@@ -232,6 +244,7 @@ void home(User utente,Graph graph, List aeroporti, Prenotazione ListaPrenotazion
             system("cls");
             writePrenotezioniFile(utente.codiceFiscale,  ListaPrenotazioni);
             updateUserOnFile(utente);
+            updateFileAeroporti(aeroporti);
         //    welcome(graph, aeroporti, ListaPrenotazioni);
              fflush(stdin);
             printf("\nPremi invio per tornare al menu precedente\n");

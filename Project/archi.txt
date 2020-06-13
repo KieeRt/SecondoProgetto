@@ -1,4 +1,8 @@
 @partenza NAP
+@destinazione VLC
+@prezzo 150.00
+@tempo 90
+@partenza NAP
 @destinazione MXP
 @prezzo 25.40
 @tempo 85
