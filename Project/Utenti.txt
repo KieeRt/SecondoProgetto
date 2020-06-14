@@ -1,5 +1,5 @@
 @CodiceFiscale admin
-@Nome Ciro
-@Cognome Esposito
+@Nome Signore
+@Cognome Amministratore
 @Password admin
 @Punti 0
